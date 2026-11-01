@@ -1,0 +1,288 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>AIショートドラマ制作｜有限会社小林塾</title>
+<meta name="description" content="お店・会社・スクールの広告を、AIのショートドラマに。紙芝居型1本1万円〜、ドラマ型1本3万円〜。まずは無料で構成案をお送りします。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Noto+Serif+JP:wght@600;700&display=swap">
+<style>
+:root{
+  --bg:#f7f5f0; --surface:#ffffff; --ink:#15212e; --muted:#5a6573; --line:#e2ddd2;
+  --navy:#10233a; --navy-2:#1a3352; --gold:#c9962e; --gold-soft:#f6ecd6; --accent:#d65a3a;
+  --f-body:"Noto Sans JP","Hiragino Sans","Yu Gothic",sans-serif;
+  --f-display:"Noto Serif JP","Hiragino Mincho ProN","Yu Mincho",serif;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --bg:#0e1622; --surface:#152132; --ink:#eef2f6; --muted:#a8b3c0; --line:#26354a;
+  --navy:#0a1626; --navy-2:#132741; --gold:#e2b45a; --gold-soft:#2a2414; --accent:#ef7b5c}}
+:root[data-theme="dark"]{
+  --bg:#0e1622; --surface:#152132; --ink:#eef2f6; --muted:#a8b3c0; --line:#26354a;
+  --navy:#0a1626; --navy-2:#132741; --gold:#e2b45a; --gold-soft:#2a2414; --accent:#ef7b5c}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:17px;line-height:1.85;
+  padding-left:env(safe-area-inset-left,0);padding-right:env(safe-area-inset-right,0)}
+a{color:inherit}
+img,video{max-width:100%;display:block}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+:focus-visible{outline:3px solid var(--gold);outline-offset:3px;border-radius:6px}
+
+/* header */
+.top{position:sticky;top:0;z-index:20;background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;height:62px}
+.logo{font-weight:900;letter-spacing:.04em;text-decoration:none;line-height:1.15}
+.logo small{display:block;font-weight:500;font-size:11px;color:var(--muted);letter-spacing:.06em}
+.nav{display:flex;gap:18px;font-size:14px}
+.nav a{text-decoration:none;color:var(--muted)}
+.nav .cta{color:#fff;background:var(--navy);padding:8px 14px;border-radius:999px;font-weight:700}
+@media (max-width:640px){.nav a:not(.cta){display:none}}
+
+/* hero */
+.hero{padding:44px 0 30px}
+.hero-grid{display:grid;gap:28px;align-items:start}
+@media (min-width:900px){.hero-grid{grid-template-columns:1.15fr .85fr}}
+.eyebrow{display:inline-block;font-size:13px;letter-spacing:.14em;color:var(--gold);font-weight:700}
+.hero h1{font-family:var(--f-display);font-size:clamp(36px,8vw,60px);line-height:1.3;margin:10px 0 14px}
+.lead{color:var(--muted);margin:0 0 22px}
+.price{background:var(--navy);color:#fff;border-radius:22px;padding:22px 22px 20px;box-shadow:0 12px 30px rgba(16,35,58,.18)}
+.price-row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pcard{background:var(--navy-2);border-radius:16px;padding:14px 14px 12px}
+.pcard .t{font-size:14px;font-weight:700;color:#e8d3a3}
+.pcard .y{font-size:clamp(30px,7.5vw,44px);font-weight:900;line-height:1.15;letter-spacing:-.01em}
+.pcard .y small{font-size:.45em;font-weight:700;margin-left:2px}
+.pcard .d{font-size:13px;color:#c7d2df}
+.price .free{margin-top:14px;display:flex;flex-wrap:wrap;align-items:center;gap:10px 14px}
+.price .free b{background:var(--gold);color:#111;border-radius:999px;padding:2px 12px;font-size:14px}
+.price .free span{font-size:17px;font-weight:700}
+.price .note{font-size:12px;color:#aebccb;margin-top:8px}
+.btns{display:grid;gap:10px;margin-top:18px}
+@media (min-width:520px){.btns{grid-template-columns:1fr 1fr}}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;min-height:58px;border-radius:14px;font-weight:900;font-size:17px;text-decoration:none;border:0;cursor:pointer;font-family:inherit;padding:10px 16px;text-align:center}
+.btn-main{background:var(--gold);color:#111}
+.btn-sub{background:var(--surface);color:var(--ink);border:2px solid var(--line)}
+.heroimg{position:relative;border-radius:22px;overflow:hidden;background:#000;aspect-ratio:9/16;max-height:640px;margin:0 auto;width:100%;max-width:360px}
+.heroimg video{width:100%;height:100%;object-fit:cover}
+.heroimg .cap{position:absolute;left:12px;top:12px;font-size:12px;background:rgba(0,0,0,.6);color:#fff;padding:4px 10px;border-radius:999px}
+
+/* sections */
+section{padding:56px 0}
+.sec-h{margin-bottom:24px}
+.sec-h .no{font-size:13px;letter-spacing:.16em;color:var(--gold);font-weight:700}
+.sec-h h2{font-family:var(--f-display);font-size:clamp(28px,6vw,40px);line-height:1.35;margin:6px 0 8px}
+.sec-h p{margin:0;color:var(--muted)}
+
+/* works */
+.works{display:grid;gap:22px}
+@media (min-width:760px){.works{grid-template-columns:repeat(3,1fr)}}
+.work{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column}
+.work video{width:100%;aspect-ratio:9/16;object-fit:cover;background:#000}
+.work .body{padding:16px 18px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+.work .k{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.work h3{margin:0;font-size:20px;line-height:1.4}
+.work p{margin:0;color:var(--muted);font-size:15px;line-height:1.7}
+.tags{display:flex;flex-wrap:wrap;gap:6px;margin-top:4px}
+.tags span{font-size:12px;border:1px solid var(--line);border-radius:999px;padding:2px 10px;color:var(--muted)}
+.small{font-size:12px;color:var(--muted)}
+.mv{display:grid;gap:22px;margin-top:22px}
+@media (min-width:760px){.mv{grid-template-columns:repeat(2,1fr)}}
+.links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+.links a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--surface)}
+
+/* price */
+.plans{display:grid;gap:16px}
+@media (min-width:760px){.plans{grid-template-columns:repeat(3,1fr)}}
+.plan{background:var(--surface);border:2px solid var(--line);border-radius:20px;padding:22px}
+.plan.hot{border-color:var(--gold)}
+.plan .tag{display:inline-block;background:var(--gold-soft);color:var(--ink);font-size:13px;font-weight:700;border-radius:999px;padding:2px 12px}
+.plan h3{margin:10px 0 4px;font-size:22px}
+.plan .yen{font-size:36px;font-weight:900;line-height:1.2}
+.plan .yen small{font-size:15px;font-weight:700}
+.plan ul{margin:10px 0 0;padding-left:1.1em;color:var(--muted);font-size:15px}
+.more{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 22px}
+.more h3{margin:0 0 10px;font-size:19px}
+.more table{width:100%;border-collapse:collapse;font-size:15px}
+.more th,.more td{border-top:1px solid var(--line);padding:10px 6px;text-align:left;vertical-align:top}
+.more td:last-child{white-space:nowrap;font-weight:700}
+
+/* flow */
+.flow{display:grid;gap:12px;counter-reset:s}
+.step{display:grid;grid-template-columns:52px 1fr;gap:14px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px}
+.step .n{width:44px;height:44px;border-radius:50%;background:var(--gold);color:#111;font-weight:900;display:grid;place-items:center;font-size:20px}
+.step b{display:block;font-size:18px}
+.step span{color:var(--muted);font-size:15px}
+.step em{font-style:normal;color:var(--accent);font-weight:700}
+.badge{display:inline-block;background:var(--gold);color:#111;font-size:12px;font-weight:900;border-radius:6px;padding:0 8px;margin-left:6px;vertical-align:2px}
+
+/* contact */
+.contact{background:var(--navy);color:#fff;border-radius:26px;padding:30px 22px}
+.contact .sec-h p{color:#c7d2df}
+.ways{display:grid;gap:16px}
+@media (min-width:860px){.ways{grid-template-columns:.9fr 1.1fr}}
+.way{background:var(--navy-2);border-radius:18px;padding:20px}
+.way h3{margin:0 0 8px;font-size:20px}
+.way h3 em{font-style:normal;color:#e8d3a3}
+.way p{margin:0 0 12px;color:#c7d2df;font-size:15px}
+form{display:grid;gap:12px}
+label{display:grid;gap:4px;font-size:14px;font-weight:700}
+label i{font-style:normal;font-weight:400;color:#e8d3a3;font-size:12px}
+input,textarea,select{font:inherit;font-size:16px;padding:12px;border-radius:10px;border:1px solid #3b5170;background:#0f2034;color:#fff;width:100%}
+textarea{min-height:120px;resize:vertical}
+.grid2{display:grid;gap:12px}
+@media (min-width:560px){.grid2{grid-template-columns:1fr 1fr}}
+.formnote{font-size:12px;color:#aebccb;margin:0}
+
+footer{padding:40px 0 60px;color:var(--muted);font-size:14px;line-height:1.8}
+footer b{color:var(--ink)}
+@media (prefers-reduced-motion:no-preference){.btn{transition:transform .12s}.btn:active{transform:scale(.98)}}
+</style>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="logo" href="#top">小林塾<small>AIショートドラマ制作</small></a>
+  <nav class="nav"><a href="#works">制作例</a><a href="#price">料金</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
+</div></header>
+
+<main id="top">
+<section class="hero"><div class="wrap hero-grid">
+  <div>
+    <span class="eyebrow">AI SHORT DRAMA PRODUCTION</span>
+    <h1>御社の魅力を、<br>ドラマにする。</h1>
+    <p class="lead">お店・会社・スクールの広告やSNSに。撮影・出演・ロケは不要です。<br>3秒で飛ばされる動画を、最後まで見られる物語に。</p>
+    <div class="price" aria-label="料金">
+      <div class="price-row">
+        <div class="pcard"><div class="t">紙芝居型</div><div class="y">1万円<small>〜</small></div><div class="d">1本・税抜｜5営業日</div></div>
+        <div class="pcard"><div class="t">ドラマ型</div><div class="y">3万円<small>〜</small></div><div class="d">1本・税抜｜7〜10営業日</div></div>
+      </div>
+      <div class="free"><b>無料</b><span>まずは御社用の構成案（あらすじとセリフ）をお送りします</span></div>
+      <div class="note">構成案は2営業日以内にお届け。ご相談だけでも費用はかかりません。</div>
+    </div>
+    <div class="btns">
+      <a class="btn btn-main js-mail" href="mailto:drama@lasalle2023.com?subject=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B&body=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%83%BB%E5%B1%8B%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E5%8B%95%E7%94%BB%E3%83%BB%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A">無料で構成案をもらう</a>
+      <a class="btn btn-sub" href="#works">制作例を見る ↓</a>
+    </div>
+  </div>
+  <div class="heroimg">
+    <video src="media/sample-v7.mp4" poster="media/sample-v7.jpg" controls playsinline preload="none"></video>
+    <span class="cap">約80秒｜3つの作り方とご依頼の流れ</span>
+  </div>
+</div></section>
+
+<section id="works"><div class="wrap">
+  <div class="sec-h"><div class="no">01 — WORKS</div><h2>表情も、間も、<br>物語の一部。</h2><p>広告試作、ドラマ、紙芝居、ミュージックビデオ。映像・声・字幕が重なる仕上がりをご覧ください。</p></div>
+  <div class="works">
+    <article class="work">
+      <video src="media/sample-v7.mp4" poster="media/sample-v7.jpg" controls playsinline preload="none"></video>
+      <div class="body"><div class="k">01 / SAMPLE FILM ｜ 約80秒</div><h3>あの日、押してよかった。</h3>
+        <p>冒頭15秒が業種を問わず使える広告試作。続けて、3つの作り方とご依頼の流れをご紹介します。</p>
+        <div class="tags"><span>感情の変化</span><span>短尺の構成</span><span>台詞と字幕</span></div>
+        <p class="small">架空の会社・スクールを想定した試作です。</p></div>
+    </article>
+    <article class="work">
+      <video src="media/reina-ep19.mp4" poster="media/reina-ep19.jpg" controls playsinline preload="none"></video>
+      <div class="body"><div class="k">02 / ドラマ型 ｜ 約60秒</div><h3>レイナの逆転90日 第19話</h3>
+        <p>口の動きと声が合った会話で、続きが見たくなる。人物の表情で引き込む連続ドラマ。</p>
+        <div class="tags"><span>会話と表情</span><span>連続配信</span><span>看板キャラづくり</span></div>
+        <p class="small">自社制作のフィクション作品です。</p></div>
+    </article>
+    <article class="work">
+      <video src="media/kamishibai-kojo.mp4" poster="media/kamishibai-kojo.jpg" controls playsinline preload="none"></video>
+      <div class="body"><div class="k">03 / 紙芝居型 ｜ 約45秒</div><h3>父の工場は止まらない</h3>
+        <p>1枚絵と声で、物語がまっすぐ伝わる。低コストで、毎日の投稿や商品・サービスの解説に。</p>
+        <div class="tags"><span>1枚絵＋声</span><span>低コスト</span><span>毎日の投稿</span></div>
+        <p class="small">自社制作のフィクション作品です（AIによる画像・音声）。</p></div>
+    </article>
+  </div>
+  <div class="mv">
+    <article class="work">
+      <video src="media/zeeyro-mv.mp4" poster="media/zeeyro-mv.jpg" controls playsinline preload="none"></video>
+      <div class="body"><div class="k">04 / MUSIC VIDEO ｜ 約30秒</div><h3>ZEEYRO「君と世界の話」</h3><p>花火、雨、風の中に重なる、ふたりの距離。切ない楽曲の世界を映像に。</p></div>
+    </article>
+    <article class="work">
+      <video src="media/atsunii-mv.mp4" poster="media/atsunii-mv.jpg" controls playsinline preload="none"></video>
+      <div class="body"><div class="k">05 / MUSIC VIDEO ｜ 約17秒</div><h3>あつ兄「反省なし」</h3><p>歌声と映像、テロップをひとつに。楽曲の勢いを伝えるショートMV。</p></div>
+    </article>
+  </div>
+  <div class="links"><a href="https://www.youtube.com/@%E3%82%84%E3%81%A3%E3%81%93%E3%81%95%E3%82%93-3283/shorts" target="_blank" rel="noopener">レイナの逆転90日（YouTube）↗</a><a href="https://www.instagram.com/lumiere90_jp/" target="_blank" rel="noopener">Instagram ↗</a></div>
+</div></section>
+
+<section id="price"><div class="wrap">
+  <div class="sec-h"><div class="no">02 — PRICE</div><h2>目的に合わせて、<br>選べる3つの作り方。</h2><p>すべて税抜価格です。まずは無料の構成案で、出来上がりをイメージしてからお決めください。</p></div>
+  <div class="plans">
+    <div class="plan hot"><span class="tag">安く・毎日</span><h3>紙芝居型</h3><div class="yen">1万円<small>〜／本</small></div>
+      <ul><li>1枚絵＋ナレーションで物語を伝える</li><li>毎日のSNS投稿・商品やサービスの解説・お客様の声の再現に</li><li>納期 5営業日</li></ul></div>
+    <div class="plan hot"><span class="tag">会話と表情で引き込む</span><h3>ドラマ型</h3><div class="yen">3万円<small>〜／本</small></div>
+      <ul><li>人物が話し、口の動きと声が合った会話</li><li>SNS広告・連続配信・お店や会社の“看板キャラ”づくりに</li><li>納期 7〜10営業日</li></ul></div>
+    <div class="plan"><span class="tag">共感で心に残る</span><h3>感動ストーリー型</h3><div class="yen" style="font-size:24px">紙芝居型・ドラマ型<br>どちらでも</div>
+      <ul><li>見た人の記憶に残り、ブランドを好きになってもらう</li><li>会社・お店の紹介／採用／周年記念／ブランド動画に</li></ul></div>
+  </div>
+  <div class="more"><h3>さらに本格的に</h3>
+    <table>
+      <tr><th>お試しパック（脚本1本＋冒頭3パターン、15〜30秒の動画3本・前払い）</th><td>9.8万円</td></tr>
+      <tr><th>標準 60秒</th><td>1本8万円</td></tr>
+      <tr><th>高品質 60秒</th><td>1本20万円〜</td></tr>
+      <tr><th>継続プラン（月10本・脚本3本をもとに冒頭3〜4パターン展開）</th><td>月額30万円</td></tr>
+    </table>
+    <p class="small" style="margin-top:8px">尺や表現のご希望を伺い、具体的な制作範囲と費用をお見積りします。</p></div>
+</div></section>
+
+<section id="flow"><div class="wrap">
+  <div class="sec-h"><div class="no">03 — PROCESS</div><h2>最短5営業日で、<br>完成した動画が届きます。</h2><p>内容を確かめながら、一緒につくります。</p></div>
+  <div class="flow">
+    <div class="step"><div class="n">1</div><div><b>「構成案希望」と送る</b><span>メールに返信、または下のフォームから</span></div></div>
+    <div class="step"><div class="n">2</div><div><b>構成案が届く<span class="badge">無料</span></b><span>あらすじとセリフ。<em>2営業日以内</em></span></div></div>
+    <div class="step"><div class="n">3</div><div><b>お見積り・お申し込み</b><span>内容に納得されてから。前払いです</span></div></div>
+    <div class="step"><div class="n">4</div><div><b>制作</b><span>紙芝居型<em>5営業日</em>／ドラマ型<em>7〜10営業日</em></span></div></div>
+    <div class="step"><div class="n">5</div><div><b>ご確認・修正1回無料</b><span>気になる所をお伝えください</span></div></div>
+    <div class="step"><div class="n">6</div><div><b>納品（MP4）</b><span>広告・SNS・ホームページにそのまま使えます</span></div></div>
+  </div>
+  <p class="small" style="margin-top:10px">具体的な制作範囲・修正範囲・納期の起算日は、お見積り時にご確認いただけます。</p>
+</div></section>
+
+<section id="contact"><div class="wrap"><div class="contact">
+  <div class="sec-h"><div class="no" style="color:#e8d3a3">04 — CONTACT</div><h2>まずは無料の<br>構成案から。</h2><p>2つの方法からお選びください。2営業日以内にご連絡します。</p></div>
+  <div class="ways">
+    <div class="way"><h3>A　<em>メールで送る</em>（いちばん簡単）</h3>
+      <p>営業メールを受け取った方は、そのメールに「構成案希望」と返信するだけでOKです。</p>
+      <a class="btn btn-main js-mail" href="mailto:drama@lasalle2023.com?subject=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B&body=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%83%BB%E5%B1%8B%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E5%8B%95%E7%94%BB%E3%83%BB%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A">drama@lasalle2023.com に送る</a>
+      <p class="small" style="color:#aebccb;margin-top:10px">お電話：050-3696-4531</p></div>
+    <div class="way"><h3>B　<em>フォームで送る</em></h3>
+      <form id="f" novalidate>
+        <div class="grid2">
+          <label>お名前 <i>必須</i><input name="name" required autocomplete="name"></label>
+          <label>会社名・屋号 <i>任意</i><input name="company" autocomplete="organization"></label>
+        </div>
+        <div class="grid2">
+          <label>メールアドレス <i>必須</i><input name="email" type="email" required autocomplete="email"></label>
+          <label>電話番号 <i>任意</i><input name="tel" type="tel" autocomplete="tel"></label>
+        </div>
+        <label>作りたい動画・業種 <i>必須</i><textarea name="msg" required placeholder="例：構成案希望。美容室の新メニューを紹介する15秒の動画を作りたいです。"></textarea></label>
+        <label>作り方・ご予算 <i>任意</i><select name="budget"><option value="">選択してください</option><option>紙芝居型（1本1万円〜）</option><option>ドラマ型（1本3万円〜）</option><option>感動ストーリー型</option><option>お試しパック（9.8万円）</option><option>継続プラン（月30万円）</option><option>まだ決めていない</option></select></label>
+        <button class="btn btn-main" type="submit">この内容で送信する</button>
+        <p class="formnote">送信ボタンを押すと、入力内容が入ったメールが開きます。そのまま送信してください。無料の構成案は2営業日以内にお送りします。</p>
+      </form></div>
+  </div>
+</div></div></section>
+</main>
+
+<footer><div class="wrap">
+  <b>有限会社小林塾　AIショートドラマ制作</b><br>
+  北海道札幌市中央区南11条西21丁目2番2号<br>
+  TEL 050-3696-4531／drama@lasalle2023.com<br>
+  掲載作品はAIで制作したフィクションです。効果を保証するものではありません。
+</div></footer>
+
+<script>
+document.getElementById('f').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=this, d=function(n){return (f.elements[n].value||'').trim();};
+  if(!d('name')||!d('email')||!d('msg')){alert('お名前・メールアドレス・作りたい動画は必須です。');return;}
+  var body='構成案希望\n\nお名前：'+d('name')+'\n会社名・屋号：'+d('company')+'\nメール：'+d('email')+'\n電話：'+d('tel')+'\n作り方・ご予算：'+d('budget')+'\n\n作りたい動画・業種：\n'+d('msg');
+  if(window.gtag) gtag('event','form_submit',{src:window.__src||''});
+  location.href='mailto:drama@lasalle2023.com?subject='+encodeURIComponent('構成案希望（'+(d('company')||d('name'))+'）')+'&body='+encodeURIComponent(body);
+});
+</script>
+<script src="analytics.js"></script>
+</body>
+</html>
