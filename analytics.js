@@ -1,6 +1,6 @@
 // 訪問・ボタンの計測（GA4）。流入元は ?src=mail などで区別
 (function(){
-  var GA_ID = "G-ERPXVZ39RD";
+  var GA_ID = "G-7YJV2J75LX";
   var src = "";
   try{ src = new URLSearchParams(location.search).get("src") || ""; if(src){ sessionStorage.setItem("src", src); } else { src = sessionStorage.getItem("src") || ""; } }catch(e){}
   window.__src = src;
