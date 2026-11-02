@@ -132,6 +132,7 @@ textarea{min-height:120px;resize:vertical}
 .grid2{display:grid;gap:12px}
 @media (min-width:560px){.grid2{grid-template-columns:1fr 1fr}}
 .formnote{font-size:12px;color:#aebccb;margin:0}
+.formsent{font-size:15px;line-height:1.8;color:#fff;background:rgba(255,255,255,.08);border:1px solid rgba(232,211,163,.5);border-radius:10px;padding:18px;margin:0}
 
 footer{padding:40px 0 60px;color:var(--muted);font-size:14px;line-height:1.8}
 footer b{color:var(--ink)}
@@ -260,7 +261,7 @@ footer b{color:var(--ink)}
         <label>作りたい動画・業種 <i>必須</i><textarea name="msg" required placeholder="例：構成案希望。美容室の新メニューを紹介する15秒の動画を作りたいです。"></textarea></label>
         <label>作り方・ご予算 <i>任意</i><select name="budget"><option value="">選択してください</option><option>紙芝居型（1本1万円〜）</option><option>ドラマ型（1本3万円〜）</option><option>感動ストーリー型</option><option>お試しパック（9.8万円）</option><option>継続プラン（月30万円）</option><option>まだ決めていない</option></select></label>
         <button class="btn btn-main" type="submit">この内容で送信する</button>
-        <p class="formnote">送信ボタンを押すと、入力内容が入ったメールが開きます。そのまま送信してください。無料の構成案は2営業日以内にお送りします。</p>
+        <p class="formnote">送信ボタンを押すだけで送信が完了します。無料の構成案は2営業日以内にお送りします。</p>
       </form></div>
   </div>
 </div></div></section>
@@ -278,9 +279,24 @@ document.getElementById('f').addEventListener('submit',function(e){
   e.preventDefault();
   var f=this, d=function(n){return (f.elements[n].value||'').trim();};
   if(!d('name')||!d('email')||!d('msg')){alert('お名前・メールアドレス・作りたい動画は必須です。');return;}
-  var body='構成案希望\n\nお名前：'+d('name')+'\n会社名・屋号：'+d('company')+'\nメール：'+d('email')+'\n電話：'+d('tel')+'\n作り方・ご予算：'+d('budget')+'\n\n作りたい動画・業種：\n'+d('msg');
-  if(window.gtag) gtag('event','form_submit',{src:window.__src||''});
-  location.href='mailto:drama@lasalle2023.com?subject='+encodeURIComponent('構成案希望（'+(d('company')||d('name'))+'）')+'&body='+encodeURIComponent(body);
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(d('email'))){alert('メールアドレスの形式をご確認ください。');return;}
+  var btn=f.querySelector('button[type=submit]'); if(btn.disabled) return; btn.disabled=true; btn.textContent='送信中…';
+  // 送信先：Googleフォーム「AIドラマ お問い合わせフォーム」（小林弘毅アカウント・新着はメール通知＋回答シート）
+  var p=new URLSearchParams();
+  p.append('entry.1691360468',d('name'));
+  p.append('entry.1948089370',d('company'));
+  p.append('entry.2136815444',d('email'));
+  p.append('entry.738409487',d('tel'));
+  p.append('entry.241276529',d('msg'));
+  p.append('entry.648404663',d('budget'));
+  p.append('entry.1668225913',window.__src||'');
+  var done=function(){
+    if(window.gtag) gtag('event','form_submit',{src:window.__src||''});
+    f.innerHTML='<p class="formsent"><b>送信しました。ありがとうございます。</b><br>無料の構成案は2営業日以内に、ご入力のメールアドレスへお送りします。<br>届かない場合は drama@lasalle2023.com またはお電話（050-3696-4531）へご連絡ください。</p>';
+  };
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSeqSxdcoNQ-sN2IJBdm4KhVXFNYUgRdQEr5HMT94SdHyJz-og/formResponse',{method:'POST',mode:'no-cors',body:p})
+    .then(done)
+    .catch(function(){btn.disabled=false;btn.textContent='この内容で送信する';alert('通信エラーで送信できませんでした。時間をおいて再度お試しいただくか、drama@lasalle2023.com へメールでお送りください。');});
 });
 </script>
 <script src="analytics.js"></script>
