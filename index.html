@@ -137,20 +137,50 @@ textarea{min-height:120px;resize:vertical}
 footer{padding:40px 0 60px;color:var(--muted);font-size:14px;line-height:1.8}
 footer b{color:var(--ink)}
 @media (prefers-reduced-motion:no-preference){.btn{transition:transform .12s}.btn:active{transform:scale(.98)}}
+
+/* v2 2026-11-03: 業種別の冒頭、最初の1タップ（冒頭1行を見る）、料金2本、FAQ */
+.hook{margin-top:22px;background:var(--surface);border:2px solid var(--gold);border-radius:18px;padding:18px 18px 16px}
+.hook .q{margin:0 0 4px;font-size:19px;font-weight:900}
+.hook .qs{margin:0 0 12px;font-size:14px;color:var(--muted)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{font-family:inherit;font-size:15px;font-weight:700;padding:10px 14px;border-radius:999px;border:2px solid var(--line);background:var(--surface);color:var(--ink);cursor:pointer;min-height:44px}
+.chip[aria-pressed="true"]{border-color:var(--gold);background:var(--gold-soft)}
+.scene{display:none;margin-top:14px;padding:16px 18px;border-radius:14px;background:var(--navy);color:#fff}
+.scene[data-on]{display:block}
+.scene .lab{font-size:12px;letter-spacing:.14em;color:#e8d3a3;font-weight:700}
+.scene .syn{font-family:var(--f-display);font-size:20px;line-height:1.5;margin:4px 0 8px}
+.scene .line{font-size:17px;color:#c7d2df;margin:0 0 14px}
+.scene .line b{color:#fff}
+.scene .btns{margin-top:0}
+.plans.two{grid-template-columns:1fr 1fr}
+@media (max-width:560px){.plans.two{grid-template-columns:1fr}}
+details.fold{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:4px 20px}
+details.fold summary{cursor:pointer;font-weight:900;font-size:17px;padding:14px 0;list-style:none;display:flex;justify-content:space-between;align-items:center}
+details.fold summary::-webkit-details-marker{display:none}
+details.fold summary::after{content:"＋";font-size:22px;color:var(--gold)}
+details.fold[open] summary::after{content:"－"}
+details.fold .in{padding:0 0 18px}
+.faq{display:grid;gap:10px}
+.faq details{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:4px 18px}
+.faq summary{cursor:pointer;font-weight:700;font-size:17px;padding:12px 0;list-style:none;display:flex;justify-content:space-between;gap:12px}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋";color:var(--gold);flex:0 0 auto}
+.faq details[open] summary::after{content:"－"}
+.faq p{margin:0 0 14px;color:var(--muted);font-size:15px}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="#top">小林塾<small>AIショートドラマ制作</small></a>
-  <nav class="nav"><a href="#works">制作例</a><a href="#price">料金</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
+  <nav class="nav"><a href="#works">制作例</a><a href="#price">料金</a><a href="#faq">質問</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
 </div></header>
 
 <main id="top">
 <section class="hero"><div class="wrap hero-grid">
   <div>
     <span class="eyebrow">AI SHORT DRAMA PRODUCTION</span>
-    <h1>御社の魅力を、<br>ドラマにする。</h1>
-    <p class="lead">お店・会社・スクールの広告やSNSに。撮影・出演・ロケは不要です。<br>3秒で飛ばされる動画を、最後まで見られる物語に。</p>
+    <h1 id="h1">御社の魅力を、<br>ドラマにする。</h1>
+    <p class="lead" id="lead">お店・会社・スクールの広告やSNSに。撮影・出演・ロケは不要です。<br>3秒で飛ばされる動画を、最後まで見られる物語に。</p>
     <div class="price" aria-label="料金">
       <div class="price-row">
         <div class="pcard"><div class="t">紙芝居型</div><div class="y">1万円<small>〜</small></div><div class="d">1本・税抜｜5営業日</div></div>
@@ -162,6 +192,30 @@ footer b{color:var(--ink)}
     <div class="btns">
       <a class="btn btn-main js-mail" href="mailto:drama@lasalle2023.com?subject=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B&body=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%83%BB%E5%B1%8B%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E5%8B%95%E7%94%BB%E3%83%BB%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A">無料で構成案をもらう</a>
       <a class="btn btn-sub" href="#works">制作例を見る ↓</a>
+    </div>
+    <div class="hook" id="hook">
+      <p class="q">御社の15秒ドラマ、冒頭の1行だけ見てみませんか。</p>
+      <p class="qs">業種を1つ押すと、あらすじと最初のセリフが出ます。</p>
+      <div class="chips" role="group" aria-label="業種">
+        <button class="chip" type="button" data-k="biyou" aria-pressed="false">美容室・エステ</button>
+        <button class="chip" type="button" data-k="seikotsu" aria-pressed="false">整骨院・整体</button>
+        <button class="chip" type="button" data-k="shigyo" aria-pressed="false">士業</button>
+        <button class="chip" type="button" data-k="fudosan" aria-pressed="false">不動産</button>
+        <button class="chip" type="button" data-k="inshoku" aria-pressed="false">飲食店</button>
+        <button class="chip" type="button" data-k="koumuten" aria-pressed="false">工務店・リフォーム</button>
+        <button class="chip" type="button" data-k="agri" aria-pressed="false">農業法人（採用）</button>
+        <button class="chip" type="button" data-k="juku" aria-pressed="false">塾・スクール</button>
+        <button class="chip" type="button" data-k="other" aria-pressed="false">その他</button>
+      </div>
+      <div class="scene" id="scene">
+        <div class="lab">OPENING ｜ <span id="scene-k"></span></div>
+        <p class="syn" id="scene-syn"></p>
+        <p class="line">最初のセリフ：<b id="scene-line"></b></p>
+        <div class="btns">
+          <a class="btn btn-main js-scene-cta" id="scene-cta" href="#contact">この続きを、無料で構成案にしてもらう</a>
+          <a class="btn btn-sub" href="#works" style="background:transparent;color:#fff;border-color:#3b5170">出来上がりの例を見る ↓</a>
+        </div>
+      </div>
     </div>
   </div>
   <div class="heroimg">
@@ -209,27 +263,39 @@ footer b{color:var(--ink)}
 </div></section>
 
 <section id="price"><div class="wrap">
-  <div class="sec-h"><div class="no">02 — PRICE</div><h2>目的に合わせて、<br>選べる3つの作り方。</h2><p>すべて税抜価格です。まずは無料の構成案で、出来上がりをイメージしてからお決めください。</p></div>
-  <div class="plans">
+  <div class="sec-h"><div class="no">02 — PRICE</div><h2>作り方は2つ。<br>どちらも、まず無料の構成案から。</h2><p>すべて税抜価格です。構成案（あらすじとセリフ）を見てから、作るかどうかをお決めください。</p></div>
+  <div class="plans two">
     <div class="plan hot"><span class="tag">安く・毎日</span><h3>紙芝居型</h3><div class="yen">1万円<small>〜／本</small></div>
-      <ul><li>1枚絵＋ナレーションで物語を伝える</li><li>毎日のSNS投稿・商品やサービスの解説・お客様の声の再現に</li><li>納期 5営業日</li></ul></div>
+      <ul><li>1枚絵＋ナレーションで物語を伝える</li><li>毎日のSNS投稿・商品やサービスの解説・お客様の声の再現に</li><li>納期 5営業日・修正1回無料</li></ul></div>
     <div class="plan hot"><span class="tag">会話と表情で引き込む</span><h3>ドラマ型</h3><div class="yen">3万円<small>〜／本</small></div>
-      <ul><li>人物が話し、口の動きと声が合った会話</li><li>SNS広告・連続配信・お店や会社の“看板キャラ”づくりに</li><li>納期 7〜10営業日</li></ul></div>
-    <div class="plan"><span class="tag">共感で心に残る</span><h3>感動ストーリー型</h3><div class="yen" style="font-size:24px">紙芝居型・ドラマ型<br>どちらでも</div>
-      <ul><li>見た人の記憶に残り、ブランドを好きになってもらう</li><li>会社・お店の紹介／採用／周年記念／ブランド動画に</li></ul></div>
+      <ul><li>人物が話し、口の動きと声が合った会話</li><li>SNS広告・連続配信・お店や会社の“看板キャラ”づくりに</li><li>納期 7〜10営業日・修正1回無料</li></ul></div>
   </div>
-  <div class="more"><h3>さらに本格的に</h3>
-    <table>
-      <tr><th>お試しパック（脚本1本＋冒頭3パターン、15〜30秒の動画3本・前払い）</th><td>9.8万円</td></tr>
-      <tr><th>標準 60秒</th><td>1本8万円</td></tr>
-      <tr><th>高品質 60秒</th><td>1本20万円〜</td></tr>
-      <tr><th>継続プラン（月10本・脚本3本をもとに冒頭3〜4パターン展開）</th><td>月額30万円</td></tr>
+  <details class="fold"><summary>さらに本格的に（感動ストーリー型・お試しパック・継続プラン）</summary><div class="in">
+    <table style="width:100%;border-collapse:collapse;font-size:15px">
+      <tr><th style="text-align:left;padding:10px 6px;border-top:1px solid var(--line)">感動ストーリー型（会社・お店の紹介／採用／周年記念／ブランド動画）</th><td style="padding:10px 6px;border-top:1px solid var(--line);white-space:nowrap;font-weight:700">紙芝居型・ドラマ型の料金</td></tr>
+      <tr><th style="text-align:left;padding:10px 6px;border-top:1px solid var(--line)">お試しパック（脚本1本＋冒頭3パターン、15〜30秒の動画3本・前払い）</th><td style="padding:10px 6px;border-top:1px solid var(--line);white-space:nowrap;font-weight:700">9.8万円</td></tr>
+      <tr><th style="text-align:left;padding:10px 6px;border-top:1px solid var(--line)">標準 60秒</th><td style="padding:10px 6px;border-top:1px solid var(--line);white-space:nowrap;font-weight:700">1本8万円</td></tr>
+      <tr><th style="text-align:left;padding:10px 6px;border-top:1px solid var(--line)">高品質 60秒</th><td style="padding:10px 6px;border-top:1px solid var(--line);white-space:nowrap;font-weight:700">1本20万円〜</td></tr>
+      <tr><th style="text-align:left;padding:10px 6px;border-top:1px solid var(--line)">継続プラン（月10本・脚本3本をもとに冒頭3〜4パターン展開）</th><td style="padding:10px 6px;border-top:1px solid var(--line);white-space:nowrap;font-weight:700">月額30万円</td></tr>
     </table>
-    <p class="small" style="margin-top:8px">尺や表現のご希望を伺い、具体的な制作範囲と費用をお見積りします。</p></div>
+    <p class="small" style="margin-top:8px">尺や表現のご希望を伺い、具体的な制作範囲と費用をお見積りします。</p>
+  </div></details>
+</div></section>
+
+<section id="faq"><div class="wrap">
+  <div class="sec-h"><div class="no">03 — FAQ</div><h2>よくあるご質問</h2></div>
+  <div class="faq">
+    <details><summary>できた動画は、自由に使えますか。</summary><p>はい。納品した動画は御社のものとして、広告・SNS・ホームページ・店頭で自由にお使いいただけます。当社の制作例としての掲載は、ご了承いただいた場合だけです。</p></details>
+    <details><summary>修正は何回できますか。</summary><p>1回まで無料です。あらすじは構成案の段階でご確認いただくので、制作後の作り直しは別途お見積りになります。修正の範囲はお見積り時にご確認いただけます。</p></details>
+    <details><summary>支払いはいつですか。</summary><p>構成案とお見積りにご納得いただいてから、前払いです。構成案までは無料で、費用はかかりません。お支払い方法はお見積り時にご案内します。</p></details>
+    <details><summary>「AIで作った」と表示する必要はありますか。</summary><p>媒体のルールに従います。人物が実写のように見える動画は、YouTube・Instagramで「AI生成」の表示が求められる場合があり、納品時に設定方法をお伝えします。紙芝居型（イラスト＋ナレーション）は多くの場合、表示不要です。</p></details>
+    <details><summary>写真や素材を渡す必要はありますか。</summary><p>なくても作れます。店内・商品・畑などの写真があれば、雰囲気を合わせるために使わせていただきます。実在の方の顔は、ご本人の許可がある場合だけ使います。</p></details>
+    <details><summary>どんな会社が作っていますか。</summary><p>有限会社小林塾（北海道札幌市、代表 小林弘毅）です。自社でYouTube・Instagramの連続ドラマを毎日配信しながら、同じ作り方で受託制作しています。</p></details>
+  </div>
 </div></section>
 
 <section id="flow"><div class="wrap">
-  <div class="sec-h"><div class="no">03 — PROCESS</div><h2>最短5営業日で、<br>完成した動画が届きます。</h2><p>内容を確かめながら、一緒につくります。</p></div>
+  <div class="sec-h"><div class="no">04 — PROCESS</div><h2>最短5営業日で、<br>完成した動画が届きます。</h2><p>内容を確かめながら、一緒につくります。</p></div>
   <div class="flow">
     <div class="step"><div class="n">1</div><div><b>「構成案希望」と送る</b><span>メールに返信、または下のフォームから</span></div></div>
     <div class="step"><div class="n">2</div><div><b>構成案が届く<span class="badge">無料</span></b><span>あらすじとセリフ。<em>2営業日以内</em></span></div></div>
@@ -242,7 +308,7 @@ footer b{color:var(--ink)}
 </div></section>
 
 <section id="contact"><div class="wrap"><div class="contact">
-  <div class="sec-h"><div class="no" style="color:#e8d3a3">04 — CONTACT</div><h2>まずは無料の<br>構成案から。</h2><p>2つの方法からお選びください。2営業日以内にご連絡します。</p></div>
+  <div class="sec-h"><div class="no" style="color:#e8d3a3">05 — CONTACT</div><h2>まずは無料の<br>構成案から。</h2><p>2つの方法からお選びください。2営業日以内にご連絡します。</p></div>
   <div class="ways">
     <div class="way"><h3>A　<em>メールで送る</em>（いちばん簡単）</h3>
       <p>営業メールを受け取った方は、そのメールに「構成案希望」と返信するだけでOKです。</p>
@@ -268,13 +334,63 @@ footer b{color:var(--ink)}
 </main>
 
 <footer><div class="wrap">
-  <b>有限会社小林塾　AIショートドラマ制作</b><br>
-  北海道札幌市中央区南11条西21丁目2番2号<br>
+  <b>有限会社小林塾　AIショートドラマ制作</b>（代表 小林弘毅）<br>
+  〒064-0811 北海道札幌市中央区南11条西21丁目2番2号<br>
   TEL 050-3696-4531／drama@lasalle2023.com<br>
   掲載作品はAIで制作したフィクションです。効果を保証するものではありません。
 </div></footer>
 
 <script>
+(function(){
+  // 業種別の冒頭（?src= で自動切替。チップを押しても切替）
+  var IND = {
+    biyou:   {name:"美容室・エステ", h1:"来店前の不安を、<br>15秒の物語でほどく。", lead:"初めてのお店は、ドアの前で迷うもの。その迷いが消える瞬間を、ドラマにします。撮影・出演は不要です。",
+              syn:"初めての店。ドアの前で3回深呼吸した日。", line:"「今日は、どうしたい？」って、聞いてくれたんです。"},
+    seikotsu:{name:"整骨院・整体", h1:"「行ってみようかな」を、<br>15秒のドラマで。", lead:"痛みを我慢している人に、通った先の毎日を見せる。院内の雰囲気と相談の流れを物語に。撮影は不要です。",
+              syn:"朝、靴下がはけなかった父が、孫を抱き上げるまで。", line:"「痛いのは、あなたのせいじゃない」"},
+    shigyo:  {name:"士業", h1:"相談の一歩を、<br>15秒の物語で軽くする。", lead:"「こんなことで相談していいのか」で止まっている人に。相談した先の安心を、短いドラマで見せます。",
+              syn:"夜中の電卓を止めた、一本の電話。", line:"「それ、こっちで全部引き受けます」"},
+    fudosan: {name:"不動産", h1:"内見の前に、<br>暮らしの物語を15秒で。", lead:"間取り図では伝わらない「そこで暮らす一日」を、ドラマにします。撮影・出演は不要です。",
+              syn:"3年迷った鍵を、娘が先に回した。", line:"「ここ、おばあちゃんの部屋にしよう」"},
+    inshoku: {name:"飲食店", h1:"入る前に、<br>味の記憶を15秒で。", lead:"通りすがりの人が「今日はここにしよう」と思う瞬間を、物語にします。撮影・出演は不要です。",
+              syn:"閉店5分前に入ってきた、傘のない客。", line:"「あったかいの、ひとつ」"},
+    koumuten:{name:"工務店・リフォーム", h1:"完成後の暮らしを、<br>15秒のドラマで先に見せる。", lead:"施工例の写真より、住んだあとの一日。家族の表情で伝える短い物語です。撮影は不要です。",
+              syn:"段差をなくした日、母がひとりで庭に出た。", line:"「頼んでよかった、って言わせてください」"},
+    agri:    {name:"農業法人（採用）", h1:"農業法人の採用に、<br>15秒のドラマを。", lead:"求人票では伝わらない「働く一日」「先輩の言葉」を、物語で。畑や作物の写真があれば反映できます。撮影・出演は不要です。",
+              syn:"スーツを脱いで、長靴をはいた最初の朝。", line:"「収穫の味、まだ知らないだろ」"},
+    juku:    {name:"塾・スクール", h1:"「通いたい」を、<br>15秒の物語で。", lead:"授業風景より、できるようになった瞬間。生徒募集の広告を、短いドラマにします。撮影・出演は不要です。",
+              syn:"「無理」と言った子が、答案を見せに走ってきた。", line:"「先生、これ、見て」"},
+    other:   {name:"その他の業種", h1:"御社の魅力を、<br>ドラマにする。", lead:"お店・会社・スクールの広告やSNSに。撮影・出演・ロケは不要です。3秒で飛ばされる動画を、最後まで見られる物語に。",
+              syn:"御社のお客様が、最初に迷った瞬間から。", line:"「ここに来て、よかった」"}
+  };
+  var src = ""; try{ src = new URLSearchParams(location.search).get("src") || sessionStorage.getItem("src") || ""; }catch(e){}
+  var key = "";
+  var m = [[/biyou|esthe/,"biyou"],[/seikot|seitai/,"seikotsu"],[/shigyo|sigyo|zeirishi/,"shigyo"],[/fudosan|fudousan/,"fudosan"],[/inshoku|insyoku/,"inshoku"],[/koumuten|komuten|reform/,"koumuten"],[/agri|nogyo|nougyou/,"agri"],[/juku|school|eikaiwa/,"juku"]];
+  for(var i=0;i<m.length;i++){ if(m[i][0].test(src)){ key = m[i][1]; break; } }
+
+  var h1 = document.getElementById("h1"), lead = document.getElementById("lead");
+  var scene = document.getElementById("scene"), sk = document.getElementById("scene-k"), ss = document.getElementById("scene-syn"), sl = document.getElementById("scene-line");
+  var chips = document.querySelectorAll(".chip");
+  var ta = document.querySelector("#f textarea[name=msg]");
+  function mailHref(k){
+    var d = IND[k];
+    var body = "構成案希望（" + d.name + "）\n\n冒頭案「" + d.syn + "」の続きをお願いします。\n\n会社名・屋号：\nお名前：\n作りたい動画・業種：\n";
+    return "mailto:drama@lasalle2023.com?subject=" + encodeURIComponent("構成案希望（" + d.name + "）") + "&body=" + encodeURIComponent(body);
+  }
+  function show(k, fromTap){
+    var d = IND[k]; if(!d) return;
+    chips.forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-k")===k ? "true" : "false"); });
+    sk.textContent = d.name; ss.textContent = d.syn; sl.textContent = d.line;
+    scene.setAttribute("data-on","1");
+    if(ta && (!ta.value || /^構成案希望（/.test(ta.value))) ta.value = "構成案希望（" + d.name + "）。冒頭案「" + d.syn + "」の続きをお願いします。";
+    document.querySelectorAll(".js-mail").forEach(function(a){ a.href = mailHref(k); });
+    if(fromTap && window.gtag) gtag("event","hook_tap",{src:src, industry:k});
+  }
+  if(key){ h1.innerHTML = IND[key].h1; lead.textContent = IND[key].lead; show(key, false); }
+  chips.forEach(function(c){ c.addEventListener("click", function(){ var k = c.getAttribute("data-k"); h1.innerHTML = IND[k].h1; lead.textContent = IND[k].lead; show(k, true); }); });
+  document.getElementById("scene-cta").addEventListener("click", function(){ if(window.gtag) gtag("event","scene_cta",{src:src}); });
+})();
+
 document.getElementById('f').addEventListener('submit',function(e){
   e.preventDefault();
   var f=this, d=function(n){return (f.elements[n].value||'').trim();};
