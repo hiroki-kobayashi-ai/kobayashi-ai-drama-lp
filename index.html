@@ -158,8 +158,10 @@ footer b{color:var(--ink)}
 .scene[data-on]{display:block}
 .scene .lab{font-size:12px;letter-spacing:.14em;color:#e8d3a3;font-weight:700}
 .scene .syn{font-family:var(--f-display);font-size:20px;line-height:1.5;margin:4px 0 8px}
-.scene .line{font-size:17px;color:#c7d2df;margin:0 0 14px}
-.scene .line b{color:#fff}
+.scene .beats{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.scene .beats li{display:grid;grid-template-columns:5.6em 1fr;gap:10px;align-items:start;font-size:15px;line-height:1.65;color:#dfe6ee}
+.scene .beats li span{font-size:11px;font-weight:900;letter-spacing:.06em;color:#111;background:#e8d3a3;border-radius:6px;padding:2px 0;margin-top:3px;white-space:nowrap;text-align:center}
+.scene .beats li b{color:#fff}
 .scene .btns{margin-top:0}
 .plans.two{grid-template-columns:1fr 1fr}
 @media (max-width:560px){.plans.two{grid-template-columns:1fr}}
@@ -227,8 +229,8 @@ details.fold .in{padding:0 0 18px}
       <p class="quick-note">入力はこの1欄だけです。業種などは、構成案をお送りするときにメールで伺います。</p>
     </form>
     <div class="hook" id="hook">
-      <p class="q">御社の15秒ドラマ、冒頭の1行だけ見てみませんか。</p>
-      <p class="qs">業種を1つ押すと、あらすじと最初のセリフが出ます。</p>
+      <p class="q">御社用のドラマ、筋書きを先に見てみませんか。</p>
+      <p class="qs">業種を1つ押すと、冒頭3秒から締めまでの筋書きが出ます。</p>
       <div class="chips" role="group" aria-label="業種">
         <button class="chip" type="button" data-k="biyou" aria-pressed="false">美容室・エステ</button>
         <button class="chip" type="button" data-k="seikotsu" aria-pressed="false">整骨院・整体</button>
@@ -243,9 +245,9 @@ details.fold .in{padding:0 0 18px}
       <div class="scene" id="scene">
         <div class="lab">OPENING ｜ <span id="scene-k"></span></div>
         <p class="syn" id="scene-syn"></p>
-        <p class="line">最初のセリフ：<b id="scene-line"></b></p>
+        <ol class="beats" id="scene-beats"></ol>
         <div class="btns">
-          <a class="btn btn-main js-scene-cta" id="scene-cta" href="#contact">この続きを、無料で構成案にしてもらう</a>
+          <a class="btn btn-main js-scene-cta" id="scene-cta" href="#contact">この筋書きで、無料の構成案をもらう</a>
           <a class="btn btn-sub" href="#works" style="background:transparent;color:#fff;border-color:#3b5170">出来上がりの例を見る ↓</a>
         </div>
       </div>
@@ -383,25 +385,62 @@ details.fold .in{padding:0 0 18px}
 <script>
 (function(){
   // 業種別の冒頭（?src= で自動切替。チップを押しても切替）
+  // 小林基準（2026-11-09）：冒頭3秒のインパクト → お客様の困った顔 → 女性担当者が解決策 → 締めは安心・満足
   var IND = {
-    biyou:   {name:"美容室・エステ", h1:"来店前の不安を、<br>15秒の物語でほどく。", lead:"初めてのお店は、ドアの前で迷うもの。その迷いが消える瞬間を、ドラマにします。撮影・出演は不要です。",
-              syn:"初めての店。ドアの前で3回深呼吸した日。", line:"「今日は、どうしたい？」って、聞いてくれたんです。"},
-    seikotsu:{name:"整骨院・整体", h1:"「行ってみようかな」を、<br>15秒のドラマで。", lead:"痛みを我慢している人に、通った先の毎日を見せる。院内の雰囲気と相談の流れを物語に。撮影は不要です。",
-              syn:"朝、靴下がはけなかった父が、孫を抱き上げるまで。", line:"「痛いのは、あなたのせいじゃない」"},
-    shigyo:  {name:"士業", h1:"相談の一歩を、<br>15秒の物語で軽くする。", lead:"「こんなことで相談していいのか」で止まっている人に。相談した先の安心を、短いドラマで見せます。",
-              syn:"夜中の電卓を止めた、一本の電話。", line:"「それ、こっちで全部引き受けます」"},
-    fudosan: {name:"不動産", h1:"内見の前に、<br>暮らしの物語を15秒で。", lead:"間取り図では伝わらない「そこで暮らす一日」を、ドラマにします。撮影・出演は不要です。",
-              syn:"3年迷った鍵を、娘が先に回した。", line:"「ここ、おばあちゃんの部屋にしよう」"},
-    inshoku: {name:"飲食店", h1:"入る前に、<br>味の記憶を15秒で。", lead:"通りすがりの人が「今日はここにしよう」と思う瞬間を、物語にします。撮影・出演は不要です。",
-              syn:"閉店5分前に入ってきた、傘のない客。", line:"「あったかいの、ひとつ」"},
-    koumuten:{name:"工務店・リフォーム", h1:"完成後の暮らしを、<br>15秒のドラマで先に見せる。", lead:"施工例の写真より、住んだあとの一日。家族の表情で伝える短い物語です。撮影は不要です。",
-              syn:"段差をなくした日、母がひとりで庭に出た。", line:"「頼んでよかった、って言わせてください」"},
-    agri:    {name:"農業法人（採用）", h1:"農業法人の採用に、<br>15秒のドラマを。", lead:"求人票では伝わらない「働く一日」「先輩の言葉」を、物語で。畑や作物の写真があれば反映できます。撮影・出演は不要です。",
-              syn:"スーツを脱いで、長靴をはいた最初の朝。", line:"「収穫の味、まだ知らないだろ」"},
-    juku:    {name:"塾・スクール", h1:"「通いたい」を、<br>15秒の物語で。", lead:"授業風景より、できるようになった瞬間。生徒募集の広告を、短いドラマにします。撮影・出演は不要です。",
-              syn:"「無理」と言った子が、答案を見せに走ってきた。", line:"「先生、これ、見て」"},
+    biyou:   {name:"美容室・エステ", h1:"来店前の不安を、<br>短い物語でほどく。", lead:"困っていたお客様が、笑顔で帰るまで。その変化をドラマにします。撮影・出演は不要です。",
+              syn:"結婚式の前夜、髪がまとまらない母。",
+              hook:"「明日、娘の結婚式なのに——」鏡の前で、崩れた髪を握りしめる母。",
+              trouble:"どこも予約でいっぱい。鏡に映る、泣き出しそうな顔。",
+              solve:"女性スタイリスト「大丈夫です。明日の朝、30分ください」",
+              end:"式場で娘に「お母さん、きれい」と言われ、照れて笑う。"},
+    seikotsu:{name:"整骨院・整体", h1:"「行ってみようかな」を、<br>短いドラマで。", lead:"痛みで困っている人が、相談して安心するまで。院内の雰囲気と相談の流れを物語に。撮影は不要です。",
+              syn:"孫を抱き上げられなかった祖父。",
+              hook:"「痛っ……」孫を抱き上げようとして、腰を押さえて固まる祖父。",
+              trouble:"孫の運動会まであと1週間。カレンダーの前で、あきらめかけた顔。",
+              solve:"女性の施術者「どこが、いつから痛むのか。まず一緒に確かめましょう」",
+              end:"運動会の観覧席。走る孫に、大きく手を振る。"},
+    shigyo:  {name:"士業", h1:"相談の一歩を、<br>短い物語で軽くする。", lead:"「こんなことで相談していいのか」で止まっている人に。相談した先の安心を、短いドラマで見せます。",
+              syn:"大きな工事を前に、許可がないと言われた社長。",
+              hook:"「その工事、許可がないと受けられませんよ」元請けの一言に、凍りつく社長。",
+              trouble:"請負代金500万円以上（税込）の工事。書類の山を前に、頭を抱える。",
+              solve:"女性の行政書士「必要な書類は、こちらで順番にそろえます」",
+              end:"許可が下りた日。職人たちと肩を並べて、ほっと笑う。"},
+    fudosan: {name:"不動産", h1:"住まいの不安を、<br>短い物語で安心に。", lead:"急な住み替えで困った家族が、新しい部屋で落ち着くまで。間取り図では伝わらない安心をドラマに。撮影は不要です。",
+              syn:"突然の退去通知と、転校させたくない母。",
+              hook:"「来月、この部屋を出てください」突然の電話に、立ち尽くす母。",
+              trouble:"段ボールに囲まれて、子どもの学区を調べながら途方に暮れる。",
+              solve:"女性の担当者「学区を変えずに住めるお部屋、3件ご用意しました」",
+              end:"新しい部屋の窓から、いつもの通学路を行く子を見送る。"},
+    inshoku: {name:"飲食店", h1:"「ここにしてよかった」を、<br>短い物語で。", lead:"困っていたお客様を、お店が助ける瞬間。通りすがりの人が「今度ここに行こう」と思うドラマにします。撮影・出演は不要です。",
+              syn:"歓迎会の1時間前、予約の店が閉まった幹事。",
+              hook:"「20人の歓迎会なのに、お店が急に閉まってる！」幹事の悲鳴。",
+              trouble:"開始まであと1時間。スマホを握って青ざめる。",
+              solve:"女性の店長「20名様ですね。奥の席をつなげて、ご用意します」",
+              end:"乾杯の声の中、幹事が胸をなでおろして笑う。"},
+    koumuten:{name:"工務店・リフォーム", h1:"住まいの困りごとを、<br>短いドラマで解決する。", lead:"家のトラブルで困った家族が、安心して暮らせるまで。施工例の写真より伝わる物語です。撮影は不要です。",
+              syn:"真夜中の雨漏りに、眠れない夫婦。",
+              hook:"真夜中、天井から「ポタッ」。布団の上に、冷たいしずく。",
+              trouble:"バケツを並べ、雨音を聞きながら眠れない夫婦。",
+              solve:"女性の担当者「まず、今夜の雨を止めます。お見積もりはそのあとで」",
+              end:"晴れた朝。直った屋根を見上げて、夫婦で笑う。"},
+    agri:    {name:"農業法人（採用）", h1:"農業法人の採用に、<br>短いドラマを。", lead:"人手が足りずに困っていた畑に、新しい仲間が来るまで。求人票では伝わらない「働く一日」を物語で。撮影・出演は不要です。",
+              syn:"収穫を前に、今年も人が来なかった畑。",
+              hook:"「今年も、ひとりも来なかった」実った畑に、空いたままの作業台。",
+              trouble:"収穫を前に、人手が足りず肩を落とす園主。",
+              solve:"女性の採用担当「未経験の人に、ここでの一日を見てもらいましょう」",
+              end:"新しい仲間と並んで、初めての収穫を笑い合う。"},
+    juku:    {name:"塾・スクール", h1:"「通いたい」を、<br>短い物語で。", lead:"困っていた親子が、安心して前を向くまで。生徒募集の広告を、短いドラマにします。撮影・出演は不要です。",
+              syn:"三者面談で「このままでは難しい」と言われた親子。",
+              hook:"「このままだと、志望校は難しいです」三者面談の一言。",
+              trouble:"帰り道、答案を握りしめてうつむく娘と、言葉が出ない母。",
+              solve:"女性の講師「苦手は2つだけ。そこから一緒に始めましょう」",
+              end:"春。合格発表の前で、親子が抱き合う。"},
     other:   {name:"その他の業種", h1:"御社の魅力を、<br>ドラマにする。", lead:"お店・会社・スクールの広告やSNSに。撮影・出演・ロケは不要です。3秒で飛ばされる動画を、最後まで見られる物語に。",
-              syn:"御社のお客様が、最初に迷った瞬間から。", line:"「ここに来て、よかった」"}
+              syn:"御社のお客様が、いちばん困った瞬間から。",
+              hook:"「どうしよう、明日なのに——」お客様の、思わず声が出る瞬間。",
+              trouble:"ひとりでは解決できず、困り果てた表情。",
+              solve:"女性の担当者「それ、私たちにお任せください」",
+              end:"「頼んでよかった」と、安心して笑うお客様。"}
   };
   var src = ""; try{ src = new URLSearchParams(location.search).get("src") || sessionStorage.getItem("src") || ""; }catch(e){}
   var key = "";
@@ -409,20 +448,22 @@ details.fold .in{padding:0 0 18px}
   for(var i=0;i<m.length;i++){ if(m[i][0].test(src)){ key = m[i][1]; break; } }
 
   var h1 = document.getElementById("h1"), lead = document.getElementById("lead");
-  var scene = document.getElementById("scene"), sk = document.getElementById("scene-k"), ss = document.getElementById("scene-syn"), sl = document.getElementById("scene-line");
+  var scene = document.getElementById("scene"), sk = document.getElementById("scene-k"), ss = document.getElementById("scene-syn"), sb = document.getElementById("scene-beats");
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
   var chips = document.querySelectorAll(".chip");
   var ta = document.querySelector("#f textarea[name=msg]");
   function mailHref(k){
     var d = IND[k];
-    var body = "構成案希望（" + d.name + "）\n\n冒頭案「" + d.syn + "」の続きをお願いします。\n\n会社名・屋号：\nお名前：\n作りたい動画・業種：\n";
+    var body = "構成案希望（" + d.name + "）\n\n筋書き「" + d.syn + "」で、御社用の構成案をお願いします。\n\n会社名・屋号：\nお名前：\n作りたい動画・業種：\n";
     return "mailto:drama@lasalle2023.com?subject=" + encodeURIComponent("構成案希望（" + d.name + "）") + "&body=" + encodeURIComponent(body);
   }
   function show(k, fromTap){
     var d = IND[k]; if(!d) return;
     chips.forEach(function(c){ c.setAttribute("aria-pressed", c.getAttribute("data-k")===k ? "true" : "false"); });
-    sk.textContent = d.name; ss.textContent = d.syn; sl.textContent = d.line;
+    sk.textContent = d.name; ss.textContent = d.syn;
+    sb.innerHTML = [["冒頭3秒",d.hook],["困った顔",d.trouble],["女性担当者",d.solve],["締め",d.end]].map(function(x){ return "<li><span>"+x[0]+"</span><div>"+esc(x[1])+"</div></li>"; }).join("");
     scene.setAttribute("data-on","1");
-    if(ta && (!ta.value || /^構成案希望（/.test(ta.value))) ta.value = "構成案希望（" + d.name + "）。冒頭案「" + d.syn + "」の続きをお願いします。";
+    if(ta && (!ta.value || /^構成案希望（/.test(ta.value))) ta.value = "構成案希望（" + d.name + "）。筋書き「" + d.syn + "」で、御社用の構成案をお願いします。";
     document.querySelectorAll(".js-mail").forEach(function(a){ a.href = mailHref(k); });
     if(fromTap && window.gtag) gtag("event","hook_tap",{src:src, industry:k});
   }
