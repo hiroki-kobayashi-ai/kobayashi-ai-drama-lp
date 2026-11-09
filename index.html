@@ -176,6 +176,16 @@ details.fold .in{padding:0 0 18px}
 .faq summary::after{content:"＋";color:var(--gold);flex:0 0 auto}
 .faq details[open] summary::after{content:"－"}
 .faq p{margin:0 0 14px;color:var(--muted);font-size:15px}
+
+/* v3 2026-11-09: 1欄フォーム（メールアドレスだけ） */
+.quick{margin-top:14px;background:var(--surface);border:2px solid var(--line);border-radius:16px;padding:14px 14px 12px;gap:8px}
+.quick label{font-size:15px;font-weight:900;color:var(--ink)}
+.quick-row{display:grid;gap:8px}
+@media (min-width:520px){.quick-row{grid-template-columns:1fr auto}}
+.quick input{background:var(--bg);color:var(--ink);border:2px solid var(--line);min-height:52px}
+.quick .btn{min-height:52px;font-size:16px}
+.quick-note{margin:0;font-size:12px;color:var(--muted);line-height:1.6}
+.quick .formsent{color:var(--ink);background:var(--gold-soft);border-color:var(--gold)}
 </style>
 </head>
 <body>
@@ -208,6 +218,14 @@ details.fold .in{padding:0 0 18px}
       <a class="btn btn-main js-mail" href="mailto:drama@lasalle2023.com?subject=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B&body=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%83%BB%E5%B1%8B%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E4%BD%9C%E3%82%8A%E3%81%9F%E3%81%84%E5%8B%95%E7%94%BB%E3%83%BB%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A">無料で構成案をもらう</a>
       <a class="btn btn-sub" href="#works">制作例を見る ↓</a>
     </div>
+    <form class="quick" id="qf" novalidate>
+      <label for="qf-email">メールアドレス1つで、無料の構成案</label>
+      <div class="quick-row">
+        <input id="qf-email" name="email" type="email" inputmode="email" autocomplete="email" placeholder="例：info@example.co.jp" required>
+        <button class="btn btn-main" type="submit">無料で受け取る</button>
+      </div>
+      <p class="quick-note">入力はこの1欄だけです。業種などは、構成案をお送りするときにメールで伺います。</p>
+    </form>
     <div class="hook" id="hook">
       <p class="q">御社の15秒ドラマ、冒頭の1行だけ見てみませんか。</p>
       <p class="qs">業種を1つ押すと、あらすじと最初のセリフが出ます。</p>
@@ -412,6 +430,30 @@ details.fold .in{padding:0 0 18px}
   chips.forEach(function(c){ c.addEventListener("click", function(){ var k = c.getAttribute("data-k"); h1.innerHTML = IND[k].h1; lead.textContent = IND[k].lead; show(k, true); }); });
   document.getElementById("scene-cta").addEventListener("click", function(){ if(window.gtag) gtag("event","scene_cta",{src:src}); });
 })();
+
+// 1欄フォーム（メールアドレスだけ）。送信先は下のフォームと同じGoogleフォーム
+document.getElementById('qf').addEventListener('submit',function(e){
+  e.preventDefault();
+  var f=this, em=(f.elements.email.value||'').trim();
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)){alert('メールアドレスの形式をご確認ください。');f.elements.email.focus();return;}
+  var btn=f.querySelector('button'); if(btn.disabled) return; btn.disabled=true; btn.textContent='送信中…';
+  var ind=document.querySelector('.chip[aria-pressed="true"]');
+  var p=new URLSearchParams();
+  p.append('entry.1691360468','（1欄フォーム・未入力）');
+  p.append('entry.1948089370','');
+  p.append('entry.2136815444',em);
+  p.append('entry.738409487','');
+  p.append('entry.241276529','構成案希望（1欄フォーム）'+(ind?'／選んだ業種：'+ind.textContent:''));
+  p.append('entry.648404663','まだ決めていない');
+  p.append('entry.1668225913',(window.__src||'')+'|quick');
+  fetch('https://docs.google.com/forms/d/e/1FAIpQLSeqSxdcoNQ-sN2IJBdm4KhVXFNYUgRdQEr5HMT94SdHyJz-og/formResponse',{method:'POST',mode:'no-cors',body:p})
+    .then(function(){
+      if(window.gtag) gtag('event','quick_submit',{src:window.__src||''});
+      f.innerHTML='<p class="formsent"><b>受け付けました。ありがとうございます。</b><br>2営業日以内に、ご入力のメールアドレスへご連絡します。<br>届かない場合は drama@lasalle2023.com へご連絡ください。</p>';
+    })
+    .catch(function(){btn.disabled=false;btn.textContent='無料で受け取る';alert('通信エラーで送信できませんでした。drama@lasalle2023.com へメールでお送りください。');});
+});
+document.getElementById('qf-email').addEventListener('focus',function(){ if(!this.__t){ this.__t=1; if(window.gtag) gtag('event','quick_focus',{src:window.__src||''}); } });
 
 document.getElementById('f').addEventListener('submit',function(e){
   e.preventDefault();
