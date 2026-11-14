@@ -16,5 +16,5 @@
     if(h.indexOf("mailto:") === 0) send("drama_mail");
     else if(h.indexOf("tel:") === 0) send("drama_tel");
   }, true);
-  document.addEventListener("play", function(e){ if(e.target.tagName==="VIDEO") send("video_play_" + (e.target.getAttribute("src")||"").replace(/^media\/|\.mp4$/g,"")); }, true);
+  document.addEventListener("play", function(e){ if(e.target.tagName==="VIDEO") send("video_play_" + (e.target.getAttribute("src")||"").replace(/^(\.\.\/)?media\/|\.mp4$/g,"")); }, true);
 })();
