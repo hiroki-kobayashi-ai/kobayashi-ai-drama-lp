@@ -189,12 +189,124 @@ details.fold .in{padding:0 0 18px}
 .quick .btn{min-height:52px;font-size:16px}
 .quick-note{margin:0;font-size:12px;color:var(--muted);line-height:1.6}
 .quick .formsent{color:var(--ink);background:var(--gold-soft);border-color:var(--gold)}
+
+/* v4 2026-11-15: 数字で見るSNS動画・30秒プランナー・動画の使い方・Web/運用プラン */
+.diag-link{display:flex;align-items:center;justify-content:space-between;gap:10px;margin:0 0 16px;padding:12px 16px;border-radius:14px;background:var(--accent);color:#fff;text-decoration:none;font-weight:900;font-size:16px;line-height:1.45;box-shadow:0 4px 0 #9c3a22}
+.diag-link span{flex:0 0 auto;background:#fff;color:var(--accent);border-radius:999px;padding:2px 12px;font-size:13px}
+.diag-link:active{transform:translateY(3px);box-shadow:0 1px 0 #9c3a22}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+@media (min-width:860px){.cards{grid-template-columns:repeat(4,1fr)}}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:18px;padding:16px 14px;text-align:center}
+.card .l{font-size:13px;color:var(--muted);line-height:1.5}
+.card b{display:block;font-size:clamp(30px,7vw,40px);line-height:1.2;color:var(--navy-2);font-weight:900;margin:4px 0}
+:root[data-theme="dark"] .card b{color:var(--gold)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]) .card b{color:var(--gold)}}
+.card small{display:block;font-size:12px;color:var(--muted);line-height:1.5}
+.src{font-size:12px;color:var(--muted);line-height:1.6;margin:8px 0 0}
+.panel{margin-top:18px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:18px 18px 16px}
+.panel h3{margin:0 0 4px;font-size:20px;line-height:1.45}
+.panel .sub{margin:0 0 12px;color:var(--muted);font-size:14px}
+.bars{display:grid;gap:8px}
+.brow{display:grid;grid-template-columns:3.4em 1fr;gap:10px;align-items:center;font-size:14px}
+.brow .pair2{display:grid;gap:4px}
+.bar2{display:grid;grid-template-columns:1fr 4.2em;gap:8px;align-items:center}
+.bar2 i{display:block;height:14px;border-radius:4px;background:var(--navy-2)}
+.bar2.ig i{background:var(--gold)}
+.bar2 em{font-style:normal;font-weight:700;text-align:right;font-size:13px}
+.legend{display:flex;gap:16px;font-size:13px;color:var(--muted);margin-bottom:10px}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:3px;margin-right:6px;vertical-align:-1px}
+.big2{display:grid;gap:12px}
+@media (min-width:760px){.big2{grid-template-columns:1fr 1fr}}
+.stat{display:flex;gap:14px;align-items:center;background:var(--gold-soft);border-radius:16px;padding:14px 16px}
+.stat>b{font-size:clamp(30px,7vw,40px);font-weight:900;color:var(--accent);line-height:1;flex:0 0 auto}
+.stat span{font-size:15px;line-height:1.6}
+.stat span b{color:var(--accent)}
+.own .stat span b{color:#fff}
+@media (max-width:560px){.stat{flex-direction:column;align-items:flex-start;gap:6px}}
+.own{margin-top:18px;background:var(--navy);color:#fff;border-radius:20px;padding:18px}
+.own h3{margin:0 0 10px;font-size:19px;color:#e8d3a3}
+.own .big2 .stat{background:var(--navy-2)}
+.own .big2 .stat>b{color:#e8d3a3}
+.own .src{color:#aebccb}
+/* planner */
+.pl{background:var(--surface);border:2px solid var(--gold);border-radius:22px;padding:20px 18px}
+.pl fieldset{border:0;margin:0 0 16px;padding:0}
+.pl legend{font-weight:900;font-size:17px;margin-bottom:8px;line-height:1.5}
+.pl .opts{display:flex;flex-wrap:wrap;gap:8px}
+.pl label.opt{display:flex;align-items:center;gap:8px;border:2px solid var(--line);border-radius:12px;padding:10px 12px;font-size:15px;font-weight:700;cursor:pointer;line-height:1.35;background:var(--surface)}
+.pl label.opt input{width:20px;height:20px;accent-color:var(--gold);margin:0}
+.pl label.opt:has(input:checked){border-color:var(--gold);background:var(--gold-soft)}
+.pl .go{width:100%;min-height:60px;font-size:19px;box-shadow:0 5px 0 #8a6516}
+.pl .go:active{transform:translateY(4px);box-shadow:0 1px 0 #8a6516}
+.res{display:none;margin-top:18px;border-radius:18px;background:var(--navy);color:#fff;padding:18px}
+.res.show{display:block}
+.res .lab{font-size:12px;letter-spacing:.14em;color:#e8d3a3;font-weight:700}
+.res h3{font-family:var(--f-display);font-size:22px;line-height:1.5;margin:4px 0 10px}
+.res .story{background:var(--navy-2);border-radius:12px;padding:10px 14px;margin:0 0 14px;font-size:15px;color:#dfe6ee}
+.res .story b{color:#fff}
+.rec{display:grid;gap:8px;margin:0 0 14px}
+.rec div{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:start;background:var(--navy-2);border-radius:12px;padding:10px 14px;font-size:15px;line-height:1.55}
+.rec div small{display:block;color:#c7d2df;font-size:13px}
+.rec div em{font-style:normal;font-weight:900;color:#e8d3a3;white-space:nowrap}
+.cal{list-style:none;margin:0 0 14px;padding:0;display:grid;gap:8px}
+.cal li{display:grid;grid-template-columns:4.4em 1fr;gap:10px;font-size:15px;line-height:1.6;color:#dfe6ee}
+.cal li span{font-size:12px;font-weight:900;color:#111;background:#e8d3a3;border-radius:6px;text-align:center;padding:2px 0;height:fit-content;margin-top:3px}
+.sumrow{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 12px;border-top:1px dashed #3b5170;padding:10px 0 0;font-size:15px}
+.sumrow b{font-size:22px;color:#e8d3a3}
+.res .note2{font-size:12px;color:#aebccb;margin:8px 0 12px}
+/* use */
+.uses{display:grid;gap:12px;grid-template-columns:1fr}
+@media (min-width:640px){.uses{grid-template-columns:1fr 1fr}}
+@media (min-width:980px){.uses{grid-template-columns:repeat(3,1fr)}}
+.use{display:grid;grid-template-columns:44px 1fr;gap:12px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px;text-align:left;font-family:inherit;color:inherit;cursor:pointer;width:100%}
+.use .ic{width:44px;height:44px;border-radius:12px;background:var(--gold-soft);display:grid;place-items:center;font-weight:900;color:var(--gold);font-size:15px}
+.use b{display:block;font-size:17px;line-height:1.4}
+.use .s{display:block;color:var(--muted);font-size:14px;line-height:1.6}
+.use .how{display:none;margin-top:8px;font-size:14px;line-height:1.7;border-top:1px dashed var(--line);padding-top:8px}
+.use[aria-expanded="true"]{border-color:var(--gold)}
+.use[aria-expanded="true"] .how{display:block}
+.use .more2{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;color:var(--gold)}
+.use[aria-expanded="true"] .more2{display:none}
+.case{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:14px 16px;margin-top:12px}
+.case .who{font-weight:900;font-size:15px;color:var(--gold);margin-bottom:6px}
+.case .steps{display:flex;flex-wrap:wrap;align-items:center;gap:6px}
+.case .steps span{background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:4px 10px;font-size:14px;line-height:1.5}
+.case .steps span+span:before{content:"→ ";color:var(--gold);font-weight:900}
+.case .steps span.goal{background:var(--navy);color:#fff;border-color:var(--navy)}
+.case .steps span.goal:before{color:#e8d3a3}
+.starter{margin-top:22px;background:var(--navy);color:#fff;border-radius:24px;padding:22px 18px;border:3px solid var(--gold)}
+.st-h b{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:2px 12px;font-size:13px}
+.st-h h3{font-family:var(--f-display);font-size:clamp(26px,6vw,34px);margin:8px 0 4px;color:#e8d3a3}
+.st-h p{margin:0 0 14px;color:#c7d2df;font-size:15px}
+.st-grid{display:grid;gap:12px}@media (min-width:640px){.st-grid{grid-template-columns:1fr 1fr}}
+.st-c{background:var(--navy-2);border-radius:16px;padding:14px 16px;border:2px solid transparent}.st-c.hot{border-color:var(--gold)}
+.st-c .tag{display:inline-block;background:#e8d3a3;color:#111;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
+.st-c h4{margin:8px 0 6px;font-size:20px}
+.st-p{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed #3b5170;padding:6px 0}
+.st-p span{font-size:14px;color:#c7d2df}.st-p b{font-size:28px;font-weight:900;color:#e8d3a3}
+.st-in{display:grid;gap:12px;margin-top:14px;font-size:15px}@media (min-width:640px){.st-in{grid-template-columns:1fr 1fr}}
+.st-in ul{margin:4px 0 0;padding-left:1.2em;color:#dfe6ee}
+.st-cmp{margin:14px 0 4px;font-size:14px;color:#dfe6ee;background:rgba(232,211,163,.12);border-radius:10px;padding:10px 12px}.st-cmp b{color:#e8d3a3}
+.starter .small{color:#aebccb}
+.st-note{margin-top:12px;background:var(--gold);color:#111;border-radius:12px;padding:10px 14px;font-size:15px;font-weight:700}
+/* web plans */
+.web{margin-top:30px}
+.web-h .k{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}
+.web-h h3{margin:6px 0 4px;font-size:24px;line-height:1.4;font-family:var(--f-display)}
+.web-h p{margin:0 0 16px;color:var(--muted);font-size:15px}
+.plans.four{grid-template-columns:1fr}
+@media (min-width:640px){.plans.four{grid-template-columns:1fr 1fr}}
+@media (min-width:1000px){.plans.four{grid-template-columns:repeat(4,1fr)}}
+.plans.four .plan h3{font-size:19px}
+.plans.four .plan .yen{font-size:30px}
+.combo{margin-top:14px;background:var(--gold-soft);border-radius:16px;padding:14px 16px;font-size:15px;line-height:1.7}
+.combo b{color:var(--accent)}
 </style>
 </head>
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="#top">小林塾<small>AIショートドラマ制作</small></a>
-  <nav class="nav"><a href="#works">制作例</a><a href="#price">料金</a><a href="#faq">質問</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
+  <nav class="nav"><a href="#numbers">数字</a><a href="#planner">30秒診断</a><a href="#use">使い方</a><a href="#works">制作例</a><a href="#starter">セット</a><a href="#price">料金</a><a href="#faq">質問</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
 </div></header>
 
 <main id="top">
@@ -203,16 +315,17 @@ details.fold .in{padding:0 0 18px}
     <span class="eyebrow">AI SHORT DRAMA PRODUCTION</span>
     <h1 id="h1">御社の魅力を、<br>ドラマにする。</h1>
     <p class="lead" id="lead">お店・会社・スクールの広告やSNSに。撮影・出演・ロケは不要です。<br>3秒で飛ばされる動画を、最後まで見られる物語に。</p>
+    <a class="diag-link" href="#planner" data-ev="diag_link_hero">30秒の無料診断：御社なら、動画をどこで・どう使う？<span>やってみる ›</span></a>
     <div class="price" aria-label="料金">
       <div class="price-row">
         <div class="pcard"><div class="t">紙芝居型</div><div class="y">1万円<small>〜</small></div><div class="d">1本・税抜｜5営業日</div></div>
         <div class="pcard"><div class="t">ドラマ型</div><div class="y">3万円<small>〜</small></div><div class="d">1本・税抜｜7〜10営業日</div></div>
       </div>
       <div class="offer" id="offer">
-        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">残り10社（11/6時点）</span></div>
+        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">12月31日（木）お申し込み分まで</span></div>
         <div class="p">紙芝居型 <b>2,000円</b>／ドラマ型 <b>6,000円</b>（いずれも1本・税抜）</div>
         <div class="g">さらに今なら、ご成約の方にnoteで販売中の「AIに仕事を丸投げしても失敗しない指示書の型」または「ひとり経理AIキット」をどちらか1つプレゼント。</div>
-        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
+        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。期限前でも、予定より早くキャンペーンを終了する場合があります。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
       </div>
       <div class="free"><b>無料</b><span>まずは御社用の構成案（あらすじとセリフ）をお送りします</span></div>
       <div class="note">構成案は2営業日以内にお届け。ご相談だけでも費用はかかりません。</div>
@@ -258,6 +371,126 @@ details.fold .in{padding:0 0 18px}
     <video src="media/sample-v10.mp4" poster="media/sample-v10.jpg" controls playsinline preload="none"></video>
     <span class="cap">約90秒｜業種別のドラマ見本・3つの作り方・お試し価格</span>
   </div>
+</div></section>
+
+<section id="numbers"><div class="wrap">
+  <div class="sec-h"><div class="no">00 — NUMBERS</div><h2>数字で見る、<br>いまSNS動画を使う理由。</h2><p>お客様は、テレビより長い時間をネットで過ごし、その多くを動画に使っています。</p></div>
+  <div class="cards">
+    <div class="card"><div class="l">YouTubeを使う人</div><b>81.5%</b><small>全年代。50代は84.9%</small></div>
+    <div class="card"><div class="l">LINEを使う人</div><b>92.9%</b><small>全年代。60代も92.0%</small></div>
+    <div class="card"><div class="l">平日のネット利用</div><b>183.9分</b><small>テレビ（リアルタイム）は156.1分</small></div>
+    <div class="card"><div class="l">平日に動画サービスを見る時間</div><b>54.5分</b><small>全年代の平均</small></div>
+  </div>
+  <p class="src">総務省情報通信政策研究所「令和7年度 情報通信メディアの利用時間と情報行動に関する調査報告書」（2026年6月公表）</p>
+
+  <div class="panel">
+    <h3>40代〜70代も、YouTubeは「ふつうに見ている」</h3>
+    <p class="sub">年代別の利用率。お客様の年代に合わせて、出す場所を選びます。</p>
+    <div class="legend"><span><i style="background:var(--navy-2)"></i>YouTube</span><span><i style="background:var(--gold)"></i>Instagram</span></div>
+    <div class="bars">
+      <div class="brow"><span>40代</span><div class="pair2"><div class="bar2"><i style="width:91.6%"></i><em>91.6%</em></div><div class="bar2 ig"><i style="width:67.1%"></i><em>67.1%</em></div></div></div>
+      <div class="brow"><span>50代</span><div class="pair2"><div class="bar2"><i style="width:84.9%"></i><em>84.9%</em></div><div class="bar2 ig"><i style="width:54.4%"></i><em>54.4%</em></div></div></div>
+      <div class="brow"><span>60代</span><div class="pair2"><div class="bar2"><i style="width:72.6%"></i><em>72.6%</em></div><div class="bar2 ig"><i style="width:36.1%"></i><em>36.1%</em></div></div></div>
+      <div class="brow"><span>70代</span><div class="pair2"><div class="bar2"><i style="width:48.5%"></i><em>48.5%</em></div><div class="bar2 ig"><i style="width:15.8%"></i><em>15.8%</em></div></div></div>
+    </div>
+    <p class="src">同上（令和7年度調査）。若い方・女性が多いお店はInstagram、40代以上が中心ならYouTubeとLINEも、が目安です。</p>
+  </div>
+
+  <div class="panel">
+    <h3>「広告でも、おもしろければ最後まで見る」</h3>
+    <p class="sub">ショート動画の利用者600人への調査より。だから、説明ではなく<b>物語</b>にします。</p>
+    <div class="big2">
+      <div class="stat"><b>40.0%</b><span>企業・ブランドのショート動画を見て、<b>検索などの行動に影響があった</b>人</span></div>
+      <div class="stat"><b>51.5%</b><span>広告と分かっていても、<b>内容やテーマによっては最後まで見る</b>人（「おもしろければ見る」は28.8%）</span></div>
+    </div>
+    <p class="src">株式会社コムニコ「ショート動画視聴と購買行動に関する意識調査」（2025年10月、全国18〜69歳・600名）</p>
+    <div class="stat" style="margin-top:12px"><b>155.9%</b><span>2025年の<b>縦型動画広告</b>の市場は前年の155.9%、2,049億円に。スマホ向け動画広告の約3割が縦型です。</span></div>
+    <p class="src">サイバーエージェント／デジタルインファクト「2025年 国内動画広告の市場調査」（2026年3月）</p>
+  </div>
+
+  <div class="own">
+    <h3>私たちも、自社のSNSで毎日ためしています</h3>
+    <div class="big2">
+      <div class="stat"><b>約1.8万回</b><span>自社の連続ドラマ「レイナの逆転90日」第15話の、<b>公開翌日</b>の再生回数（YouTube）</span></div>
+      <div class="stat"><b>2割→4〜5割</b><span>ドラマを始めてから、チャンネルの視聴者に占める<b>女性の割合</b>が変化</span></div>
+      <div class="stat"><b>1.7万回</b><span>Instagram（フォロワー<b>440人</b>）のリール1本の再生回数。フォロワーの約38倍の人に届きました</span></div>
+      <div class="stat"><b>12本中10本</b><span>直近のリール12本のうち、<b>1,000回以上</b>再生された本数（12本の合計 約4.6万回）</span></div>
+    </div>
+    <p class="src">YouTubeは当社チャンネルの管理画面より（2026年10月）。Instagramは当社アカウント @lumiere90_jp の公開画面より（2026年11月15日時点）。フォロワーが少なくても、リールはフォロワー以外に届きます。同じ作り方で、御社の動画をつくります。結果は業種・内容・配信方法で変わり、効果を保証するものではありません。</p>
+  </div>
+  <div class="btns"><a class="btn btn-main" href="#planner" data-ev="diag_link_numbers">御社の場合を、30秒で診断する ↓</a><a class="btn btn-sub" href="#works">制作例を見る ↓</a></div>
+</div></section>
+
+<section id="planner"><div class="wrap">
+  <div class="sec-h"><div class="no">00 — 30秒診断</div><h2>御社なら、<br>動画をこう使います。</h2><p>5つ選ぶだけ。おすすめの作り方・最初の1か月の使い方・費用の目安が出ます（入力内容は保存・送信されません）。</p></div>
+  <form class="pl" id="pl" onsubmit="return false">
+    <fieldset><legend>① 業種は？</legend><div class="opts">
+      <label class="opt"><input type="radio" name="ind" value="biyou">美容室・エステ</label>
+      <label class="opt"><input type="radio" name="ind" value="seikotsu">整骨院・整体</label>
+      <label class="opt"><input type="radio" name="ind" value="shigyo">士業</label>
+      <label class="opt"><input type="radio" name="ind" value="fudosan">不動産</label>
+      <label class="opt"><input type="radio" name="ind" value="inshoku">飲食店</label>
+      <label class="opt"><input type="radio" name="ind" value="koumuten">工務店・リフォーム</label>
+      <label class="opt"><input type="radio" name="ind" value="juku">塾・スクール</label>
+      <label class="opt"><input type="radio" name="ind" value="agri">農業法人など（採用）</label>
+      <label class="opt"><input type="radio" name="ind" value="other" checked>その他</label></div></fieldset>
+    <fieldset><legend>② いちばんの目的は？</legend><div class="opts">
+      <label class="opt"><input type="radio" name="goal" value="shukyaku" checked>新しいお客様を増やす</label>
+      <label class="opt"><input type="radio" name="goal" value="shinrai">相談・問い合わせのきっかけ</label>
+      <label class="opt"><input type="radio" name="goal" value="kokuchi">新商品・イベントの告知</label>
+      <label class="opt"><input type="radio" name="goal" value="saiyo">人の採用</label></div></fieldset>
+    <fieldset><legend>③ いまのSNS（Instagramなど）は？</legend><div class="opts">
+      <label class="opt"><input type="radio" name="sns" value="none">アカウントがない</label>
+      <label class="opt"><input type="radio" name="sns" value="stop" checked>あるが、ほとんど止まっている</label>
+      <label class="opt"><input type="radio" name="sns" value="active">週1回くらいは投稿している</label></div></fieldset>
+    <fieldset><legend>④ ホームページは？</legend><div class="opts">
+      <label class="opt"><input type="radio" name="hp" value="none">ない</label>
+      <label class="opt"><input type="radio" name="hp" value="old" checked>あるが古い・スマホで見にくい</label>
+      <label class="opt"><input type="radio" name="hp" value="ok">ある（困っていない）</label></div></fieldset>
+    <fieldset><legend>⑤ 動画・SNSに使える月の予算は？</legend><div class="opts">
+      <label class="opt"><input type="radio" name="bud" value="1">1万円くらいまで</label>
+      <label class="opt"><input type="radio" name="bud" value="3" checked>3万円くらいまで</label>
+      <label class="opt"><input type="radio" name="bud" value="10">10万円くらいまで</label>
+      <label class="opt"><input type="radio" name="bud" value="99">それ以上も可</label></div></fieldset>
+    <button type="button" class="btn btn-main go" id="pl-go">診断結果を見る（ここを押す）</button>
+  </form>
+  <div class="res" id="pl-res" aria-live="polite">
+    <div class="lab">診断結果 ｜ <span id="pl-ind"></span></div>
+    <h3 id="pl-title"></h3>
+    <p class="story">御社なら、たとえばこんな物語から：<b id="pl-story"></b></p>
+    <div class="rec" id="pl-rec"></div>
+    <div class="lab" style="margin-bottom:8px">最初の1か月の使い方</div>
+    <ol class="cal" id="pl-cal"></ol>
+    <div class="sumrow"><span>最初の月の目安（税抜）</span><b id="pl-first"></b></div>
+    <div class="sumrow"><span>2か月目からの目安（月・税抜）</span><b id="pl-month"></b></div>
+    <div class="st-note" id="pl-starter" style="display:none"></div>
+    <p class="note2">料金表から計算した目安です。内容・本数はご相談で決まり、構成案とお見積りまでは無料です。結果は業種・内容・配信方法で変わり、効果を保証するものではありません。</p>
+    <div class="btns">
+      <a class="btn btn-main js-pl-mail" id="pl-mail" href="#contact">この診断結果で、無料の構成案をもらう</a>
+      <a class="btn btn-sub" id="pl-form" href="#contact" style="background:transparent;color:#fff;border-color:#3b5170">フォームに結果を入れて送る ↓</a>
+    </div>
+  </div>
+</div></section>
+
+<section id="use"><div class="wrap">
+  <div class="sec-h"><div class="no">00 — HOW TO USE</div><h2>1本の動画を、<br>9か所で使い回す。</h2><p>作って終わりではありません。同じ1本を、場所に合わせて何度も働かせます。気になる所を押すと、具体的な使い方が出ます。</p></div>
+  <div class="uses" id="uses">
+    <button type="button" class="use" aria-expanded="false" data-ev="use_reel"><span class="ic">IG</span><span><b>Instagram リール</b><span class="s">フォロワー以外にも届く入口</span><span class="how">縦の30秒をそのまま投稿。キャプションの1行目に「〇〇でお困りの方へ」、最後に「予約はプロフィールのリンクから」。週2〜3本が目安です。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_story"><span class="ic">IG</span><span><b>ストーリーズ</b><span class="s">リンクを直接押してもらえる</span><span class="how">リールの一場面＋「リンクスタンプ」で予約ページへ。24時間で消えるので、投稿した翌日に出すと2回見てもらえます。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_yt"><span class="ic">YT</span><span><b>YouTube ショート</b><span class="s">40〜60代にも届く</span><span class="how">同じ動画をショートとして投稿。チャンネルのリンク欄に予約・問い合わせページを。検索にも残るので、時間がたっても見られます。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_line"><span class="ic">LINE</span><span><b>LINE公式アカウントの配信</b><span class="s">今いるお客様に、もう一度</span><span class="how">「新しい動画ができました」と既存のお客様へ配信。再来店・紹介のきっかけに。LINEは60代でも9割が使っています。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_hp"><span class="ic">HP</span><span><b>ホームページ・LPの最初の画面</b><span class="s">文字より先に、人柄が伝わる</span><span class="how">最初の画面に動画を置き、すぐ下に「予約・相談」のボタン。読む前に雰囲気が伝わり、迷っている人の背中を押します（LP制作もお受けします）。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_map"><span class="ic">MAP</span><span><b>Googleマップ（お店の情報）</b><span class="s">「近くの〇〇」で探す人に</span><span class="how">Googleビジネスプロフィールに動画を追加。地図で見比べている人に、写真だけのお店より先に目に入ります。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_ad"><span class="ic">AD</span><span><b>SNS広告（少額から）</b><span class="s">反応のよかった1本だけを広げる</span><span class="how">投稿して反応がよかった動画に、少額の広告を付けて地域・年代をしぼって配信。新しく広告用の動画を作らなくて済みます。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_mail"><span class="ic">MAIL</span><span><b>メール・名刺・チラシのQR</b><span class="s">営業や紹介のときに</span><span class="how">メールの署名や名刺・チラシにQRコードを。「30秒の動画で当社のことが分かります」と添えるだけで、説明の手間が減ります。</span><span class="more2">使い方を見る ＋</span></span></button>
+    <button type="button" class="use" aria-expanded="false" data-ev="use_shop"><span class="ic">店頭</span><span><b>店頭・待合室のモニター</b><span class="s">待ち時間に、次のメニューを</span><span class="how">音なし・字幕付きでくり返し流します。待っている方に新メニューやサービスを自然に知ってもらえます。</span><span class="more2">使い方を見る ＋</span></span></button>
+  </div>
+  <div style="margin-top:22px"><div class="ind-h"><span class="k">よくある使い方の例</span><h3>動画から、問い合わせまでの流れ</h3><p>※よくある状況をもとにした例です</p></div>
+    <div class="case"><div class="who">美容室 ｜ 紙芝居型を毎週</div><div class="steps"><span>「お客様の変身」紙芝居を週2本</span><span>リール・ストーリーズに投稿</span><span>プロフィールのリンク</span><span class="goal">予約ページ</span></div></div>
+    <div class="case"><div class="who">塾・スクール ｜ ドラマ型を1本＋広告</div><div class="steps"><span>「入塾ゼロの教室」ドラマ型1本</span><span>地域・保護者の年代にしぼって広告</span><span>LPの最初の画面にも同じ動画</span><span class="goal">体験授業の申込</span></div></div>
+    <div class="case"><div class="who">士業 ｜ ドラマ型をホームページとメールに</div><div class="steps"><span>「許可がない！」ドラマ型1本</span><span>ホームページの最初の画面</span><span>メール署名・名刺のQR</span><span class="goal">相談のお電話</span></div></div>
+  </div>
+  <div class="btns"><a class="btn btn-main" href="#planner" data-ev="diag_link_use">御社の使い方を、30秒で診断する ↑</a><a class="btn btn-sub js-mail" href="mailto:drama@lasalle2023.com?subject=%E6%A7%8B%E6%88%90%E6%A1%88%E5%B8%8C%E6%9C%9B">無料で構成案をもらう</a></div>
 </div></section>
 
 <section id="works"><div class="wrap">
@@ -320,10 +553,10 @@ details.fold .in{padding:0 0 18px}
 <section id="price"><div class="wrap">
   <div class="sec-h"><div class="no">02 — PRICE</div><h2>作り方は2つ。<br>どちらも、まず無料の構成案から。</h2><p>すべて税抜価格です。構成案（あらすじとセリフ）を見てから、作るかどうかをお決めください。</p></div>
   <div class="offer-box"><div class="offer">
-        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">残り10社（11/6時点）</span></div>
+        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">12月31日（木）お申し込み分まで</span></div>
         <div class="p">紙芝居型 <b>2,000円</b>／ドラマ型 <b>6,000円</b>（いずれも1本・税抜）</div>
         <div class="g">さらに今なら、ご成約の方にnoteで販売中の「AIに仕事を丸投げしても失敗しない指示書の型」または「ひとり経理AIキット」をどちらか1つプレゼント。</div>
-        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
+        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。期限前でも、予定より早くキャンペーンを終了する場合があります。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
       </div>
       </div>
   <div class="plans two">
@@ -331,6 +564,20 @@ details.fold .in{padding:0 0 18px}
       <ul><li>1枚絵＋ナレーションで物語を伝える</li><li>毎日のSNS投稿・商品やサービスの解説・お客様の声の再現に</li><li>納期 5営業日・修正1回無料</li></ul></div>
     <div class="plan hot"><span class="tag">会話と表情で引き込む</span><h3>ドラマ型</h3><div class="yen">3万円<small>〜／本</small></div>
       <ul><li>人物が話し、口の動きと声が合った会話</li><li>SNS広告・連続配信・お店や会社の“看板キャラ”づくりに</li><li>納期 7〜10営業日・修正1回無料</li></ul></div>
+  </div>
+  <div class="starter" id="starter">
+    <div class="st-h"><b>12月31日（木）お申し込み分まで</b><h3>スターターセット</h3><p>ページづくり・動画・投稿・保守を、まるごと1つに。はじめての方が、1か月目から「動画が毎週出ている状態」になります。</p></div>
+    <div class="st-grid">
+      <div class="st-c"><span class="tag">安く・毎週</span><h4>紙芝居型コース</h4>
+        <div class="st-p"><span>初月</span><b>5万円</b></div><div class="st-p"><span>2か月目から</span><b>月2.5万円</b></div></div>
+      <div class="st-c hot"><span class="tag">会話と表情で引き込む</span><h4>ドラマ型コース</h4>
+        <div class="st-p"><span>初月</span><b>6.5万円</b></div><div class="st-p"><span>2か月目から</span><b>月3.5万円</b></div></div>
+    </div>
+    <div class="st-in"><div><b>初月に入るもの</b><ul><li>LP制作（1ページ・動画とボタン付き）</li><li>動画 4本（30秒）</li><li>Instagram・YouTube 投稿代行</li><li>保守・更新</li></ul></div>
+      <div><b>2か月目から毎月</b><ul><li>動画 4本（30秒）</li><li>Instagram 投稿代行</li><li>保守・更新</li></ul></div></div>
+    <p class="st-cmp">別々に頼むと：紙芝居型コースは初月10.5万円・2か月目から月5.5万円 → <b>初月 約52%OFF</b>。ドラマ型コースは初月18.5万円・2か月目から月13.5万円 → <b>初月 約65%OFF</b>（いずれも税抜）。</p>
+    <p class="small">すべて税抜。期限前でも、予定より早く受付を終了する場合があります。</p>
+    <div class="btns"><a class="btn btn-main js-starter" data-ev="starter_mail" href="mailto:drama@lasalle2023.com?subject=%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%E5%B8%8C%E6%9C%9B&body=%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%E5%B8%8C%E6%9C%9B%EF%BC%88%E7%B4%99%E8%8A%9D%E5%B1%85%E5%9E%8B%EF%BC%8F%E3%83%89%E3%83%A9%E3%83%9E%E5%9E%8B%EF%BC%89%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%83%BB%E5%B1%8B%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A">スターターセットを相談する（無料）</a><a class="btn btn-sub" href="#planner" data-ev="diag_link_starter">合うかどうか30秒で診断 ↑</a></div>
   </div>
   <details class="fold"><summary>さらに本格的に（感動ストーリー型・お試しパック・継続プラン）</summary><div class="in">
     <table style="width:100%;border-collapse:collapse;font-size:15px">
@@ -342,12 +589,28 @@ details.fold .in{padding:0 0 18px}
     </table>
     <p class="small" style="margin-top:8px">尺や表現のご希望を伺い、具体的な制作範囲と費用をお見積りします。</p>
   </div></details>
+  <div class="web" id="web">
+    <div class="web-h"><span class="k">WEB & SNS ｜ 動画のあとも、まるごと</span><h3>動画を置く場所づくりと、<br>毎日の投稿もおまかせ。</h3><p>動画だけでも、ホームページ・LP・投稿代行だけでも承ります。すべて税抜です。</p></div>
+    <div class="plans four">
+      <div class="plan"><span class="tag">動画の受け皿に</span><h3>LP制作（1ページ）</h3><div class="yen">5万円<small>〜</small></div>
+        <ul><li>スマホで見やすい1枚のページ</li><li>動画・予約／問い合わせボタン・フォーム</li><li>アクセス計測（何人来て、何人押したか）</li><li>納期 10営業日〜</li></ul></div>
+      <div class="plan"><span class="tag">会社・お店の顔に</span><h3>ホームページ制作</h3><div class="yen">15万円<small>〜</small></div>
+        <ul><li>5ページ程度（トップ・サービス・料金・会社案内・問い合わせ）</li><li>動画の埋め込み・スマホ対応</li><li>独自ドメインの設定もご相談可</li><li>納期 3〜4週間〜</li></ul></div>
+      <div class="plan"><span class="tag">作ったあとも安心</span><h3>保守・更新</h3><div class="yen">月5,000円<small>〜</small></div>
+        <ul><li>文字・写真・料金などの小さな修正（月2回まで）</li><li>表示の不具合の確認・対応</li><li>毎月のアクセス数のご報告</li><li>当社で作ったLP・ホームページが対象</li></ul></div>
+      <div class="plan hot"><span class="tag">いちばん手間が消える</span><h3>Instagram投稿代行</h3><div class="yen">月1万円<small>〜</small></div>
+        <ul><li>月8本の投稿予約（リール・フィード）</li><li>キャプション・ハッシュタグ作成</li><li>ストーリーズでリンク誘導</li><li>月1回、再生数・反応のご報告</li><li>動画の制作費は別（紙芝居型・ドラマ型の料金）</li></ul></div>
+    </div>
+    <div class="combo">組み合わせの例：<b>紙芝居型 月4本（4万円）＋ Instagram投稿代行（1万円）＝ 月5万円</b>で、毎週の投稿がまるごと手を離れます。はじめての方は、お試し80%OFFの1本から。<br><a href="#planner" data-ev="diag_link_web" style="color:var(--accent);font-weight:900">→ 御社に合う組み合わせを30秒で診断する</a></div>
+  </div>
 </div></section>
 
 <section id="faq"><div class="wrap">
   <div class="sec-h"><div class="no">03 — FAQ</div><h2>よくあるご質問</h2></div>
   <div class="faq">
     <details><summary>できた動画は、自由に使えますか。</summary><p>はい。納品した動画は御社のものとして、広告・SNS・ホームページ・店頭で自由にお使いいただけます。当社の制作例としての掲載は、ご了承いただいた場合だけです。</p></details>
+    <details><summary>作った動画は、どこに出せばいいですか。</summary><p>Instagramのリール・ストーリーズ、YouTubeショート、LINE公式アカウント、ホームページの最初の画面、Googleマップのお店情報などに、同じ1本を使い回せます。上の「30秒診断」で、御社に合う出し方が分かります。投稿まで任せたい方はInstagram投稿代行（月1万円〜）もあります。</p></details>
+    <details><summary>動画だけでなく、ホームページや投稿もお願いできますか。</summary><p>はい。LP制作（5万円〜）、ホームページ制作（15万円〜）、保守・更新（月5,000円〜）、Instagram投稿代行（月1万円〜）を承ります。動画とまとめてのご相談も、どれか1つだけのご依頼も大丈夫です。</p></details>
     <details><summary>修正は何回できますか。</summary><p>1回まで無料です。あらすじは構成案の段階でご確認いただくので、制作後の作り直しは別途お見積りになります。修正の範囲はお見積り時にご確認いただけます。</p></details>
     <details><summary>支払いはいつですか。</summary><p>構成案とお見積りにご納得いただいてから、前払いです。構成案までは無料で、費用はかかりません。お支払い方法はお見積り時にご案内します。</p></details>
     <details><summary>「AIで作った」と表示する必要はありますか。</summary><p>媒体のルールに従います。人物が実写のように見える動画は、YouTube・Instagramで「AI生成」の表示が求められる場合があり、納品時に設定方法をお伝えします。紙芝居型（イラスト＋ナレーション）は多くの場合、表示不要です。</p></details>
@@ -387,7 +650,7 @@ details.fold .in{padding:0 0 18px}
           <label>電話番号 <i>任意</i><input name="tel" type="tel" autocomplete="tel"></label>
         </div>
         <label>作りたい動画・業種 <i>必須</i><textarea name="msg" required placeholder="例：構成案希望。美容室の新メニューを紹介する15秒の動画を作りたいです。"></textarea></label>
-        <label>作り方・ご予算 <i>任意</i><select name="budget"><option value="">選択してください</option><option>【先着10社】お試し80%OFF・紙芝居型（2,000円）</option><option>【先着10社】お試し80%OFF・ドラマ型（6,000円）</option><option>紙芝居型（1本1万円〜）</option><option>ドラマ型（1本3万円〜）</option><option>感動ストーリー型</option><option>お試しパック（9.8万円）</option><option>継続プラン（月30万円）</option><option>まだ決めていない</option></select></label>
+        <label>作り方・ご予算 <i>任意</i><select name="budget"><option value="">選択してください</option><option>【先着10社】お試し80%OFF・紙芝居型（2,000円）</option><option>【先着10社】お試し80%OFF・ドラマ型（6,000円）</option><option>紙芝居型（1本1万円〜）</option><option>ドラマ型（1本3万円〜）</option><option>感動ストーリー型</option><option>お試しパック（9.8万円）</option><option>継続プラン（月30万円）</option><option>LP制作（5万円〜）</option><option>ホームページ制作（15万円〜）</option><option>保守・更新（月5,000円〜）</option><option>Instagram投稿代行（月1万円〜）</option><option>30秒診断の組み合わせ</option><option>スターターセット・紙芝居型（初月5万円）</option><option>スターターセット・ドラマ型（初月6.5万円）</option><option>まだ決めていない</option></select></label>
         <button class="btn btn-main" type="submit">この内容で送信する</button>
         <p class="formnote">送信ボタンを押すだけで送信が完了します。無料の構成案は2営業日以内にお送りします。</p>
       </form></div>
@@ -490,7 +753,84 @@ details.fold .in{padding:0 0 18px}
   if(key){ h1.innerHTML = IND[key].h1; lead.textContent = IND[key].lead; show(key, false); }
   chips.forEach(function(c){ c.addEventListener("click", function(){ var k = c.getAttribute("data-k"); h1.innerHTML = IND[k].h1; lead.textContent = IND[k].lead; show(k, true); }); });
   document.getElementById("scene-cta").addEventListener("click", function(){ if(window.gtag) gtag("event","scene_cta",{src:src}); });
+  window.__IND = IND;
+  // 業種チップ・?src= の業種を30秒診断にも反映
+  function syncPl(k){ var r = document.querySelector('#pl input[name=ind][value="'+k+'"]'); if(r) r.checked = true; }
+  if(key) syncPl(key);
+  chips.forEach(function(c){ c.addEventListener("click", function(){ syncPl(c.getAttribute("data-k")); }); });
 })();
+
+// v4 2026-11-15: 30秒診断（料金表から目安を計算。入力内容は保存・送信しない）
+(function(){
+  var go = document.getElementById("pl-go"); if(!go) return;
+  function v(n){ var e = document.querySelector('#pl input[name="'+n+'"]:checked'); return e ? e.value : ""; }
+  function yen(n){ return n.toLocaleString("ja-JP") + "円"; }
+  function esc(t){ return String(t).replace(/[&<>"]/g,function(c){ return {"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]; }); }
+  var GOAL = {shukyaku:"新しいお客様を増やす", shinrai:"相談・問い合わせのきっかけ", kokuchi:"新商品・イベントの告知", saiyo:"人の採用"};
+  var last = null;
+  go.addEventListener("click", function(){
+    var IND = window.__IND || {}, k = v("ind") || "other", d = IND[k] || IND.other;
+    var goal = v("goal"), sns = v("sns"), hp = v("hp"), bud = parseInt(v("bud"),10) || 3;
+    var drama = (goal === "shinrai" || goal === "saiyo" || bud >= 10) && bud > 1;
+    var recs = [], first = 0, month = 0, title, cal = [];
+    // 1本目は先着10社のお試し80%OFF
+    if(drama){
+      recs.push(["ドラマ型 1本（お試し80%OFF）","会話と表情で引き込む看板動画。広告・ホームページの最初の画面に", 6000]); first += 6000;
+      title = "看板になるドラマ型を1本つくり、何か所でも使い回す";
+    }else{
+      recs.push(["紙芝居型 1本（お試し80%OFF）","1枚絵＋声で、毎週の投稿にむく作り方", 2000]); first += 2000;
+      title = "低コストの紙芝居型で、投稿を止めずに続ける";
+    }
+    // 2か月目からの本数
+    var needPost = sns !== "active" && bud >= 3;
+    var nKami = bud <= 1 ? 1 : (bud <= 3 ? (needPost ? 1 : 2) : 4), nDrama = bud >= 99 ? 2 : (bud >= 10 && drama ? 1 : 0);
+    if(bud >= 99) nKami = 4;
+    var vid = nKami*10000 + nDrama*30000;
+    var vidTxt = "紙芝居型 月" + nKami + "本" + (nDrama ? "＋ドラマ型 月" + nDrama + "本" : "");
+    month += vid;
+    recs.push(["2か月目から："+vidTxt, "反応のよかった型を続けて、冒頭3秒だけ変えて出し直します", vid]);
+    if(needPost){ recs.push(["Instagram投稿代行","月8本の投稿予約・キャプション・ストーリーズ誘導・月1回のご報告",10000]); first += 10000; month += 10000; }
+    var web = 0;
+    if(hp === "none" && bud >= 10){ recs.push(["ホームページ制作（5ページ程度）","動画を最初の画面に置き、予約・相談ボタンへ",150000]); web = 150000; }
+    else if(hp === "none" || (hp === "old" && bud >= 3)){ recs.push(["LP制作（1ページ）","動画のすぐ下に「予約・相談」ボタン。来た人数と押した人数も計測",50000]); web = 50000; }
+    if(web){ first += web; } if(web && bud >= 3){ recs.push(["保守・更新","小さな修正と毎月のアクセス報告",5000]); month += 5000; }
+    // 1か月の使い方
+    var place = (k === "shigyo" || k === "fudosan" || k === "koumuten") ? "ホームページの最初の画面・メール署名のQR" : (k === "agri" || goal === "saiyo") ? "求人ページ・Instagram・YouTubeショート" : "Instagramリール・YouTubeショート";
+    var link = web ? (web === 150000 ? "新しいホームページ" : "新しいLP") : (hp === "ok" ? "今のホームページ" : "予約・問い合わせページ");
+    cal.push(["1週目","無料の構成案（あらすじとセリフ）を見て、お試しの1本をご注文"]);
+    cal.push(["2週目","完成した動画を" + place + "に。リンク先は" + link + (needPost ? "（投稿は当社が予約）" : "")]);
+    cal.push(["3週目","同じ1本をストーリーズ・LINE配信・Googleマップにも。反応がよければ少額の広告で地域・年代をしぼって配信"]);
+    cal.push(["4週目","再生・保存・問い合わせの数を見て、次の1本の冒頭3秒を決める（目的：" + (GOAL[goal]||"") + "）"]);
+    document.getElementById("pl-ind").textContent = d.name + "／" + (GOAL[goal]||"");
+    document.getElementById("pl-title").textContent = title;
+    document.getElementById("pl-story").textContent = d.syn + " ——「" + d.solve.replace(/^[^「]*「|」$/g,"") + "」";
+    document.getElementById("pl-rec").innerHTML = recs.map(function(r){ return "<div><span>"+esc(r[0])+"<small>"+esc(r[1])+"</small></span><em>"+yen(r[2])+(/^2か月目|保守|投稿代行/.test(r[0])?"/月":"")+"</em></div>"; }).join("");
+    document.getElementById("pl-cal").innerHTML = cal.map(function(c){ return "<li><span>"+c[0]+"</span><div>"+esc(c[1])+"</div></li>"; }).join("");
+    document.getElementById("pl-first").textContent = "約" + yen(first);
+    document.getElementById("pl-month").textContent = "約" + yen(month);
+    var stn = document.getElementById("pl-starter");
+    if(stn){ if(hp !== "ok" && sns !== "active" && bud >= 3){ var dr = drama; stn.innerHTML = "12月31日まで：<a href=\"#starter\" style=\"color:#111\">スターターセット（" + (dr ? "ドラマ型コース" : "紙芝居型コース") + "）</a>なら、LP・動画4本・投稿代行・保守で <b>初月" + (dr ? "6.5万円" : "5万円") + "／2か月目から月" + (dr ? "3.5万円" : "2.5万円") + "</b>（税抜）"; stn.style.display = "block"; } else { stn.style.display = "none"; } }
+    var summary = "30秒診断の結果（" + d.name + "／" + (GOAL[goal]||"") + "）\n・" + recs.map(function(r){ return r[0]; }).join("\n・") + "\n最初の月の目安：約" + yen(first) + "／2か月目から：約" + yen(month) + "（月）";
+    last = {k:k, d:d, summary:summary};
+    document.getElementById("pl-mail").href = "mailto:drama@lasalle2023.com?subject=" + encodeURIComponent("構成案希望（30秒診断・" + d.name + "）") + "&body=" + encodeURIComponent("構成案希望\n\n" + summary + "\n\n会社名・屋号：\nお名前：\nご質問など：\n");
+    var r = document.getElementById("pl-res"); r.classList.add("show"); r.scrollIntoView({behavior:"smooth",block:"start"});
+    if(window.gtag) gtag("event","planner_done",{src:window.__src||"", industry:k, goal:goal, sns:sns, hp:hp, budget:bud, first_yen:first, month_yen:month});
+  });
+  document.getElementById("pl-form").addEventListener("click", function(){
+    if(!last) return;
+    var ta = document.querySelector("#f textarea[name=msg]"), sel = document.querySelector("#f select[name=budget]");
+    if(ta) ta.value = "構成案希望。\n" + last.summary;
+    if(sel) sel.value = "30秒診断の組み合わせ";
+    if(window.gtag) gtag("event","planner_to_form",{src:window.__src||"", industry:last.k});
+  });
+  document.getElementById("pl-mail").addEventListener("click", function(){ if(last && window.gtag) gtag("event","planner_mail",{src:window.__src||"", industry:last.k}); });
+})();
+
+// 使い方カード（押すと開く）
+document.querySelectorAll(".use").forEach(function(b){ b.addEventListener("click", function(){ b.setAttribute("aria-expanded", b.getAttribute("aria-expanded")==="true" ? "false" : "true"); }); });
+// data-ev のクリック計測・30秒滞在の計測
+document.addEventListener("click", function(e){ var a = e.target.closest && e.target.closest("[data-ev]"); if(!a || !window.gtag) return; gtag("event", a.getAttribute("data-ev"), {src:window.__src||"", transport_type:"beacon"}); }, true);
+(function(){ var t = 0, sent = false; var iv = setInterval(function(){ if(document.visibilityState === "visible") t++; if(t >= 30 && !sent){ sent = true; clearInterval(iv); if(window.gtag) gtag("event","engaged_30s",{src:window.__src||""}); } }, 1000); })();
 
 // 1欄フォーム（メールアドレスだけ）。送信先は下のフォームと同じGoogleフォーム
 document.getElementById('qf').addEventListener('submit',function(e){
