@@ -274,6 +274,21 @@ details.fold .in{padding:0 0 18px}
 .case .steps span+span:before{content:"→ ";color:var(--gold);font-weight:900}
 .case .steps span.goal{background:var(--navy);color:#fff;border-color:var(--navy)}
 .case .steps span.goal:before{color:#e8d3a3}
+.starter{margin-top:22px;background:var(--navy);color:#fff;border-radius:24px;padding:22px 18px;border:3px solid var(--gold)}
+.st-h b{display:inline-block;background:var(--accent);color:#fff;border-radius:999px;padding:2px 12px;font-size:13px}
+.st-h h3{font-family:var(--f-display);font-size:clamp(26px,6vw,34px);margin:8px 0 4px;color:#e8d3a3}
+.st-h p{margin:0 0 14px;color:#c7d2df;font-size:15px}
+.st-grid{display:grid;gap:12px}@media (min-width:640px){.st-grid{grid-template-columns:1fr 1fr}}
+.st-c{background:var(--navy-2);border-radius:16px;padding:14px 16px;border:2px solid transparent}.st-c.hot{border-color:var(--gold)}
+.st-c .tag{display:inline-block;background:#e8d3a3;color:#111;font-size:12px;font-weight:700;border-radius:999px;padding:1px 10px}
+.st-c h4{margin:8px 0 6px;font-size:20px}
+.st-p{display:flex;justify-content:space-between;align-items:baseline;border-top:1px dashed #3b5170;padding:6px 0}
+.st-p span{font-size:14px;color:#c7d2df}.st-p b{font-size:28px;font-weight:900;color:#e8d3a3}
+.st-in{display:grid;gap:12px;margin-top:14px;font-size:15px}@media (min-width:640px){.st-in{grid-template-columns:1fr 1fr}}
+.st-in ul{margin:4px 0 0;padding-left:1.2em;color:#dfe6ee}
+.st-cmp{margin:14px 0 4px;font-size:14px;color:#dfe6ee;background:rgba(232,211,163,.12);border-radius:10px;padding:10px 12px}.st-cmp b{color:#e8d3a3}
+.starter .small{color:#aebccb}
+.st-note{margin-top:12px;background:var(--gold);color:#111;border-radius:12px;padding:10px 14px;font-size:15px;font-weight:700}
 /* web plans */
 .web{margin-top:30px}
 .web-h .k{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}
@@ -291,7 +306,7 @@ details.fold .in{padding:0 0 18px}
 <body>
 <header class="top"><div class="wrap">
   <a class="logo" href="#top">小林塾<small>AIショートドラマ制作</small></a>
-  <nav class="nav"><a href="#numbers">数字</a><a href="#planner">30秒診断</a><a href="#use">使い方</a><a href="#works">制作例</a><a href="#price">料金</a><a href="#faq">質問</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
+  <nav class="nav"><a href="#numbers">数字</a><a href="#planner">30秒診断</a><a href="#use">使い方</a><a href="#works">制作例</a><a href="#starter">セット</a><a href="#price">料金</a><a href="#faq">質問</a><a href="#flow">流れ</a><a class="cta" href="#contact">無料で構成案</a></nav>
 </div></header>
 
 <main id="top">
@@ -307,10 +322,10 @@ details.fold .in{padding:0 0 18px}
         <div class="pcard"><div class="t">ドラマ型</div><div class="y">3万円<small>〜</small></div><div class="d">1本・税抜｜7〜10営業日</div></div>
       </div>
       <div class="offer" id="offer">
-        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">残り10社（11/6時点）</span></div>
+        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">12月31日（木）お申し込み分まで</span></div>
         <div class="p">紙芝居型 <b>2,000円</b>／ドラマ型 <b>6,000円</b>（いずれも1本・税抜）</div>
         <div class="g">さらに今なら、ご成約の方にnoteで販売中の「AIに仕事を丸投げしても失敗しない指示書の型」または「ひとり経理AIキット」をどちらか1つプレゼント。</div>
-        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
+        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。期限前でも、予定より早くキャンペーンを終了する場合があります。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
       </div>
       <div class="free"><b>無料</b><span>まずは御社用の構成案（あらすじとセリフ）をお送りします</span></div>
       <div class="note">構成案は2営業日以内にお届け。ご相談だけでも費用はかかりません。</div>
@@ -398,8 +413,10 @@ details.fold .in{padding:0 0 18px}
     <div class="big2">
       <div class="stat"><b>約1.8万回</b><span>自社の連続ドラマ「レイナの逆転90日」第15話の、<b>公開翌日</b>の再生回数（YouTube）</span></div>
       <div class="stat"><b>2割→4〜5割</b><span>ドラマを始めてから、チャンネルの視聴者に占める<b>女性の割合</b>が変化</span></div>
+      <div class="stat"><b>1.7万回</b><span>Instagram（フォロワー<b>440人</b>）のリール1本の再生回数。フォロワーの約38倍の人に届きました</span></div>
+      <div class="stat"><b>12本中10本</b><span>直近のリール12本のうち、<b>1,000回以上</b>再生された本数（12本の合計 約4.6万回）</span></div>
     </div>
-    <p class="src">いずれも当社YouTubeチャンネルの管理画面より（2026年10月）。同じ作り方で、御社の動画をつくります。結果は業種・内容・配信方法で変わり、効果を保証するものではありません。</p>
+    <p class="src">YouTubeは当社チャンネルの管理画面より（2026年10月）。Instagramは当社アカウント @lumiere90_jp の公開画面より（2026年11月15日時点）。フォロワーが少なくても、リールはフォロワー以外に届きます。同じ作り方で、御社の動画をつくります。結果は業種・内容・配信方法で変わり、効果を保証するものではありません。</p>
   </div>
   <div class="btns"><a class="btn btn-main" href="#planner" data-ev="diag_link_numbers">御社の場合を、30秒で診断する ↓</a><a class="btn btn-sub" href="#works">制作例を見る ↓</a></div>
 </div></section>
@@ -446,6 +463,7 @@ details.fold .in{padding:0 0 18px}
     <ol class="cal" id="pl-cal"></ol>
     <div class="sumrow"><span>最初の月の目安（税抜）</span><b id="pl-first"></b></div>
     <div class="sumrow"><span>2か月目からの目安（月・税抜）</span><b id="pl-month"></b></div>
+    <div class="st-note" id="pl-starter" style="display:none"></div>
     <p class="note2">料金表から計算した目安です。内容・本数はご相談で決まり、構成案とお見積りまでは無料です。結果は業種・内容・配信方法で変わり、効果を保証するものではありません。</p>
     <div class="btns">
       <a class="btn btn-main js-pl-mail" id="pl-mail" href="#contact">この診断結果で、無料の構成案をもらう</a>
@@ -535,10 +553,10 @@ details.fold .in{padding:0 0 18px}
 <section id="price"><div class="wrap">
   <div class="sec-h"><div class="no">02 — PRICE</div><h2>作り方は2つ。<br>どちらも、まず無料の構成案から。</h2><p>すべて税抜価格です。構成案（あらすじとセリフ）を見てから、作るかどうかをお決めください。</p></div>
   <div class="offer-box"><div class="offer">
-        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">残り10社（11/6時点）</span></div>
+        <div class="h"><b>先着10社限り</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">12月31日（木）お申し込み分まで</span></div>
         <div class="p">紙芝居型 <b>2,000円</b>／ドラマ型 <b>6,000円</b>（いずれも1本・税抜）</div>
         <div class="g">さらに今なら、ご成約の方にnoteで販売中の「AIに仕事を丸投げしても失敗しない指示書の型」または「ひとり経理AIキット」をどちらか1つプレゼント。</div>
-        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
+        <div class="s">※1社につき初回1本まで。お申込み順に受付し、10社に達した時点で終了します。期限前でも、予定より早くキャンペーンを終了する場合があります。プレゼントはドラマ型のお試し、または2本以上のご成約が対象です。</div>
       </div>
       </div>
   <div class="plans two">
@@ -546,6 +564,20 @@ details.fold .in{padding:0 0 18px}
       <ul><li>1枚絵＋ナレーションで物語を伝える</li><li>毎日のSNS投稿・商品やサービスの解説・お客様の声の再現に</li><li>納期 5営業日・修正1回無料</li></ul></div>
     <div class="plan hot"><span class="tag">会話と表情で引き込む</span><h3>ドラマ型</h3><div class="yen">3万円<small>〜／本</small></div>
       <ul><li>人物が話し、口の動きと声が合った会話</li><li>SNS広告・連続配信・お店や会社の“看板キャラ”づくりに</li><li>納期 7〜10営業日・修正1回無料</li></ul></div>
+  </div>
+  <div class="starter" id="starter">
+    <div class="st-h"><b>12月31日（木）お申し込み分まで</b><h3>スターターセット</h3><p>ページづくり・動画・投稿・保守を、まるごと1つに。はじめての方が、1か月目から「動画が毎週出ている状態」になります。</p></div>
+    <div class="st-grid">
+      <div class="st-c"><span class="tag">安く・毎週</span><h4>紙芝居型コース</h4>
+        <div class="st-p"><span>初月</span><b>5万円</b></div><div class="st-p"><span>2か月目から</span><b>月2.5万円</b></div></div>
+      <div class="st-c hot"><span class="tag">会話と表情で引き込む</span><h4>ドラマ型コース</h4>
+        <div class="st-p"><span>初月</span><b>6.5万円</b></div><div class="st-p"><span>2か月目から</span><b>月3.5万円</b></div></div>
+    </div>
+    <div class="st-in"><div><b>初月に入るもの</b><ul><li>LP制作（1ページ・動画とボタン付き）</li><li>動画 4本（30秒）</li><li>Instagram・YouTube 投稿代行</li><li>保守・更新</li></ul></div>
+      <div><b>2か月目から毎月</b><ul><li>動画 4本（30秒）</li><li>Instagram 投稿代行</li><li>保守・更新</li></ul></div></div>
+    <p class="st-cmp">別々に頼むと：紙芝居型コースは初月10.5万円・2か月目から月5.5万円 → <b>初月 約52%OFF</b>。ドラマ型コースは初月18.5万円・2か月目から月13.5万円 → <b>初月 約65%OFF</b>（いずれも税抜）。</p>
+    <p class="small">すべて税抜。期限前でも、予定より早く受付を終了する場合があります。</p>
+    <div class="btns"><a class="btn btn-main js-starter" data-ev="starter_mail" href="mailto:drama@lasalle2023.com?subject=%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%E5%B8%8C%E6%9C%9B&body=%E3%82%B9%E3%82%BF%E3%83%BC%E3%82%BF%E3%83%BC%E3%82%BB%E3%83%83%E3%83%88%E5%B8%8C%E6%9C%9B%EF%BC%88%E7%B4%99%E8%8A%9D%E5%B1%85%E5%9E%8B%EF%BC%8F%E3%83%89%E3%83%A9%E3%83%9E%E5%9E%8B%EF%BC%89%0A%0A%E4%BC%9A%E7%A4%BE%E5%90%8D%E3%83%BB%E5%B1%8B%E5%8F%B7%EF%BC%9A%0A%E3%81%8A%E5%90%8D%E5%89%8D%EF%BC%9A%0A%E6%A5%AD%E7%A8%AE%EF%BC%9A%0A">スターターセットを相談する（無料）</a><a class="btn btn-sub" href="#planner" data-ev="diag_link_starter">合うかどうか30秒で診断 ↑</a></div>
   </div>
   <details class="fold"><summary>さらに本格的に（感動ストーリー型・お試しパック・継続プラン）</summary><div class="in">
     <table style="width:100%;border-collapse:collapse;font-size:15px">
@@ -618,7 +650,7 @@ details.fold .in{padding:0 0 18px}
           <label>電話番号 <i>任意</i><input name="tel" type="tel" autocomplete="tel"></label>
         </div>
         <label>作りたい動画・業種 <i>必須</i><textarea name="msg" required placeholder="例：構成案希望。美容室の新メニューを紹介する15秒の動画を作りたいです。"></textarea></label>
-        <label>作り方・ご予算 <i>任意</i><select name="budget"><option value="">選択してください</option><option>【先着10社】お試し80%OFF・紙芝居型（2,000円）</option><option>【先着10社】お試し80%OFF・ドラマ型（6,000円）</option><option>紙芝居型（1本1万円〜）</option><option>ドラマ型（1本3万円〜）</option><option>感動ストーリー型</option><option>お試しパック（9.8万円）</option><option>継続プラン（月30万円）</option><option>LP制作（5万円〜）</option><option>ホームページ制作（15万円〜）</option><option>保守・更新（月5,000円〜）</option><option>Instagram投稿代行（月1万円〜）</option><option>30秒診断の組み合わせ</option><option>まだ決めていない</option></select></label>
+        <label>作り方・ご予算 <i>任意</i><select name="budget"><option value="">選択してください</option><option>【先着10社】お試し80%OFF・紙芝居型（2,000円）</option><option>【先着10社】お試し80%OFF・ドラマ型（6,000円）</option><option>紙芝居型（1本1万円〜）</option><option>ドラマ型（1本3万円〜）</option><option>感動ストーリー型</option><option>お試しパック（9.8万円）</option><option>継続プラン（月30万円）</option><option>LP制作（5万円〜）</option><option>ホームページ制作（15万円〜）</option><option>保守・更新（月5,000円〜）</option><option>Instagram投稿代行（月1万円〜）</option><option>30秒診断の組み合わせ</option><option>スターターセット・紙芝居型（初月5万円）</option><option>スターターセット・ドラマ型（初月6.5万円）</option><option>まだ決めていない</option></select></label>
         <button class="btn btn-main" type="submit">この内容で送信する</button>
         <p class="formnote">送信ボタンを押すだけで送信が完了します。無料の構成案は2営業日以内にお送りします。</p>
       </form></div>
@@ -776,6 +808,8 @@ details.fold .in{padding:0 0 18px}
     document.getElementById("pl-cal").innerHTML = cal.map(function(c){ return "<li><span>"+c[0]+"</span><div>"+esc(c[1])+"</div></li>"; }).join("");
     document.getElementById("pl-first").textContent = "約" + yen(first);
     document.getElementById("pl-month").textContent = "約" + yen(month);
+    var stn = document.getElementById("pl-starter");
+    if(stn){ if(hp !== "ok" && sns !== "active" && bud >= 3){ var dr = drama; stn.innerHTML = "12月31日まで：<a href=\"#starter\" style=\"color:#111\">スターターセット（" + (dr ? "ドラマ型コース" : "紙芝居型コース") + "）</a>なら、LP・動画4本・投稿代行・保守で <b>初月" + (dr ? "6.5万円" : "5万円") + "／2か月目から月" + (dr ? "3.5万円" : "2.5万円") + "</b>（税抜）"; stn.style.display = "block"; } else { stn.style.display = "none"; } }
     var summary = "30秒診断の結果（" + d.name + "／" + (GOAL[goal]||"") + "）\n・" + recs.map(function(r){ return r[0]; }).join("\n・") + "\n最初の月の目安：約" + yen(first) + "／2か月目から：約" + yen(month) + "（月）";
     last = {k:k, d:d, summary:summary};
     document.getElementById("pl-mail").href = "mailto:drama@lasalle2023.com?subject=" + encodeURIComponent("構成案希望（30秒診断・" + d.name + "）") + "&body=" + encodeURIComponent("構成案希望\n\n" + summary + "\n\n会社名・屋号：\nお名前：\nご質問など：\n");
