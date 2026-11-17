@@ -245,7 +245,8 @@ a{color:#17402F}a:hover{color:#0E2A1F}
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="f-name" style="font-weight: 900; font-size: 18px">お名前</label><input id="f-name" type="text" style="font: inherit; padding: 14px; border: 2px solid #B9B4A6; border-radius: 12px; min-height: 52px; box-sizing: border-box"></div>
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="f-tel" style="font-weight: 900; font-size: 18px">電話番号またはメールアドレス</label><input id="f-tel" type="text" style="font: inherit; padding: 14px; border: 2px solid #B9B4A6; border-radius: 12px; min-height: 52px; box-sizing: border-box"></div>
 <div style="display: flex; flex-direction: column; gap: 6px"><label for="f-msg" style="font-weight: 900; font-size: 18px">ご希望の日・聞きたいこと（任意）</label><textarea id="f-msg" rows="3" style="font: inherit; padding: 14px; border: 2px solid #B9B4A6; border-radius: 12px; box-sizing: border-box"></textarea></div>
-<button type="button" style="font: inherit; font-weight: 900; font-size: 22px; background: #E0A526; color: #1E2B25; border: none; border-radius: 14px; padding: 18px; min-height: 60px; cursor: pointer">送信する</button>
+<button type="button" onclick="document.getElementById('demo-msg').hidden=false;setTimeout(function(){window.__rkGo&&window.__rkGo()},1400)" style="font: inherit; font-weight: 900; font-size: 22px; background: #E0A526; color: #1E2B25; border: none; border-radius: 14px; padding: 18px; min-height: 60px; cursor: pointer">送信する</button>
+<p role="status" id="demo-msg" hidden style="margin:0;background:#FFF6DF;border-radius:12px;padding:14px 18px;color:#17402F;font-size:18px;font-weight:700">これは見本の応募フォームのため、実際には送られません。<br>御社でもこのページを作れます。すぐ下の欄から、そのままご相談いただけます ↓</p>
 </form>
 <p style="text-align: center; margin: 24px 0 0; font-size: 18px; font-weight: 700">お電話でも：〔電話番号〕（受付 9:00〜17:00）</p>
 </div>
@@ -260,5 +261,6 @@ a{color:#17402F}a:hover{color:#0E2A1F}
 </footer>
 
 </div>
+<script src="/contact-widget.js" data-after="apply" data-kind="採用まるごとスターターセット（酪農・牧場）" data-title="この採用ページと採用ドラマを、御社の牧場でも。"></script>
 </body>
 </html>
