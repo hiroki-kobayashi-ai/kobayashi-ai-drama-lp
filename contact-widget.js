@@ -49,10 +49,10 @@
     '<a class="rk-tel" href="tel:' + TEL.replace(/-/g,'') + '">📞 電話で相談する　' + TEL + '</a>' +
     '<p class="rk-telnote">担当：小林（AIショートドラマ制作）／ つながらないときは折り返します</p>' +
     '<form id="rk-form" novalidate>' +
-    '<label>お名前<i>必須</i><input name="name" autocomplete="name" placeholder="例：牧野 太郎"></label>' +
-    '<label>会社名・牧場名・事業所名<i class="o">任意</i><input name="company" autocomplete="organization"></label>' +
-    '<label>電話番号またはメールアドレス<i>必須</i><input name="contact" autocomplete="email" inputmode="email" placeholder="どちらか1つでOKです"></label>' +
-    '<label>ひとこと<i class="o">任意</i><textarea name="msg" rows="3" placeholder="例：うちの牧場でも作りたい／料金をもう少し聞きたい"></textarea></label>' +
+    '<label><span>お名前<i>必須</i></span><input name="name" autocomplete="name" placeholder="例：牧野 太郎"></label>' +
+    '<label><span>会社名・牧場名・事業所名<i class="o">任意</i></span><input name="company" autocomplete="organization"></label>' +
+    '<label><span>電話番号またはメールアドレス<i>必須</i></span><input name="contact" autocomplete="email" inputmode="email" placeholder="どちらか1つでOKです"></label>' +
+    '<label><span>ひとこと<i class="o">任意</i></span><textarea name="msg" rows="3" placeholder="例：うちの牧場でも作りたい／料金をもう少し聞きたい"></textarea></label>' +
     '<button type="submit">無料で相談する（送信）</button>' +
     '<p class="rk-small">送信ボタンを押すだけで届きます。2営業日以内にご連絡します。メールの方は ' + MAIL + ' へ直接でも大丈夫です。</p>' +
     '</form></div>';
