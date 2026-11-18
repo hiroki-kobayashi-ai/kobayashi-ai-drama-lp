@@ -168,6 +168,8 @@ footer .fo{font-size:16px;color:#fff;font-weight:700;margin-bottom:6px}
 footer .sample{margin-top:18px;font-size:12px;color:#8fa2aa;border-top:1px solid #33454d;padding-top:14px}
 
 /* スマホ固定CTA */
+body:has(#rk-bar) .fixcta{display:none!important}
+body:has(#rk-bar) footer{padding-bottom:110px}
 .fixcta{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px;display:none;gap:8px;z-index:30}
 .fixcta a{flex:1;padding:13px 6px;font-size:15px}
 
@@ -541,6 +543,6 @@ document.getElementById("f").addEventListener("submit", function(e){
 });
 render();
 </script>
-<script src="/contact-widget.js" data-after="form" data-kind="相続まるごと相談室スターターセット（税理士）" data-title="この相続相談ページと相続ドラマを、貴事務所でも。"></script>
+<script src="/contact-widget.js" data-after="form" data-kind="相続まるごと相談室スターターセット（税理士）" data-title="この相続相談ページと相続ドラマを、貴事務所でも。" data-bar="この相続相談ページを貴事務所でも" data-ph-name="例：税理 太郎" data-org-label="事務所名" data-ph-msg="例：うちの事務所でも作りたい／料金をもう少し聞きたい"></script>
 </body>
 </html>
