@@ -10,6 +10,10 @@
   var replace = s && s.getAttribute('data-replace');      // このIDの要素と入れ替える
   var kind = (s && s.getAttribute('data-kind')) || '採用まるごとスターターセット';
   var title = (s && s.getAttribute('data-title')) || 'この採用ページと採用ドラマを、御社でも。';
+  var barText = (s && s.getAttribute('data-bar')) || 'この採用ページを御社でも';
+  var phName = (s && s.getAttribute('data-ph-name')) || '例：牧野 太郎';
+  var phOrg = (s && s.getAttribute('data-org-label')) || '会社名・牧場名・事業所名';
+  var phMsg = (s && s.getAttribute('data-ph-msg')) || '例：うちの牧場でも作りたい／料金をもう少し聞きたい';
   var page = location.pathname;
   function src(){ return window.__src || ''; }
   function ev(n, extra){ if(window.gtag){ var p = {src: src(), page: page}; for(var k in (extra||{})) p[k] = extra[k]; gtag('event', n, p); } }
@@ -49,10 +53,10 @@
     '<a class="rk-tel" href="tel:' + TEL.replace(/-/g,'') + '">📞 電話で相談する　' + TEL + '</a>' +
     '<p class="rk-telnote">担当：小林（AIショートドラマ制作）／ つながらないときは折り返します</p>' +
     '<form id="rk-form" novalidate>' +
-    '<label><span>お名前<i>必須</i></span><input name="name" autocomplete="name" placeholder="例：牧野 太郎"></label>' +
-    '<label><span>会社名・牧場名・事業所名<i class="o">任意</i></span><input name="company" autocomplete="organization"></label>' +
+    '<label><span>お名前<i>必須</i></span><input name="name" autocomplete="name" placeholder="' + phName + '"></label>' +
+    '<label><span>' + phOrg + '<i class="o">任意</i></span><input name="company" autocomplete="organization"></label>' +
     '<label><span>電話番号またはメールアドレス<i>必須</i></span><input name="contact" autocomplete="email" inputmode="email" placeholder="どちらか1つでOKです"></label>' +
-    '<label><span>ひとこと<i class="o">任意</i></span><textarea name="msg" rows="3" placeholder="例：うちの牧場でも作りたい／料金をもう少し聞きたい"></textarea></label>' +
+    '<label><span>ひとこと<i class="o">任意</i></span><textarea name="msg" rows="3" placeholder="' + phMsg + '"></textarea></label>' +
     '<button type="submit">無料で相談する（送信）</button>' +
     '<p class="rk-small">送信ボタンを押すだけで届きます。2営業日以内にご連絡します。メールの方は ' + MAIL + ' へ直接でも大丈夫です。</p>' +
     '</form></div>';
@@ -64,7 +68,7 @@
 
   var bar = document.createElement('div');
   bar.id = 'rk-bar';
-  bar.innerHTML = '<span>この採用ページを御社でも</span><a href="#rk-contact" data-b="form">無料で相談する</a><a class="t" href="tel:' + TEL.replace(/-/g,'') + '" data-b="tel">📞 電話</a>';
+  bar.innerHTML = '<span>' + barText + '</span><a href="#rk-contact" data-b="form">無料で相談する</a><a class="t" href="tel:' + TEL.replace(/-/g,'') + '" data-b="tel">📞 電話</a>';
   document.body.appendChild(bar);
   bar.addEventListener('click', function(e){ var a = e.target.closest('a'); if(a) ev('rk_bar_tap', {btn: a.getAttribute('data-b')}); });
 
