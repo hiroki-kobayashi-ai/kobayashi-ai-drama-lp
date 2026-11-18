@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>税理士事務所向け 相続相談LP 見本（みらい税理士事務所）｜有限会社小林塾 AIショートドラマ制作</title>
+<script src="/analytics.js" defer></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=Noto+Serif+JP:wght@500;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#1f2a33; --sub:#55626d; --line:#e3ddd2;
+  --base:#fbf8f3; --card:#ffffff;
+  --main:#1e4d5c; --main-d:#163a46; --accent:#b8863b; --soft:#eef4f3;
+  --own:#1e4d5c; --cta:#c4622d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Noto Sans JP",sans-serif;color:var(--ink);background:var(--base);line-height:1.85;font-size:16px}
+.serif{font-family:"Noto Serif JP",serif}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 20px}
+
+/* 見本切替バー */
+.demo{background:#2b2b2b;color:#fff;font-size:13px;padding:10px 0}
+.demo .wrap{display:flex;flex-wrap:wrap;gap:8px 14px;align-items:center}
+.demo b{color:#ffd58a;font-weight:700}
+.demo button{background:#444;color:#fff;border:1px solid #666;border-radius:20px;padding:5px 14px;font-size:13px;cursor:pointer;font-family:inherit}
+.demo button.on{background:#ffd58a;color:#222;border-color:#ffd58a;font-weight:700}
+.demo input{border:1px solid #666;background:#1d1d1d;color:#fff;border-radius:6px;padding:5px 8px;font-size:13px;width:150px;font-family:inherit}
+.demo .hide{margin-left:auto;background:none;border:none;color:#aaa;text-decoration:underline;padding:0}
+
+/* ヘッダー */
+header{background:#fff;border-bottom:1px solid var(--line);position:sticky;top:0;z-index:20}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:12px;padding-bottom:12px}
+.office{font-weight:700;font-size:17px;line-height:1.4}
+.office small{display:block;font-weight:400;font-size:11.5px;color:var(--sub)}
+.hbtn{display:flex;gap:8px}
+.btn{display:inline-block;text-decoration:none;border-radius:999px;font-weight:700;text-align:center;cursor:pointer;border:none;font-family:inherit}
+.btn-cta{background:var(--cta);color:#fff;padding:10px 20px;font-size:14px;box-shadow:0 3px 0 #9a4a1f}
+.btn-line{background:#06c755;color:#fff;padding:10px 18px;font-size:14px;box-shadow:0 3px 0 #04983f}
+
+/* ヒーロー */
+.hero{background:linear-gradient(160deg,#1e4d5c 0%,#2c6474 60%,#3b7383 100%);color:#fff;padding:56px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;right:-120px;top:-80px;width:420px;height:420px;border-radius:50%;background:rgba(255,255,255,.06)}
+.brand{display:inline-block;border:1px solid rgba(255,255,255,.55);border-radius:4px;padding:3px 12px;font-size:13px;letter-spacing:.12em;margin-bottom:18px}
+.hero h1{font-size:clamp(26px,5vw,40px);line-height:1.45;margin-bottom:16px}
+.hero h1 em{font-style:normal;color:#ffd58a}
+.hero p.lead{font-size:clamp(15px,2.4vw,18px);opacity:.95;max-width:640px}
+.hero .badges{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0 28px}
+.hero .badges span{background:rgba(255,255,255,.14);border:1px solid rgba(255,255,255,.3);border-radius:6px;padding:6px 12px;font-size:14px}
+.hero .ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero .btn-cta,.hero .btn-line{padding:15px 28px;font-size:16px}
+
+section{padding:64px 0}
+.sec-label{color:var(--accent);font-size:13px;letter-spacing:.15em;font-weight:700;margin-bottom:6px}
+h2{font-family:"Noto Serif JP",serif;font-size:clamp(22px,3.6vw,30px);line-height:1.5;margin-bottom:28px}
+
+/* お悩み */
+.worries{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px}
+.worry{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px 16px 48px;position:relative;font-size:15.5px}
+.worry::before{content:"✓";position:absolute;left:16px;top:14px;width:22px;height:22px;border-radius:50%;background:var(--soft);color:var(--main);font-weight:700;text-align:center;line-height:22px;font-size:13px}
+.early{background:#fff7ee}
+.early .lead2{font-size:16px;margin:-12px 0 26px;color:var(--ink)}
+.early .lead2 b{color:var(--cta)}
+.cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.cmp-col{background:#fff;border-radius:12px;padding:22px 22px 18px;border:1px solid var(--line)}
+.cmp-col h3{font-size:17px;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid}
+.cmp-col.bad h3{color:#a2462a;border-color:#efc9b8}
+.cmp-col.good h3{color:var(--main);border-color:#bcd3d1}
+.cmp-col ul{list-style:none}
+.cmp-col li{position:relative;padding:7px 0 7px 26px;font-size:15px;line-height:1.75}
+.cmp-col.bad li::before{content:"！";position:absolute;left:0;top:7px;color:#a2462a;font-weight:700}
+.cmp-col.good li::before{content:"◎";position:absolute;left:0;top:7px;color:var(--main);font-weight:700}
+.early-cta{text-align:center;margin-top:26px}
+.early-cta p{font-weight:700;margin-bottom:12px}
+@media (max-width:720px){.cmp{grid-template-columns:1fr}}
+.worry-foot{margin-top:24px;text-align:center;font-size:17px;font-weight:700;color:var(--main)}
+
+/* 期限 */
+.deadline{background:#fff}
+.tl{margin-left:4px}
+.tl-row{display:grid;grid-template-columns:112px 1fr;align-items:stretch}
+.tl-when{font-weight:700;color:var(--main);text-align:right;padding:12px 18px 12px 0;font-size:15px;white-space:nowrap}
+.tl-what{border-left:2px solid var(--line);padding:12px 0 12px 24px;position:relative}
+.tl-what::before{content:"";position:absolute;left:-9px;top:19px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--main);box-sizing:border-box}
+.tl-row.hl .tl-what::before{border-color:var(--cta);background:var(--cta)}
+.tl-what b{display:block;font-size:16px}
+.tl-what span{font-size:14px;color:var(--sub)}
+.tl-row.hl .tl-what b{color:var(--cta)}
+.tl-note{font-size:13px;color:var(--sub);margin-top:14px}
+
+/* 担当できること */
+.scope-head{display:flex;flex-wrap:wrap;align-items:baseline;gap:6px 14px;margin-bottom:24px}
+.scope-head h2{margin-bottom:0}
+.lic{display:inline-block;background:var(--main);color:#fff;border-radius:4px;padding:2px 10px;font-size:13px;font-weight:700}
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:16px}
+.svc{background:#fff;border:1px solid var(--line);border-top:4px solid var(--main);border-radius:10px;padding:20px}
+.svc h3{font-size:17px;margin-bottom:6px;line-height:1.5}
+.svc p{font-size:14.5px;color:var(--sub)}
+.svc .tag{display:inline-block;font-size:11.5px;font-weight:700;color:var(--accent);border:1px solid var(--accent);border-radius:3px;padding:0 6px;margin-bottom:8px}
+
+/* 連携 */
+.relay{background:var(--soft)}
+.relay-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.rcard{background:#fff;border-radius:10px;padding:18px 20px;border:2px dashed #c9d6d4}
+.rcard.own{border:2px solid var(--main);box-shadow:0 6px 18px rgba(30,77,92,.12)}
+.rcard .who{font-size:12.5px;font-weight:700;color:var(--sub);margin-bottom:4px}
+.rcard.own .who{color:var(--main)}
+.rcard h3{font-size:16.5px;margin-bottom:6px}
+.rcard p{font-size:14px;color:var(--sub)}
+.relay-note{margin-top:18px;font-size:14px;color:var(--sub)}
+
+/* 流れ */
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;counter-reset:s}
+.step{background:#fff;border:1px solid var(--line);border-radius:10px;padding:18px 16px;position:relative}
+.step::before{counter-increment:s;content:"STEP " counter(s);display:block;font-size:12px;font-weight:700;color:var(--accent);letter-spacing:.1em;margin-bottom:4px}
+.step h3{font-size:16px;margin-bottom:4px}
+.step p{font-size:14px;color:var(--sub)}
+
+/* 料金 */
+.price{background:#fff}
+table.pt{width:100%;border-collapse:collapse;font-size:15px}
+.pt th,.pt td{border-bottom:1px solid var(--line);padding:14px 10px;text-align:left;vertical-align:top}
+.pt th{width:62%;font-weight:500}
+.pt td{font-weight:700;color:var(--main);white-space:nowrap}
+.pt-note{font-size:13px;color:var(--sub);margin-top:12px}
+
+/* 代表 */
+.rep{display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center}
+.photo{width:200px;height:240px;border-radius:10px;background:repeating-linear-gradient(45deg,#e9e4da,#e9e4da 10px,#f1ede5 10px,#f1ede5 20px);display:flex;align-items:center;justify-content:center;color:#9a907e;font-size:13px;text-align:center}
+.rep h3{font-size:19px;margin-bottom:2px}
+.rep .role{font-size:13.5px;color:var(--sub);margin-bottom:12px}
+.rep p{font-size:15px}
+
+/* FAQ */
+details{background:#fff;border:1px solid var(--line);border-radius:10px;margin-bottom:10px}
+summary{cursor:pointer;padding:16px 44px 16px 48px;font-weight:700;position:relative;list-style:none;font-size:15.5px}
+summary::-webkit-details-marker{display:none}
+summary::before{content:"Q";position:absolute;left:18px;top:14px;color:var(--main);font-family:"Noto Serif JP",serif;font-size:18px}
+summary::after{content:"＋";position:absolute;right:18px;top:15px;color:var(--sub)}
+details[open] summary::after{content:"－"}
+details .a{padding:0 20px 18px 48px;font-size:15px;color:var(--sub);position:relative}
+details .a::before{content:"A";position:absolute;left:18px;top:-2px;color:var(--accent);font-family:"Noto Serif JP",serif;font-size:18px}
+
+/* フォーム */
+.form-sec{background:linear-gradient(180deg,#f5efe5,#fbf8f3)}
+.formbox{background:#fff;border-radius:14px;padding:30px;border:1px solid var(--line);max-width:720px;margin:0 auto;box-shadow:0 10px 30px rgba(0,0,0,.05)}
+.formbox h2{text-align:center;margin-bottom:8px}
+.formbox .sub{text-align:center;color:var(--sub);font-size:14.5px;margin-bottom:24px}
+.f{margin-bottom:16px}
+.f label{display:block;font-weight:700;font-size:14.5px;margin-bottom:6px}
+.f label .req{background:var(--cta);color:#fff;font-size:11px;border-radius:3px;padding:1px 6px;margin-left:6px;vertical-align:2px}
+.f input[type=text],.f input[type=tel],.f input[type=email],.f select,.f textarea{width:100%;border:1px solid #cfc7b8;border-radius:8px;padding:12px;font-size:16px;font-family:inherit;background:#fffdf9}
+.f textarea{min-height:110px}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips label{font-weight:400;display:flex;gap:6px;align-items:center;border:1px solid #cfc7b8;border-radius:999px;padding:6px 14px;font-size:14.5px;cursor:pointer;background:#fffdf9;margin:0}
+.formbox .btn-cta{width:100%;padding:16px;font-size:17px;margin-top:6px}
+.thanks{display:none;text-align:center;padding:20px 0}
+.thanks h3{font-size:20px;color:var(--main);margin-bottom:8px}
+.or{text-align:center;margin:22px 0 0;font-size:14px;color:var(--sub)}
+.contact-alt{display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-top:12px}
+.tel{font-size:22px;font-weight:700;color:var(--main);letter-spacing:.03em}
+
+footer{background:#1b2a31;color:#cfd8dc;font-size:13.5px;padding:36px 0 90px}
+footer .fo{font-size:16px;color:#fff;font-weight:700;margin-bottom:6px}
+footer .sample{margin-top:18px;font-size:12px;color:#8fa2aa;border-top:1px solid #33454d;padding-top:14px}
+
+/* スマホ固定CTA */
+.fixcta{position:fixed;left:0;right:0;bottom:0;background:rgba(255,255,255,.97);border-top:1px solid var(--line);padding:10px 12px;display:none;gap:8px;z-index:30}
+.fixcta a{flex:1;padding:13px 6px;font-size:15px}
+
+@media (max-width:720px){
+  header .hbtn{display:none}
+  .fixcta{display:flex}
+  .rep{grid-template-columns:1fr}
+  .photo{width:100%;height:180px}
+  .tl-row{grid-template-columns:92px 1fr}
+  .tl-when{padding-right:14px;font-size:14px}
+  .formbox{padding:22px 16px}
+  section{padding:48px 0}
+}
+</style>
+</head>
+<body>
+
+
+
+<header>
+  <div class="wrap">
+    <div class="office"><span data-k="office"></span><small>相続まるごと相談室</small></div>
+    <div class="hbtn">
+      <a class="btn btn-line" href="#form">LINEで相談</a>
+      <a class="btn btn-cta" href="#form">無料相談を予約</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero" style="padding-top:56px">
+  <div class="wrap">
+    <div class="brand serif">相続まるごと相談室</div>
+    <h1 class="serif">相続の手続き、<br><em>何から始めればいいか</em><br>わからない方へ。</h1>
+    <p class="lead"><span data-k="office"></span>が、<span data-k="heroLead"></span><br>ご家族がご存命のうち、「そろそろかもしれない」という段階でのご相談も大歓迎です。</p>
+    <div class="badges">
+      <span>初回相談 無料</span>
+      <span>オンライン相談OK</span>
+      <span data-k="heroBadge"></span>
+      <span>生前のご相談も歓迎</span>
+    </div>
+    <div class="ctas">
+      <a class="btn btn-cta" href="#form">無料相談を予約する</a>
+      <a class="btn btn-line" href="#form">LINEで気軽に聞いてみる</a>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">WORRIES</div>
+    <h2>こんなこと、ひとりで抱えていませんか？</h2>
+    <div class="worries">
+      <div class="worry">親が高齢になり、そろそろ相続の準備をしておきたい</div>
+      <div class="worry">親が亡くなったが、何から手をつければいいのかわからない</div>
+      <div class="worry">銀行口座が止まってしまい、お金が引き出せない</div>
+      <div class="worry">実家の名義が、亡くなった親のままになっている</div>
+      <div class="worry">相続税がかかるのか、かからないのかがわからない</div>
+            <div class="worry">兄弟姉妹と話し合う前に、何を準備すればいいか知りたい</div>
+    </div>
+    <p class="worry-foot">ひとつでも当てはまったら、まずは一度ご相談ください。</p>
+  </div>
+</section>
+
+<section class="early" id="early">
+  <div class="wrap">
+    <div class="sec-label">EARLY</div>
+    <h2>相続の相談は「亡くなってから」では遅いことも。</h2>
+    <p class="lead2">入院中・介護中など、<b>「いよいよ」という段階でのご相談も大丈夫です。</b>ご本人がお元気なうちなら、できる準備はもっと増えます。</p>
+    <div class="cmp">
+      <div class="cmp-col bad"><h3>手続きが遅れると…</h3><ul id="lateList"></ul></div>
+      <div class="cmp-col good"><h3>早めに準備しておくと…</h3><ul id="earlyList"></ul></div>
+    </div>
+    <div class="early-cta">
+      <p>「まだ早いかな」と思った今が、いちばん選べることが多いタイミングです。</p>
+      <a class="btn btn-cta" style="padding:15px 30px;font-size:16px" href="#form">生前の相続相談を予約する（無料）</a>
+    </div>
+  </div>
+</section>
+
+<section class="deadline">
+  <div class="wrap">
+    <div class="sec-label">DEADLINE</div>
+    <h2>相続の手続きには「期限」があります</h2>
+    <div class="tl" id="timeline"></div>
+    <p class="tl-note">※期限は原則です。くわしい起算日や例外は、ご相談の際にご説明します。</p>
+  </div>
+</section>
+
+<section id="scope">
+  <div class="wrap">
+    <div class="sec-label">SERVICE</div>
+    <div class="scope-head">
+      <h2>当事務所が担当できること</h2>
+      <span class="lic" data-k="lic"></span>
+    </div>
+    <div class="services" id="services"></div>
+  </div>
+</section>
+
+<section class="relay">
+  <div class="wrap">
+    <div class="sec-label">ONE STOP</div>
+    <h2>窓口はひとつ。相続の手続きを「まるごと」</h2>
+    <div class="relay-grid" id="relay"></div>
+    <p class="relay-note" data-k="relayNote"></p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">FLOW</div>
+    <h2>ご相談から解決までの流れ</h2>
+    <div class="steps">
+      <div class="step"><h3>お問い合わせ</h3><p>フォーム・LINE・お電話から。24時間受け付けています。</p></div>
+      <div class="step"><h3>無料相談</h3><p>事務所またはオンラインで。今の状況をうかがい、やることを整理します。</p></div>
+      <div class="step"><h3>お見積り</h3><p>費用を事前にお示しします。納得されてからのご依頼で大丈夫です。</p></div>
+      <div class="step"><h3>手続き</h3><p>書類の収集・作成・提出を進めます。進み具合は随時ご報告します。</p></div>
+      <div class="step"><h3>完了のご報告</h3><p>完了した書類一式をお渡しします。その後のご相談もどうぞ。</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="price">
+  <div class="wrap">
+    <div class="sec-label">PRICE</div>
+    <h2>料金の目安</h2>
+    <table class="pt" id="price"></table>
+    <p class="pt-note">※見本のため金額は「〇〇」としています。実際の料金表に差し替えます。<br>※財産の内容・相続人の人数などにより変わります。必ず事前にお見積りします。</p>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-label">MESSAGE</div>
+    <h2>代表からのごあいさつ</h2>
+    <div class="rep">
+      <div class="photo">代表者の写真<br>（差し替え）</div>
+      <div>
+        <h3>代表　〇〇 〇〇</h3>
+        <div class="role" data-k="repRole"></div>
+        <p>大切なご家族を亡くされたあとは、気持ちの整理もつかないうちに、たくさんの手続きが押し寄せてきます。「何がわからないのかも、わからない」――そんな状態で来られる方がほとんどです。</p>
+        <p style="margin-top:10px">当事務所では、まず今の状況を一緒に整理するところから始めます。むずかしい言葉は使わずにご説明しますので、どうぞ肩の力を抜いてご相談ください。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section style="background:#fff">
+  <div class="wrap">
+    <div class="sec-label">FAQ</div>
+    <h2>よくあるご質問</h2>
+    <div id="faq"></div>
+  </div>
+</section>
+
+<section class="form-sec" id="form">
+  <div class="wrap">
+    <div class="formbox">
+      <h2>無料相談のお申し込み</h2>
+      <p class="sub">お気軽にどうぞ。営業のお電話をこちらからすることはありません。</p>
+      <form id="f">
+        <div class="f"><label>お名前<span class="req">必須</span></label><input type="text" required placeholder="例）山田 花子"></div>
+        <div class="f"><label>お電話番号<span class="req">必須</span></label><input type="tel" required placeholder="例）090-0000-0000"></div>
+        <div class="f"><label>メールアドレス</label><input type="email" placeholder="例）example@mail.com"></div>
+        <div class="f"><label>ご相談の内容（いくつでも）</label>
+          <div class="chips" id="topics"></div>
+        </div>
+        <div class="f"><label>ご希望の相談方法</label>
+          <select><option>事務所で面談</option><option>オンライン（Zoom等）</option><option>お電話</option><option>まだ決めていない</option></select>
+        </div>
+        <div class="f"><label>ご自由にお書きください</label><textarea placeholder="例）母が先月亡くなりました。実家の土地があり、兄と2人で相続します。"></textarea></div>
+        <button class="btn btn-cta" type="submit">無料相談を申し込む</button>
+      </form>
+      <div class="thanks" id="thanks">
+        <h3>お申し込みありがとうございます</h3>
+        <p>（見本のため、実際には送信されていません）<br>本番では、ここで受付完了を表示し、事務所へ通知が届きます。</p>
+      </div>
+      <p class="or">お電話・LINEでもどうぞ</p>
+      <div class="contact-alt">
+        <span class="tel">TEL 000-000-0000</span>
+        <a class="btn btn-line" href="#form">LINEで相談する</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="fo" data-k="office"></div>
+    <div data-k="regist"></div>
+    <div>〒000-0000　〇〇県〇〇市〇〇町0-0-0</div>
+    <div>受付時間　平日 9:00〜18:00（フォーム・LINEは24時間）</div>
+    <div class="sample">このページは、有限会社小林塾 AIショートドラマ制作が作成した税理士事務所向け「相続まるごと相談室」LPの見本です。事務所名・代表者・料金・連絡先などはすべて見本用の例で、実在の事務所とは関係ありません。<br><b style="color:#fff;font-size:14px">ご相談・お申し込み（有限会社小林塾 AIショートドラマ制作）　TEL 050-3696-4531　／　drama@kobayashijuku.co.jp</b></div>
+  </div>
+</footer>
+
+<div class="fixcta">
+  <a class="btn btn-line" href="#form">LINEで相談</a>
+  <a class="btn btn-cta" href="#form">無料相談を予約</a>
+</div>
+
+<script>
+/* ===== 資格ごとの差し替えデータ ===== */
+var T = {
+  zei: {
+    office: function(n){ return n + "税理士事務所"; },
+    lic: "税理士の独占業務",
+    heroLead: "相続税がかかるかどうかの確認から申告まで、最初の一歩からお手伝いします。",
+    heroBadge: "相続税の申告に対応",
+    repRole: function(o){ return "税理士　／　" + o; },
+    regist: "〇〇税理士会 所属　登録番号 第000000号",
+    hl: ["相続税の申告・納付"],
+    late: ["相続税の申告期限（10か月）を過ぎると、延滞税や無申告加算税がかかることがあります","期限までに遺産の分け方が決まらないと、税額を大きく下げられる特例（小規模宅地等の特例など）を、すぐには使えなくなります","銀行口座が止まり、葬儀費用や当面の支払いに困ることがあります","時間がたつほど相続人が増え、話し合いがまとまりにくくなります"],
+    early: ["財産の全体と、相続税がかかるかどうかが前もってわかります","生前贈与を計画的に進められます（2024年から、亡くなる前7年以内の贈与は相続財産に足し戻すルールに。始めるのは早いほど有利です）","相続税の納税資金を前もって準備できます（生命保険の非課税枠の活用など）","遺言書で分け方を決めておけば、ご家族の話し合いの負担が軽くなります"],
+    services: [
+      ["独占業務","相続税の申告書の作成・提出","財産の評価から申告書の作成、税務署への提出まで行います。期限は亡くなったことを知った日の翌日から10か月です。"],
+      ["独占業務","相続税がかかるかどうかの試算","財産と相続人を確認し、相続税がかかるのか、いくらくらいになるのかを試算します。"],
+      ["独占業務","亡くなった方の所得税の申告（準確定申告）","事業や不動産収入などがあった方は、4か月以内に申告が必要な場合があります。"],
+      ["","土地・株式など財産の評価","土地の評価や特例（小規模宅地等の特例など）の検討で、税額が大きく変わることがあります。"],
+      ["","生前贈与・相続税対策のご相談","将来の相続に向けて、贈与の進め方や贈与税の申告もご相談いただけます。"],
+      ["","税務署からの問い合わせへの対応","申告後に税務署から確認があった場合も、ご一緒に対応します。"]
+    ],
+    relay: [
+      {own:true, who:"当事務所（税理士）", h:"相続税・お金のこと", p:"相続税の試算・申告、準確定申告、財産の評価"},
+      {own:false, who:"提携の司法書士", h:"不動産の名義変更", p:"相続登記（土地・建物の名義変更）"},
+      {own:false, who:"提携の行政書士", h:"書類・戸籍まわり", p:"戸籍の収集、遺産分割協議書、車の名義変更など"}
+    ],
+    relayNote: "税金以外の手続きは、提携する専門家と連携して進めます。窓口は当事務所ひとつなので、何度も説明していただく必要はありません。",
+    price: [["相続税がかかるかどうかの試算","〇〇円〜"],["相続税申告（基本報酬）","〇〇円〜"],["準確定申告","〇〇円〜"],["土地の評価（1か所あたり）","〇〇円〜"]],
+    faq: [
+      ["相続税がかかるかどうか、どうやって判断すればいいですか？","基礎控除（3,000万円＋600万円×法定相続人の数）を超えるかどうかが一つの目安です。財産の評価方法によって判断が変わるため、まずは試算をおすすめします。"],
+      ["申告期限の10か月に間に合うか心配です。","まずはお早めにご相談ください。期限が近い場合でも、状況をうかがったうえで対応方法をご提案します。"]
+    ],
+    topics: ["生前の相続対策（親がまだ存命）","相続税がかかるか知りたい","相続税の申告","準確定申告","生前贈与・相続対策","何から始めればいいかわからない"]
+  },
+  shiho: {
+    office: function(n){ return n + "司法書士事務所"; },
+    lic: "司法書士の独占業務",
+    heroLead: "実家の名義変更（相続登記）から家庭裁判所への書類まで、最初の一歩からお手伝いします。",
+    heroBadge: "相続登記の義務化に対応",
+    repRole: function(o){ return "司法書士　／　" + o; },
+    regist: "〇〇司法書士会 所属　登録番号 第0000号",
+    hl: ["相続放棄・限定承認","相続登記（名義変更）"],
+    late: ["相続登記は3年以内が義務。正当な理由なく放っておくと、10万円以下の過料の対象になることがあります","名義が亡くなった方のままだと、実家を売ったり貸したりできません","世代が進むと相続人が増え、全員の書類と押印をそろえるのが大変になります","借金に気づくのが遅れると、相続放棄の期限（原則3か月）を過ぎてしまうことがあります"],
+    early: ["不動産の名義や権利関係を、いまのうちに確認しておけます","公正証書遺言を作っておけば、名義変更の手続きがスムーズになります","誰が相続人になるのか、前もって把握できます","必要な書類の目星がつき、いざという時にあわてずに済みます"],
+    services: [
+      ["独占業務","相続登記（土地・建物の名義変更）","法務局への登記申請を代わりに行います。2024年4月から相続登記は義務になりました。"],
+      ["独占業務","相続放棄の申述書の作成","借金などがある場合の相続放棄。家庭裁判所に出す書類を作成します。期限は原則3か月です。"],
+      ["独占業務","遺言書の検認の申立書の作成","自宅で見つかった手書きの遺言書は、家庭裁判所での検認が必要な場合があります。"],
+      ["","戸籍の収集・法定相続情報一覧図の取得","銀行や役所の手続きで何度も使える「法定相続情報一覧図」の取得をお手伝いします。"],
+      ["","遺言書づくりのサポート","公正証書遺言の文案づくりや、証人としての立ち会いにも対応します。"],
+      ["","預貯金・株式などの相続手続き","銀行・証券会社ごとに異なる手続きを、まとめて進めます。"]
+    ],
+    relay: [
+      {own:true, who:"当事務所（司法書士）", h:"不動産の名義変更・裁判所", p:"相続登記、相続放棄、遺言書の検認の書類"},
+      {own:false, who:"提携の税理士", h:"相続税・お金のこと", p:"相続税の試算・申告、準確定申告"},
+      {own:false, who:"提携の行政書士", h:"その他の書類", p:"車の名義変更、各種許認可の承継など"}
+    ],
+    relayNote: "相続税の申告など、ほかの手続きは提携する専門家と連携して進めます。窓口は当事務所ひとつなので、何度も説明していただく必要はありません。",
+    price: [["相続登記（不動産1件・基本報酬）","〇〇円〜"],["相続放棄の申述書の作成","〇〇円〜"],["法定相続情報一覧図の取得","〇〇円〜"],["遺言書の検認の申立書の作成","〇〇円〜"]],
+    faq: [
+      ["相続登記をしないとどうなりますか？","2024年4月から相続登記は義務になり、正当な理由なく放置すると10万円以下の過料の対象になることがあります。それより前の相続も対象です。"],
+      ["借金があるかもしれません。相続放棄はまだ間に合いますか？","相続放棄は、原則として相続の開始を知った日から3か月以内に家庭裁判所へ申し立てます。迷っている段階でも、お早めにご相談ください。"]
+    ],
+    topics: ["生前の準備（遺言書など）","実家の名義変更（相続登記）","相続放棄","遺言書の検認","預貯金の解約","何から始めればいいかわからない"]
+  },
+  gyosei: {
+    office: function(n){ return "行政書士" + n + "事務所"; },
+    lic: "行政書士の独占業務",
+    heroLead: "戸籍集めや遺産分割協議書など、相続の書類づくりを最初の一歩からお手伝いします。",
+    heroBadge: "戸籍集め・書類づくりに対応",
+    repRole: function(o){ return "行政書士　／　" + o; },
+    regist: "〇〇行政書士会 所属　登録番号 第00000000号",
+    hl: [],
+    late: ["戸籍集めに時間がかかり、ほかの手続きの期限に間に合わなくなることがあります","預貯金や車の名義変更ができず、お金や車が動かせない状態が続きます","世代が進むと相続人が増え、遺産分割協議書に全員の署名・押印をそろえるのが大変になります","書類の不備で、銀行や役所の手続きがやり直しになることがあります"],
+    early: ["戸籍を前もって確認し、誰が相続人になるのかを把握できます","財産目録を作っておけば、手続きの抜けもれを防げます","遺言書を作っておけば、ご家族の話し合いの負担が軽くなります","「もしもの時のやることリスト」を、ご家族と共有しておけます"],
+    services: [
+      ["独占業務","遺産分割協議書の作成","相続人の皆さまで話し合って決まった内容を、正式な書類にまとめます。"],
+      ["独占業務","相続関係説明図・財産目録の作成","誰が相続人か、どんな財産があるかを一覧にし、手続きを進めやすくします。"],
+      ["独占業務","自動車の名義変更","亡くなった方の自動車の名義変更（移転登録）を代わりに行います。"],
+      ["","戸籍謄本の収集","亡くなった方の生まれてから亡くなるまでの戸籍を、全国から集めます。"],
+      ["","遺言書づくりのサポート","自筆証書遺言・公正証書遺言の文案づくりをお手伝いします。"],
+      ["","預貯金の解約・名義変更の手続きサポート","銀行ごとに異なる書類の準備をお手伝いします。"]
+    ],
+    relay: [
+      {own:true, who:"当事務所（行政書士）", h:"書類・戸籍まわり", p:"戸籍の収集、遺産分割協議書、相続関係説明図、車の名義変更"},
+      {own:false, who:"提携の司法書士", h:"不動産の名義変更", p:"相続登記、相続放棄など裁判所の書類"},
+      {own:false, who:"提携の税理士", h:"相続税・お金のこと", p:"相続税の試算・申告、準確定申告"}
+    ],
+    relayNote: "不動産の名義変更や相続税の申告は、提携する専門家と連携して進めます。窓口は当事務所ひとつなので、何度も説明していただく必要はありません。",
+    price: [["戸籍の収集（1式）","〇〇円〜"],["遺産分割協議書の作成","〇〇円〜"],["相続関係説明図の作成","〇〇円〜"],["自動車の名義変更","〇〇円〜"]],
+    faq: [
+      ["遺産分割協議書は自分で作ってもいいのですか？","ご自身で作成することもできます。ただ、書き方に不備があると銀行や法務局で受け付けてもらえないことがあるため、専門家にご依頼いただく方が多いです。"],
+      ["戸籍はどこまで集めればいいですか？","原則として、亡くなった方の生まれてから亡くなるまでのすべての戸籍と、相続人全員の戸籍が必要です。本籍地が何度も変わっている場合は、取り寄せ先が複数になります。"]
+    ],
+    topics: ["生前の準備（遺言書など）","戸籍を集めてほしい","遺産分割協議書","車の名義変更","遺言書の作成","何から始めればいいかわからない"]
+  }
+};
+
+/* 共通：期限 */
+var TL = [
+  ["7日以内","死亡届の提出","市区町村役場へ"],
+  ["3か月以内","相続放棄・限定承認","借金などを引き継がない場合は家庭裁判所へ"],
+  ["4か月以内","準確定申告","亡くなった方に一定の所得があった場合"],
+  ["10か月以内","相続税の申告・納付","相続税がかかる場合は税務署へ"],
+  ["3年以内","相続登記（名義変更）","不動産を相続したことを知った日から。2024年4月から義務化"]
+];
+/* 共通FAQ */
+var FAQ_COMMON = [
+  ["親はまだ元気（または入院中）ですが、相談してもいいですか？","はい、むしろおすすめです。ご存命のうちなら、財産の確認・遺言書・生前贈与など、選べる準備がたくさんあります。ご本人を交えてのご相談も、ご家族だけでのご相談も承ります。"],
+  ["相談だけでも大丈夫ですか？","はい、大丈夫です。初回のご相談は無料です。お話をうかがったうえで、ご依頼いただくかどうかはゆっくりお決めください。"],
+  ["遠方に住んでいても相談できますか？","オンライン（Zoomなど）やお電話でのご相談にも対応しています。書類のやりとりは郵送でも進められます。"],
+  ["相続人どうしで意見が分かれています。","ご親族の間ですでに争いになっている場合は、弁護士へのご相談をおすすめします。話し合いの前の準備や、まとまった内容の書類づくりは当事務所でお手伝いできます。"]
+];
+
+function esc(s){return String(s).replace(/[&<>"]/g,function(c){return{"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]})}
+
+var state = { t:"zei", n:"みらい" };
+
+function render(){
+  var d = T[state.t], n = state.n.trim() || "〇〇", o = d.office(n);
+  document.querySelectorAll('[data-k="office"]').forEach(function(e){e.textContent=o});
+  var map = {lic:d.lic, heroLead:d.heroLead, heroBadge:d.heroBadge, repRole:d.repRole(o), regist:d.regist, relayNote:d.relayNote};
+  Object.keys(map).forEach(function(k){document.querySelectorAll('[data-k="'+k+'"]').forEach(function(e){e.textContent=map[k]})});
+  
+
+  document.getElementById("timeline").innerHTML = TL.map(function(r){
+    var hl = d.hl.indexOf(r[1])>=0;
+    return '<div class="tl-row'+(hl?' hl':'')+'"><div class="tl-when">'+r[0]+'</div><div class="tl-what"><b>'+esc(r[1])+(hl?'　← 当事務所で対応':'')+'</b><span>'+esc(r[2])+'</span></div></div>';
+  }).join("");
+
+  document.getElementById("lateList").innerHTML = d.late.map(function(t){return "<li>"+esc(t)+"</li>"}).join("");
+  document.getElementById("earlyList").innerHTML = d.early.map(function(t){return "<li>"+esc(t)+"</li>"}).join("");
+
+  document.getElementById("services").innerHTML = d.services.map(function(s){
+    return '<div class="svc">'+(s[0]?'<span class="tag">'+esc(d.lic)+'</span>':'')+'<h3>'+esc(s[1])+'</h3><p>'+esc(s[2])+'</p></div>';
+  }).join("");
+
+  document.getElementById("relay").innerHTML = d.relay.map(function(r){
+    return '<div class="rcard'+(r.own?' own':'')+'"><div class="who">'+esc(r.who)+'</div><h3>'+esc(r.h)+'</h3><p>'+esc(r.p)+'</p></div>';
+  }).join("");
+
+  document.getElementById("price").innerHTML = d.price.map(function(p){
+    return '<tr><th>'+esc(p[0])+'</th><td>'+esc(p[1])+'</td></tr>';
+  }).join("");
+
+  document.getElementById("faq").innerHTML = d.faq.concat(FAQ_COMMON).map(function(q){
+    return '<details><summary>'+esc(q[0])+'</summary><div class="a">'+esc(q[1])+'</div></details>';
+  }).join("");
+
+  document.getElementById("topics").innerHTML = d.topics.map(function(t){
+    return '<label><input type="checkbox"> '+esc(t)+'</label>';
+  }).join("");
+
+}
+
+/* 切替：#zei / #shiho / #gyosei（別サーバーに置く場合は ?type=zei&name=みらい も可） */
+function readUrl(){
+  var h = (location.hash||"").replace("#","");
+  if (T[h]) state.t = h;
+  try{
+    var q = new URLSearchParams(location.search);
+    if (T[q.get("type")]) state.t = q.get("type");
+    if (q.get("name")) { state.n = q.get("name"); }
+  }catch(e){}
+}
+readUrl();
+window.addEventListener("hashchange", function(){ readUrl(); render(); });
+document.getElementById("f").addEventListener("submit", function(e){
+  e.preventDefault(); this.style.display="none"; document.getElementById("thanks").style.display="block";
+});
+render();
+</script>
+<script src="/contact-widget.js" data-after="form" data-kind="相続まるごと相談室スターターセット（税理士）" data-title="この相続相談ページと相続ドラマを、貴事務所でも。"></script>
+</body>
+</html>
