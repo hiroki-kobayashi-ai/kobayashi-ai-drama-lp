@@ -16,7 +16,8 @@
   var phMsg = (s && s.getAttribute('data-ph-msg')) || '例：うちの牧場でも作りたい／料金をもう少し聞きたい';
   var moreHref = s && s.getAttribute('data-more-href');   // 料金・制作の流れへのリンク（任意）
   var moreLabel = (s && s.getAttribute('data-more-label')) || '料金・制作の流れを詳しく見る';
-  var campaign = s && s.getAttribute('data-campaign');    // キャンペーンの一文（任意）
+  var campaign = s && s.getAttribute('data-campaign');
+  var why = s && s.getAttribute('data-why');              // 「なぜ専用ページが要るか」の説明（任意・HTML）    // キャンペーンの一文（任意）
   var page = location.pathname;
   function src(){ return window.__src || ''; }
   function ev(n, extra){ if(window.gtag){ var p = {src: src(), page: page}; for(var k in (extra||{})) p[k] = extra[k]; gtag('event', n, p); } }
@@ -36,6 +37,10 @@
     '#rk-contact label i.o{background:#8A948F}' +
     '#rk-contact input,#rk-contact textarea{font:inherit;font-weight:500;font-size:18px;padding:13px;border:2px solid #B9B4A6;border-radius:12px;min-height:54px;width:100%;box-sizing:border-box}' +
     '#rk-contact button{font:inherit;font-weight:900;font-size:22px;background:#E0A526;color:#1E2B25;border:none;border-radius:14px;min-height:64px;cursor:pointer}' +
+    '#rk-contact .rk-why{background:#fff;border-radius:16px;padding:18px 20px;margin:0 0 18px;border:2px solid #17402F}' +
+    '#rk-contact .rk-why h3{margin:0 0 8px;font-size:20px;font-weight:900;color:#17402F;line-height:1.5}' +
+    '#rk-contact .rk-why ol{margin:0;padding-left:1.3em}#rk-contact .rk-why li{margin:6px 0;font-size:16px}#rk-contact .rk-why li b{color:#17402F}' +
+    '#rk-contact .rk-why p{margin:10px 0 0;font-size:15px;color:#5B6A63}' +
     '#rk-contact .rk-camp{background:#fff;border:3px dashed #C0392B;border-radius:16px;padding:14px 18px;margin:0 0 14px;font-weight:700;font-size:17px;line-height:1.7}' +
     '#rk-contact .rk-camp b{color:#C0392B;font-size:20px}' +
     '#rk-contact .rk-more{display:flex;align-items:center;justify-content:center;background:#fff;color:#17402F;border:3px solid #17402F;text-decoration:none;font-weight:900;font-size:19px;border-radius:14px;min-height:58px;padding:10px;margin:0 0 22px}' +
@@ -56,6 +61,7 @@
     '<span class="rk-tag">ここからは、制作会社（小林塾）へのご相談です</span>' +
     '<h2>' + title + '</h2>' +
     '<p class="rk-lead">見本を見て「うちでも」と思ったら、お電話か下の欄から。御社用の構成案（あらすじ）を無料でお送りします。お名前と連絡先だけで送れます。</p>' +
+    (why ? '<div class="rk-why">' + why + '</div>' : '') +
     (campaign ? '<div class="rk-camp">' + campaign + '</div>' : '') +
     (moreHref ? '<a class="rk-more" id="rk-more" href="' + moreHref + '">' + moreLabel + ' →</a>' : '') +
     '<a class="rk-tel" href="tel:' + TEL.replace(/-/g,'') + '">📞 電話で相談する　' + TEL + '</a>' +
