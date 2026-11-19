@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>税理士事務所向け 相続相談LP 見本（みらい税理士事務所）｜有限会社小林塾 AIショートドラマ制作</title>
+<title>税理士事務所向け 相続・事業承継 相談LP 見本（みらい税理士事務所）｜有限会社小林塾 AIショートドラマ制作</title>
 <script src="/analytics.js" defer></script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +64,8 @@ h2{font-family:"Noto Serif JP",serif;font-size:clamp(22px,3.6vw,30px);line-heigh
 .early{background:#fff7ee}
 .early .lead2{font-size:16px;margin:-12px 0 26px;color:var(--ink)}
 .early .lead2 b{color:var(--cta)}
+.shoukei .lead2{font-size:16px;margin:-12px 0 26px;color:var(--ink)}
+.shoukei .lead2 b{color:var(--cta)}
 .cmp{display:grid;grid-template-columns:1fr 1fr;gap:18px}
 .cmp-col{background:#fff;border-radius:12px;padding:22px 22px 18px;border:1px solid var(--line)}
 .cmp-col h3{font-size:17px;margin-bottom:12px;padding-bottom:10px;border-bottom:2px solid}
@@ -191,7 +193,7 @@ body:has(#rk-bar) footer{padding-bottom:110px}
 
 <header>
   <div class="wrap">
-    <div class="office"><span data-k="office"></span><small>相続まるごと相談室</small></div>
+    <div class="office"><span data-k="office"></span><small>相続・事業承継まるごと相談室</small></div>
     <div class="hbtn">
       <a class="btn btn-line" href="#form">LINEで相談</a>
       <a class="btn btn-cta" href="#form">無料相談を予約</a>
@@ -201,7 +203,7 @@ body:has(#rk-bar) footer{padding-bottom:110px}
 
 <section class="hero" style="padding-top:56px">
   <div class="wrap">
-    <div class="brand serif">相続まるごと相談室</div>
+    <div class="brand serif">相続・事業承継まるごと相談室</div>
     <h1 class="serif">相続の手続き、<br><em>何から始めればいいか</em><br>わからない方へ。</h1>
     <p class="lead"><span data-k="office"></span>が、<span data-k="heroLead"></span><br>ご家族がご存命のうち、「そろそろかもしれない」という段階でのご相談も大歓迎です。</p>
     <div class="badges">
@@ -275,6 +277,19 @@ body:has(#rk-bar) footer{padding-bottom:110px}
     <h2>窓口はひとつ。相続の手続きを「まるごと」</h2>
     <div class="relay-grid" id="relay"></div>
     <p class="relay-note" data-k="relayNote"></p>
+  </div>
+</section>
+
+<section class="shoukei" id="shoukei" hidden>
+  <div class="wrap">
+    <div class="sec-label">BUSINESS SUCCESSION</div>
+    <h2>会社をお持ちの方は「事業承継」も一緒に。</h2>
+    <p class="lead2">社長がお持ちの<b>自社の株も、相続財産</b>です。会社の引き継ぎと、ご家族の相続は切り離せません。どちらも同じ窓口でご相談いただけます。</p>
+    <div class="services" id="shoukeiCards"></div>
+    <div class="early-cta">
+      <p>「まだ先のこと」と思っているうちが、いちばん準備できる時期です。</p>
+      <a class="btn btn-cta" style="padding:15px 30px;font-size:16px" href="#form">事業承継の相談を予約する（無料）</a>
+    </div>
   </div>
 </section>
 
@@ -362,7 +377,7 @@ body:has(#rk-bar) footer{padding-bottom:110px}
     <div data-k="regist"></div>
     <div>〒000-0000　〇〇県〇〇市〇〇町0-0-0</div>
     <div>受付時間　平日 9:00〜18:00（フォーム・LINEは24時間）</div>
-    <div class="sample">このページは、有限会社小林塾 AIショートドラマ制作が作成した税理士事務所向け「相続まるごと相談室」LPの見本です。事務所名・代表者・料金・連絡先などはすべて見本用の例で、実在の事務所とは関係ありません。<br><b style="color:#fff;font-size:14px">ご相談・お申し込み（有限会社小林塾 AIショートドラマ制作）　TEL 050-3696-4531　／　drama@kobayashijuku.co.jp</b></div>
+    <div class="sample">このページは、有限会社小林塾 AIショートドラマ制作が作成した士業事務所向け「相続・事業承継まるごと相談室」LPの見本です。事務所名・代表者・料金・連絡先などはすべて見本用の例で、実在の事務所とは関係ありません。<br><b style="color:#fff;font-size:14px">ご相談・お申し込み（有限会社小林塾 AIショートドラマ制作）　TEL 050-3696-4531　／　drama@kobayashijuku.co.jp</b></div>
   </div>
 </footer>
 
@@ -398,12 +413,18 @@ var T = {
       {own:false, who:"提携の行政書士", h:"書類・戸籍まわり", p:"戸籍の収集、遺産分割協議書、車の名義変更など"}
     ],
     relayNote: "税金以外の手続きは、提携する専門家と連携して進めます。窓口は当事務所ひとつなので、何度も説明していただく必要はありません。",
-    price: [["相続税がかかるかどうかの試算","〇〇円〜"],["相続税申告（基本報酬）","〇〇円〜"],["準確定申告","〇〇円〜"],["土地の評価（1か所あたり）","〇〇円〜"]],
+    price: [["相続税がかかるかどうかの試算","〇〇円〜"],["相続税申告（基本報酬）","〇〇円〜"],["準確定申告","〇〇円〜"],["土地の評価（1か所あたり）","〇〇円〜"],["事業承継・自社株評価のご相談","〇〇円〜"]],
     faq: [
       ["相続税がかかるかどうか、どうやって判断すればいいですか？","基礎控除（3,000万円＋600万円×法定相続人の数）を超えるかどうかが一つの目安です。財産の評価方法によって判断が変わるため、まずは試算をおすすめします。"],
-      ["申告期限の10か月に間に合うか心配です。","まずはお早めにご相談ください。期限が近い場合でも、状況をうかがったうえで対応方法をご提案します。"]
+      ["申告期限の10か月に間に合うか心配です。","まずはお早めにご相談ください。期限が近い場合でも、状況をうかがったうえで対応方法をご提案します。"],
+      ["会社の事業承継も相談できますか？","はい。自社株の評価、後継者への引き継ぎの進め方、事業承継税制が使えるかどうかの確認まで、相続とあわせてご相談いただけます。"]
     ],
-    topics: ["生前の相続対策（親がまだ存命）","相続税がかかるか知りたい","相続税の申告","準確定申告","生前贈与・相続対策","何から始めればいいかわからない"]
+    topics: ["生前の相続対策（親がまだ存命）","相続税がかかるか知りたい","相続税の申告","準確定申告","生前贈与・相続対策","事業承継・自社株のこと","何から始めればいいかわからない"],
+    shoukei: [
+      ["自社株の評価と対策","社長がお持ちの自社の株も相続財産です。いまの評価額を確かめ、引き継ぐ前にできる対策を一緒に考えます。"],
+      ["後継者への引き継ぎ計画","誰に・いつ・どのように引き継ぐか。株と経営を渡す順番を、ご家族の相続とあわせて整理します。"],
+      ["事業承継税制（納税猶予）の検討","一定の要件を満たすと、自社株にかかる相続税・贈与税の納税が猶予される制度があります。使えるかどうかを確認します。"]
+    ]
   },
   shiho: {
     office: function(n){ return n + "司法書士事務所"; },
@@ -432,9 +453,15 @@ var T = {
     price: [["相続登記（不動産1件・基本報酬）","〇〇円〜"],["相続放棄の申述書の作成","〇〇円〜"],["法定相続情報一覧図の取得","〇〇円〜"],["遺言書の検認の申立書の作成","〇〇円〜"]],
     faq: [
       ["相続登記をしないとどうなりますか？","2024年4月から相続登記は義務になり、正当な理由なく放置すると10万円以下の過料の対象になることがあります。それより前の相続も対象です。"],
-      ["借金があるかもしれません。相続放棄はまだ間に合いますか？","相続放棄は、原則として相続の開始を知った日から3か月以内に家庭裁判所へ申し立てます。迷っている段階でも、お早めにご相談ください。"]
+      ["借金があるかもしれません。相続放棄はまだ間に合いますか？","相続放棄は、原則として相続の開始を知った日から3か月以内に家庭裁判所へ申し立てます。迷っている段階でも、お早めにご相談ください。"],
+      ["会社の事業承継も相談できますか？","はい。社長交代の登記、株式の引き継ぎに必要な株主総会の手続き、遺言書や家族信託による準備まで、相続とあわせてご相談いただけます。"]
     ],
-    topics: ["生前の準備（遺言書など）","実家の名義変更（相続登記）","相続放棄","遺言書の検認","預貯金の解約","何から始めればいいかわからない"]
+    topics: ["生前の準備（遺言書など）","実家の名義変更（相続登記）","相続放棄","遺言書の検認","預貯金の解約","事業承継・会社の登記","何から始めればいいかわからない"],
+    shoukei: [
+      ["社長交代・役員変更の登記","代表取締役の交代や役員の変更、本店の移転などには登記が必要です。法務局への申請を代わりに行います。"],
+      ["株式の引き継ぎと株主総会の手続き","自社株を後継者に移すときの株主総会の議事録づくりや、株主名簿の整理をお手伝いします。"],
+      ["遺言・家族信託で引き継ぎを準備","社長がお持ちの株や不動産を、誰にどう渡すか。遺言書や家族信託で、前もって形にしておけます。"]
+    ]
   },
   gyosei: {
     office: function(n){ return "行政書士" + n + "事務所"; },
@@ -463,9 +490,15 @@ var T = {
     price: [["戸籍の収集（1式）","〇〇円〜"],["遺産分割協議書の作成","〇〇円〜"],["相続関係説明図の作成","〇〇円〜"],["自動車の名義変更","〇〇円〜"]],
     faq: [
       ["遺産分割協議書は自分で作ってもいいのですか？","ご自身で作成することもできます。ただ、書き方に不備があると銀行や法務局で受け付けてもらえないことがあるため、専門家にご依頼いただく方が多いです。"],
-      ["戸籍はどこまで集めればいいですか？","原則として、亡くなった方の生まれてから亡くなるまでのすべての戸籍と、相続人全員の戸籍が必要です。本籍地が何度も変わっている場合は、取り寄せ先が複数になります。"]
+      ["戸籍はどこまで集めればいいですか？","原則として、亡くなった方の生まれてから亡くなるまでのすべての戸籍と、相続人全員の戸籍が必要です。本籍地が何度も変わっている場合は、取り寄せ先が複数になります。"],
+      ["会社の事業承継も相談できますか？","はい。許認可の引き継ぎに必要な届出・申請や、議事録・契約書などの書類づくりを、相続とあわせてご相談いただけます。"]
     ],
-    topics: ["生前の準備（遺言書など）","戸籍を集めてほしい","遺産分割協議書","車の名義変更","遺言書の作成","何から始めればいいかわからない"]
+    topics: ["生前の準備（遺言書など）","戸籍を集めてほしい","遺産分割協議書","車の名義変更","遺言書の作成","事業承継・許認可の引き継ぎ","何から始めればいいかわからない"],
+    shoukei: [
+      ["許認可の引き継ぎ","建設業・運送業・飲食店など許認可が必要な事業では、代替わりのときに届出や申請が必要になることがあります。"],
+      ["議事録・契約書などの記録づくり","事業を引き継ぐときに必要な議事録、譲渡契約書、合意書などの書類づくりをお手伝いします。"],
+      ["遺言書・遺産分割協議書で準備","事業用の財産を誰にどう渡すかを、遺言書や遺産分割協議書の形で整理しておけます。"]
+    ]
   }
 };
 
@@ -520,6 +553,14 @@ function render(){
     return '<details><summary>'+esc(q[0])+'</summary><div class="a">'+esc(q[1])+'</div></details>';
   }).join("");
 
+  var sk = document.getElementById("shoukei");
+  if (d.shoukei) {
+    sk.hidden = false;
+    document.getElementById("shoukeiCards").innerHTML = d.shoukei.map(function(c){
+      return '<div class="svc"><h3>'+esc(c[0])+'</h3><p>'+esc(c[1])+'</p></div>';
+    }).join("");
+  } else { sk.hidden = true; }
+
   document.getElementById("topics").innerHTML = d.topics.map(function(t){
     return '<label><input type="checkbox"> '+esc(t)+'</label>';
   }).join("");
@@ -543,6 +584,6 @@ document.getElementById("f").addEventListener("submit", function(e){
 });
 render();
 </script>
-<script src="/contact-widget.js" data-after="form" data-kind="相続まるごと相談室スターターセット（税理士）" data-title="この相続相談ページと相続ドラマを、貴事務所でも。" data-bar="この相続相談ページを貴事務所でも" data-ph-name="例：税理 太郎" data-org-label="事務所名" data-ph-msg="例：うちの事務所でも作りたい／料金をもう少し聞きたい"></script>
+<script src="/contact-widget.js" data-after="form" data-kind="相続・事業承継まるごと相談室スターターセット（税理士）" data-title="この相続相談ページと相続ドラマを、貴事務所でも。" data-bar="この相続相談ページを貴事務所でも" data-ph-name="例：税理 太郎" data-org-label="事務所名" data-ph-msg="例：うちの事務所でも作りたい／料金をもう少し聞きたい"></script>
 </body>
 </html>
