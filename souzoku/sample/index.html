@@ -464,7 +464,7 @@ var T = {
     ]
   },
   gyosei: {
-    office: function(n){ return "行政書士" + n + "事務所"; },
+    office: function(n){ return n + "行政書士事務所"; },
     lic: "行政書士の独占業務",
     heroLead: "戸籍集めや遺産分割協議書など、相続の書類づくりを最初の一歩からお手伝いします。",
     heroBadge: "戸籍集め・書類づくりに対応",
@@ -525,6 +525,8 @@ var state = { t:"zei", n:"みらい" };
 function render(){
   var d = T[state.t], n = state.n.trim() || "〇〇", o = d.office(n);
   document.querySelectorAll('[data-k="office"]').forEach(function(e){e.textContent=o});
+  var kind = {zei:"税理士",shiho:"司法書士",gyosei:"行政書士"}[state.t];
+  document.title = kind + "事務所向け 相続・事業承継 相談LP 見本（" + o + "）｜有限会社小林塾 AIショートドラマ制作";
   var map = {lic:d.lic, heroLead:d.heroLead, heroBadge:d.heroBadge, repRole:d.repRole(o), regist:d.regist, relayNote:d.relayNote};
   Object.keys(map).forEach(function(k){document.querySelectorAll('[data-k="'+k+'"]').forEach(function(e){e.textContent=map[k]})});
   
