@@ -14,6 +14,9 @@
   var phName = (s && s.getAttribute('data-ph-name')) || '例：牧野 太郎';
   var phOrg = (s && s.getAttribute('data-org-label')) || '会社名・牧場名・事業所名';
   var phMsg = (s && s.getAttribute('data-ph-msg')) || '例：うちの牧場でも作りたい／料金をもう少し聞きたい';
+  var moreHref = s && s.getAttribute('data-more-href');   // 料金・制作の流れへのリンク（任意）
+  var moreLabel = (s && s.getAttribute('data-more-label')) || '料金・制作の流れを詳しく見る';
+  var campaign = s && s.getAttribute('data-campaign');    // キャンペーンの一文（任意）
   var page = location.pathname;
   function src(){ return window.__src || ''; }
   function ev(n, extra){ if(window.gtag){ var p = {src: src(), page: page}; for(var k in (extra||{})) p[k] = extra[k]; gtag('event', n, p); } }
@@ -33,6 +36,9 @@
     '#rk-contact label i.o{background:#8A948F}' +
     '#rk-contact input,#rk-contact textarea{font:inherit;font-weight:500;font-size:18px;padding:13px;border:2px solid #B9B4A6;border-radius:12px;min-height:54px;width:100%;box-sizing:border-box}' +
     '#rk-contact button{font:inherit;font-weight:900;font-size:22px;background:#E0A526;color:#1E2B25;border:none;border-radius:14px;min-height:64px;cursor:pointer}' +
+    '#rk-contact .rk-camp{background:#fff;border:3px dashed #C0392B;border-radius:16px;padding:14px 18px;margin:0 0 14px;font-weight:700;font-size:17px;line-height:1.7}' +
+    '#rk-contact .rk-camp b{color:#C0392B;font-size:20px}' +
+    '#rk-contact .rk-more{display:flex;align-items:center;justify-content:center;background:#fff;color:#17402F;border:3px solid #17402F;text-decoration:none;font-weight:900;font-size:19px;border-radius:14px;min-height:58px;padding:10px;margin:0 0 22px}' +
     '#rk-contact .rk-small{font-size:15px;color:#5B6A63;margin:0}' +
     '#rk-contact .rk-done{background:#E7EFE9;border-radius:14px;padding:18px;font-size:18px;font-weight:700;color:#17402F}' +
     '#rk-bar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:#17402F;color:#fff;display:flex;gap:8px;align-items:center;justify-content:center;padding:8px 10px calc(8px + env(safe-area-inset-bottom));box-shadow:0 -4px 16px rgba(0,0,0,.18);font-family:inherit}' +
@@ -50,6 +56,8 @@
     '<span class="rk-tag">ここからは、制作会社（小林塾）へのご相談です</span>' +
     '<h2>' + title + '</h2>' +
     '<p class="rk-lead">見本を見て「うちでも」と思ったら、お電話か下の欄から。御社用の構成案（あらすじ）を無料でお送りします。お名前と連絡先だけで送れます。</p>' +
+    (campaign ? '<div class="rk-camp">' + campaign + '</div>' : '') +
+    (moreHref ? '<a class="rk-more" id="rk-more" href="' + moreHref + '">' + moreLabel + ' →</a>' : '') +
     '<a class="rk-tel" href="tel:' + TEL.replace(/-/g,'') + '">📞 電話で相談する　' + TEL + '</a>' +
     '<p class="rk-telnote">担当：小林（AIショートドラマ制作）／ つながらないときは折り返します</p>' +
     '<form id="rk-form" novalidate>' +
@@ -65,6 +73,9 @@
   if(target && replace){ target.parentNode.replaceChild(box, target); }
   else if(target){ target.parentNode.insertBefore(box, target.nextSibling); }
   else { var ft = document.querySelector('footer'); ft ? ft.parentNode.insertBefore(box, ft) : document.body.appendChild(box); }
+
+  var more = document.getElementById('rk-more');
+  if(more){ more.addEventListener('click', function(){ ev('rk_more_tap'); var sv = src() || 'souzoku_lp'; if(sv){ var u = new URL(more.href, location.href); if(!u.searchParams.get('src')) u.searchParams.set('src', sv); more.href = u.toString(); } }); }
 
   var bar = document.createElement('div');
   bar.id = 'rk-bar';
