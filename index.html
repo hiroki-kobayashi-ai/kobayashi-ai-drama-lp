@@ -96,7 +96,7 @@ section{padding:56px 0}
 .small{font-size:12px;color:var(--muted)}
 .mv{display:grid;gap:22px;margin-top:22px}
 @media (min-width:760px){.mv{grid-template-columns:repeat(2,1fr)}}
-.ind{margin-top:34px}.ind-h{margin-bottom:16px}.ind-h .k{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}.ind-h h3{margin:6px 0 4px;font-size:22px;line-height:1.4}.ind-h p{margin:0;color:var(--muted);font-size:15px}.ind .mv{margin-top:0}.work .small a{color:var(--gold);margin-left:6px;white-space:nowrap}
+.ind{margin-top:34px}@media (min-width:760px){.ind .mv{grid-template-columns:repeat(3,1fr)}}.ind-h{margin-bottom:16px}.ind-h .k{font-size:12px;letter-spacing:.12em;color:var(--gold);font-weight:700}.ind-h h3{margin:6px 0 4px;font-size:22px;line-height:1.4}.ind-h p{margin:0;color:var(--muted);font-size:15px}.ind .mv{margin-top:0}.work .small a{color:var(--gold);margin-left:6px;white-space:nowrap}
 .links{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
 .links a{font-size:14px;text-decoration:none;border:1px solid var(--line);border-radius:999px;padding:6px 14px;background:var(--surface)}
 
@@ -109,6 +109,18 @@ section{padding:56px 0}
 .plan h3{margin:10px 0 4px;font-size:22px}
 .plan .yen{font-size:36px;font-weight:900;line-height:1.2}
 .plan .yen small{font-size:15px;font-weight:700}
+.was{position:relative;display:inline-block;color:inherit;opacity:.7;font-weight:800;padding:0 4px}
+.was::before,.was::after{content:"";position:absolute;left:-4px;right:-4px;top:50%;height:4px;background:#e0241b;border-radius:2px;transform:rotate(-14deg)}
+.was::after{transform:rotate(14deg)}
+.was-l{font-size:12px;font-weight:700;opacity:.8;margin-right:4px}
+.now{display:block;color:#ff4d2e;font-weight:900;line-height:1.1;margin-top:4px}
+.now small{font-size:.42em;font-weight:800;margin-left:2px}
+.now-l{display:inline-block;background:#e0241b;color:#fff;border-radius:999px;padding:1px 10px;font-size:12px;font-weight:800;margin-bottom:2px}
+.pcard .now{font-size:clamp(26px,7.2vw,54px);white-space:nowrap}.pcard .now small{display:block;font-size:13px;margin:2px 0 0}
+.pcard .was{font-size:clamp(18px,4.5vw,24px)}
+.plan .now{font-size:52px}
+.plan .was{font-size:24px}
+.best{display:block;text-align:center;background:#e0241b;color:#fff;font-weight:900;font-size:clamp(18px,4.6vw,24px);letter-spacing:.04em;border-radius:14px;padding:8px 12px;margin:-4px 0 14px;box-shadow:0 4px 0 #8f1610}
 .plan ul{margin:10px 0 0;padding-left:1.1em;color:var(--muted);font-size:15px}
 .more{margin-top:26px;background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:20px 22px}
 .more h3{margin:0 0 10px;font-size:19px}
@@ -319,8 +331,8 @@ small.tx{display:inline-block!important;font-size:11px!important;font-weight:700
     <a class="diag-link" href="#planner" data-ev="diag_link_hero">30秒の無料診断：御社なら、動画をどこで・どう使う？<span>やってみる ›</span></a>
     <div class="price" aria-label="料金">
       <div class="price-row">
-        <div class="pcard"><div class="t">紙芝居型</div><div class="y">1万円<small>〜</small><small class="tx">税別</small></div><div class="d">1本・税別｜5営業日</div></div>
-        <div class="pcard"><div class="t">ドラマ型</div><div class="y">3万円<small>〜</small><small class="tx">税別</small></div><div class="d">1本・税別｜7〜10営業日</div></div>
+        <div class="pcard"><div class="t">紙芝居型</div><div class="y"><span class="was-l">定価</span><span class="was">1万円〜</span><span class="now"><span class="now-l">いまは</span><br>2,000円<small>税別</small></span></div><div class="d">1本・税別｜5営業日</div></div>
+        <div class="pcard"><div class="t">ドラマ型</div><div class="y"><span class="was-l">定価</span><span class="was">3万円〜</span><span class="now"><span class="now-l">いまは</span><br>6,000円<small>税別</small></span></div><div class="d">1本・税別｜7〜10営業日</div></div>
       </div>
       <div class="offer" id="offer">
         <div class="h"><b>12月31日まで</b><span>初回1本 お試し <strong>80%OFF</strong></span><span style="font-size:13px;font-weight:700">12月31日（木）お申し込み分まで</span></div>
@@ -494,28 +506,28 @@ small.tx{display:inline-block!important;font-size:11px!important;font-weight:700
 </div></section>
 
 <section id="works"><div class="wrap">
-  <div class="sec-h"><div class="no">01 — WORKS</div><h2>表情も、間も、<br>物語の一部。</h2><p>広告試作、業種別のドラマ見本、紙芝居、ミュージックビデオ。映像・声・字幕が重なる仕上がりをご覧ください。</p></div>
+  <div class="sec-h"><div class="no">01 — WORKS</div><h2>表情も、間も、<br>物語の一部。</h2><p>広告試作、業種別のドラマ見本、ミュージックビデオ。映像・声・字幕が重なる仕上がりをご覧ください。</p></div>
   <div class="works">
     <article class="work">
       <video src="media/sample-v10.mp4" poster="media/sample-v10.jpg" controls playsinline preload="none"></video>
       <div class="body"><div class="k">01 / SAMPLE FILM ｜ 約90秒</div><h3>あの日、押してよかった。</h3>
-        <p>冒頭15秒が業種を問わず使える広告試作。続けて、学習塾・葬儀社のドラマ型見本、3つの作り方、ご依頼の流れをご紹介します。</p>
+        <p>冒頭15秒が業種を問わず使える広告試作。続けて、業種別のドラマ型見本、3つの作り方、ご依頼の流れをご紹介します。</p>
         <div class="tags"><span>感情の変化</span><span>短尺の構成</span><span>台詞と字幕</span></div>
         <p class="small">架空の会社・スクールを想定した試作です。</p></div>
     </article>
     <article class="work">
-      <iframe src="https://www.youtube-nocookie.com/embed/S5chVWLfsWo" title="レイナの逆転90日 第30話" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width:100%;aspect-ratio:9/16;border:0;background:#000;display:block"></iframe>
-      <div class="body"><div class="k">02 / ドラマ型 ｜ YouTube 3,733回再生</div><h3>レイナの逆転90日 第30話</h3>
-        <p>「その格好で？」追い返された客の正体は——。冒頭から事件で引き込み、口の動きと声が合った台詞で山場へ。自社チャンネルで3,000回を超えた回です。</p>
+      <iframe src="https://www.youtube-nocookie.com/embed/UYo2U7F5CxY" title="レイナの逆転90日 第38話「二人とも欠席」" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width:100%;aspect-ratio:9/16;border:0;background:#000;display:block"></iframe>
+      <div class="body"><div class="k">02 / ドラマ型 ｜ レイナの逆転90日 第38話</div><h3>二人とも欠席</h3>
+        <p>「双子？ 二人とも休みよ」——古着屋の店先、ちょっとした取り違えから始まる、リコとアンナの会話劇。掛け合いの間と表情で、最後まで見せる回です。</p>
         <div class="tags"><span>会話と表情</span><span>連続配信</span><span>看板キャラづくり</span></div>
         <p class="small">自社制作のフィクション作品です。</p></div>
     </article>
     <article class="work">
-      <video src="media/kamishibai-kojo.mp4" poster="media/kamishibai-kojo.jpg" controls playsinline preload="none"></video>
-      <div class="body"><div class="k">03 / 紙芝居型 ｜ 約45秒</div><h3>父の工場は止まらない</h3>
-        <p>1枚絵と声で、物語がまっすぐ伝わる。低コストで、毎日の投稿や商品・サービスの解説に。</p>
-        <div class="tags"><span>1枚絵＋声</span><span>低コスト</span><span>毎日の投稿</span></div>
-        <p class="small">自社制作のフィクション作品です（AIによる画像・音声）。</p></div>
+      <iframe src="https://www.youtube-nocookie.com/embed/RRLytrN72Ug" title="行政書士事務所向け 太陽光発電の名義変更（売買編）" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width:100%;aspect-ratio:9/16;border:0;background:#000;display:block"></iframe>
+      <div class="body"><div class="k">03 / 行政書士事務所向け ｜ 約20秒</div><h3>太陽光発電の名義変更（売買編）</h3>
+        <p>「こんな時は、ご相談を」を20秒で。どんな場面で頼めばよいかが一目で伝わり、ホームページやSNSから相談につながります。</p>
+        <div class="tags"><span>士業の集客</span><span>相談のきっかけ</span><span>実写調</span></div>
+        <p class="small">架空の事務所を想定した見本です（AIによる映像・音声）。</p></div>
     </article>
   </div>
   <div class="ind">
@@ -534,6 +546,13 @@ small.tx{display:inline-block!important;font-size:11px!important;font-weight:700
         <p>いざという時に迷わないよう、事前相談の安心を物語で。「この番号に一本お電話を」が自然に残ります。</p>
         <div class="tags"><span>事前相談の案内</span><span>信頼づくり</span><span>会話と表情</span></div>
         <p class="small">架空の葬儀社を想定した見本です（AIによる映像・音声）。<a href="https://youtube.com/shorts/WmX41FRN2yg" target="_blank" rel="noopener">YouTubeで見る ↗</a></p></div>
+    </article>
+    <article class="work">
+      <iframe src="https://www.youtube-nocookie.com/embed/hZci7ka-oy8" title="農業法人向け 採用ドラマ" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture; fullscreen" allowfullscreen style="width:100%;aspect-ratio:9/16;border:0;background:#000;display:block"></iframe>
+      <div class="body"><div class="k">農業法人向け（採用） ｜ 約30秒</div><h3>「代わりはいくらでもいる」と言われた私が、必要とされた日</h3>
+        <p>畑や農場で働く一日を物語で。仕事の手ざわりと職場の空気が伝わり、採用ページへの見学・応募につながります。</p>
+        <div class="tags"><span>人材採用</span><span>求人ページと連動</span><span>会話と表情</span></div>
+        <p class="small">架空の農業法人を想定した見本です（AIによる映像・音声）。<a href="https://youtube.com/shorts/hZci7ka-oy8" target="_blank" rel="noopener">YouTubeで見る ↗</a></p></div>
     </article>
     </div>
   </div>
@@ -560,13 +579,13 @@ small.tx{display:inline-block!important;font-size:11px!important;font-weight:700
       </div>
       </div>
   <div class="plans two">
-    <div class="plan hot"><span class="tag">安く・毎日</span><h3>紙芝居型</h3><div class="yen">1万円<small>〜／本</small><small class="tx">税別</small></div>
+    <div class="plan hot"><span class="tag">安く・毎日</span><h3>紙芝居型</h3><div class="yen"><span class="was-l">定価</span><span class="was">1万円〜／本</span><span class="now"><span class="now-l">いまは</span><br>2,000円<small>／本・税別</small></span></div>
       <ul><li>1枚絵＋ナレーションで物語を伝える</li><li>毎日のSNS投稿・商品やサービスの解説・お客様の声の再現に</li><li>納期 5営業日・修正1回無料</li></ul></div>
-    <div class="plan hot"><span class="tag">会話と表情で引き込む</span><h3>ドラマ型</h3><div class="yen">3万円<small>〜／本</small><small class="tx">税別</small></div>
+    <div class="plan hot"><span class="tag">会話と表情で引き込む</span><h3>ドラマ型</h3><div class="yen"><span class="was-l">定価</span><span class="was">3万円〜／本</span><span class="now"><span class="now-l">いまは</span><br>6,000円<small>／本・税別</small></span></div>
       <ul><li>人物が話し、口の動きと声が合った会話</li><li>SNS広告・連続配信・お店や会社の“看板キャラ”づくりに</li><li>納期 7〜10営業日・修正1回無料</li></ul></div>
   </div>
   <div class="starter" id="starter">
-    <div class="st-h"><b>12月31日（木）お申し込み分まで</b><h3>スターターセット</h3><p>ページづくり・動画・投稿・保守を、まるごと1つに。はじめての方が、1か月目から「動画が毎週出ている状態」になります。</p></div>
+    <div class="st-h"><span class="best">★ いちばんおすすめ ★</span><b>12月31日（木）お申し込み分まで</b><h3>スターターセット</h3><p>ページづくり・動画・投稿・保守を、まるごと1つに。はじめての方が、1か月目から「動画が毎週出ている状態」になります。</p></div>
     <div class="st-grid">
       <div class="st-c"><span class="tag">安く・毎週</span><h4>紙芝居型コース</h4>
         <div class="st-p"><span>初月</span><b>4.98万円<small class="tx">税別</small></b></div><div class="st-p"><span>2か月目から</span><b>月2.5万円<small class="tx">税別</small></b></div></div>
